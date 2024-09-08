@@ -1,0 +1,88 @@
+{
+  "name": "Sainath",
+  "email": "github.updates+am@gmail.com",
+  "github": "https://github.com/reddysainathn",
+  "degree": "Master's in Computer Science",
+  "intro": ", with a Master's degree in Computer Science (MSCS), I'm passionate about developing innovative applications that push the boundaries of technology;",
+  "education": {
+    "degree": "Master's in Computer Science",
+    "graduationDate": "September 2015",
+    "gpa": "3.6"
+  },
+  "skills": {
+    "languages": ["Java", "Kotlin", "SQL", "Python", "JavaScript", "HTML", "CSS"],
+    "frameworks": ["Spring Boot", "Spark", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ReactJS"],
+    "libraries": ["pandas", "NumPy", "Junit"],
+    "databases": ["PostgreSQL", "Oracle", "Neo4j", "MySQL", "Apache Solr", "MongoDB", "Redis"],
+    "Async" : ["Kafka", "RabbitMQ"],
+    "tools": ["Git", "Docker", "Kubernetes", "SonarQube", "Jenkins","Airflow", "Looker", "Databricks"],
+    "protocols": ["SAML", "OAuth2"]
+  },
+  "experience": [
+    {
+      "role": "Senior Software Engineer",
+      "startDate": "August 2022",
+      "logo": "./logos/collective-health.svg",
+      "mainFocus" : [
+        "Micro-Services", ", Data & Production Engineering"
+      ],
+      "responsibilities": [
+        "Automated reporting and data processing using Databricks and Spark SQL.",
+        "Enhanced logging and created dashboards for error tracking.",
+        "Developed a Python project for data fixes with rollback and audit capabilities.",
+        "Built datasets for analytics using Looker.",
+        "Automated client report generation using Airflow."
+      ],
+      "hideResponsibilities" : true
+    },
+    {
+      "role": "Backend Engineer",
+      "startDate": "October 2021",
+      "endDate": "August 2022",
+      "logo": "./logos/glue-up.svg",
+      "mainFocus" : [
+        "Micro-Services", ", Migration"
+      ],
+      "responsibilities": [
+        "Dynamic property management in MongoDB.",
+        "API migration from Play Framework to Kotlin Spring Boot.",
+        "Design documentation using TDD."
+      ],
+      "hideResponsibilities" : false
+    },
+    {
+      "role": "Software Engineer",
+      "startDate": "April 2018",
+      "endDate": "September 2021",
+      "logo": "./logos/verizon.svg",
+      "mainFocus" : [
+        "Micro-Services", ", Graph Algorithms"
+      ],
+      "responsibilities": [
+        "12Factor Spring Boot base app (Cloned by 100+ services).",
+        "Kafka for real-time event processing.",
+        "Modeling && Path finding algorithms using Neo4j."
+      ],
+      "links": {
+        "12Factor": "https://12factor.net/"
+      },
+      "hideResponsibilities" : false
+    },
+    {
+      "role": "Application Developer",
+      "startDate": "October 2015",
+      "endDate": "March 2018",
+      "logo": "./logos/general-electric.svg",
+      "mainFocus" : [
+        "Micro-Services", ", PL/SQL"
+      ],
+      "responsibilities": [
+        "Integrated SAML Single Sign-On.",
+        "Migrated On-Prem to AWS EC2.",
+        "PL/SQL procedures for large datasets."
+      ],
+      "hideResponsibilities" : false
+    }
+  ],
+  "defaultLogo": "./logos/default-logo.svg"
+}

@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+  text-align: center;
+}
+
+.portfolio {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: #007acc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading1 {
+  color: #007acc;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.bold {
+  font-weight: bold;
+  font-style: oblique;
+}
+
+.heading2 {
+  font-weight: bold;
+}
+
+.introduction, .education, .skills, .experience {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skills-table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.skills-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.experience-card {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.logo-container {
+  flex-shrink: 0;
+  width: 80px; /* Expands the logo size */
+  height: 80px; /* Expands the logo size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px; /* Adds separation between logo and text */
+}
+
+.company-logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.experience-details {
+  flex-grow: 1;
+}
+
+.duration {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.responsibilities-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  margin: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 10px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5em;
+  }
+
+  .skills-table td {
+    font-size: 0.9em;
+  }
+
+  .experience-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-container {
+    margin-bottom: 10px;
+  }
+}
