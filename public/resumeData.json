@@ -1,8 +1,8 @@
 {
   "name": "Sainath",
-  "eyebrow": "Software Engineer · Applied AI & Java Backend",
-  "headline": "Building intelligent backend systems with Java, Spring Boot, and modern AI platforms.",
-  "intro": "Software engineer with 10+ years of experience designing production-grade Java services, distributed systems, and applied AI workflows. Experienced in turning complex business rules and operational processes into reliable, measurable software.",
+  "eyebrow": "",
+  "headline": "Java backend systems and applied AI workflows.",
+  "intro": "Senior software engineer with 10+ years building production Java services and distributed systems. Specializing in AI-assisted workflows, backend architecture, and operational automation.",
   "location": "United States",
   "profileImage": "/Optimus_Prime_Infobox.jpg",
   "email": "github.updates+am@gmail.com",
@@ -28,7 +28,7 @@
   "selectedWork": [
     {
       "title": "🤖 AI-assisted business-rule automation",
-      "context": "Applied AI · Claims operations",
+      "context": "Applied AI · Healthcare",
       "problem": "Complex business rules and exception paths required consistent evaluation without removing human review from ambiguous decisions.",
       "approach": "Combined Gemini models, Google ADK, and configured rules to evaluate cases, execute eligible workflows, and route exceptions to a review experience.",
       "focus": "Grounding model decisions in explicit rules, designing safe workflow boundaries, and preserving operational visibility.",

@@ -3,6 +3,8 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare, faBriefcase, faCode, faEnvelope, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
+const FALLBACK_IMAGE = '/profile-fallback.svg';
+
 const App = () => {
   const [data, setData] = useState(null);
 
@@ -19,34 +21,47 @@ const App = () => {
       <Introduction data={data} />
       <Specialties specialties={data.specialties} />
       <SelectedWork work={data.selectedWork} />
-      <Education data={data.education} />
       <Skills skills={data.skills} />
       <Experience experience={data.experience} defaultLogo={data.defaultLogo} />
     </div>
   );
 };
 
-const Introduction = ({ data }) => (
-  <section className="introduction">
-    <div className="intro-layout">
-      <div className="intro-content">
-        <p className="eyebrow">{data.eyebrow}</p>
-        <h1>{data.name}</h1>
-        <p className="headline">{data.headline}</p>
-        <p className="intro-copy">{data.intro}</p>
-        <div className="focus-tags" aria-label="Core engineering strengths">
-          {(data.focusAreas || []).map(area => <span key={area}>{area}</span>)}
+const Introduction = ({ data }) => {
+  const [profileImage, setProfileImage] = useState(data.profileImage || FALLBACK_IMAGE);
+
+  return (
+    <section className="introduction">
+      <div className="intro-layout">
+        <div className="intro-content">
+          {data.eyebrow && <p className="eyebrow">{data.eyebrow}</p>}
+          <h1>{data.name}</h1>
+          <p className="headline">{data.headline}</p>
+          <div className="availability-badge">Open to backend and applied AI roles</div>
+          <p className="intro-copy">{data.intro}</p>
+          <div className="focus-tags" aria-label="Core engineering strengths">
+            {(data.focusAreas || []).map(area => <span key={area}>{area}</span>)}
+          </div>
+          <div className="contact-links">
+            <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><FontAwesomeIcon icon={faEnvelope} /> {data.email}</a>
+            <a href={data.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCode} /> GitHub <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="external-icon" /></a>
+            <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
+          </div>
+          <div className="education-inline">
+            <FontAwesomeIcon icon={faGraduationCap} />
+            <span>{data.education.degree}</span>
+          </div>
         </div>
-        <div className="contact-links">
-          <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><FontAwesomeIcon icon={faEnvelope} /> {data.email}</a>
-          <a href={data.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCode} /> GitHub <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="external-icon" /></a>
-          <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
-        </div>
+        <img
+          className="profile-image"
+          src={profileImage}
+          alt="Profile illustration"
+          onError={() => setProfileImage(FALLBACK_IMAGE)}
+        />
       </div>
-      <img className="profile-image" src={data.profileImage} alt="Profile illustration" />
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Specialties = ({ specialties = [] }) => (
   <section className="specialties section-block">
@@ -80,13 +95,6 @@ const SelectedWork = ({ work = [] }) => (
         </article>
       ))}
     </div>
-  </section>
-);
-
-const Education = ({ data }) => (
-  <section className="education section-block">
-    <div className="section-heading"><FontAwesomeIcon icon={faGraduationCap} /><h2>Education</h2></div>
-    <div className="education-row"><strong>{data.degree}</strong><span>{data.graduationDate} · GPA {data.gpa}</span></div>
   </section>
 );
 
