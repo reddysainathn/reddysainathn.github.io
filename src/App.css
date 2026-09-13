@@ -53,8 +53,8 @@ h2 { font-size: 1.1rem; letter-spacing: -.02em; margin: 0; text-transform: upper
 .work-stack { color: var(--accent); font-size: .75rem; font-weight: 700; grid-column: 1 / -1; }
 .education-row { display: flex; justify-content: space-between; gap: 24px; font-size: .95rem; }
 .education-row span { color: var(--muted); }
-.skills-grid { display: grid; gap: 18px 30px; grid-template-columns: repeat(2, 1fr); }
-.skill-group { padding-top: 12px; }
+.skills-grid { column-count: 2; column-gap: 30px; }
+.skill-group { break-inside: avoid; margin-bottom: 24px; padding-top: 4px; }
 .skill-group h3 { color: var(--muted); font-family: 'SFMono-Regular', Consolas, monospace; font-size: .72rem; letter-spacing: .04em; margin: 0 0 10px; text-transform: uppercase; }
 .skill-pill { background: var(--white); border: 1px solid rgba(8, 127, 140, .34); border-radius: 999px; color: var(--ink); display: inline-block; font-size: .78rem; font-weight: 600; margin: 0 6px 6px 0; padding: 7px 10px; }
 .experience-card { display: grid; gap: 20px; grid-template-columns: 18px 84px minmax(0, 1fr); padding: 25px 0; position: relative; }
@@ -95,6 +95,6 @@ a:hover { text-decoration: underline; }
   .specialty-grid { grid-template-columns: 1fr; }
   .work-notes { grid-template-columns: 1fr; }
   .work-stack { grid-column: auto; }
-  .skills-grid { grid-template-columns: 1fr; }
+  .skills-grid { column-count: 1; }
   .contact-links { gap: 12px 20px; }
 }
