@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare, faBriefcase, faCode, faEnvelope, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faBriefcase, faCode, faEnvelope, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const FALLBACK_IMAGE = '/profile-fallback.svg';
 
@@ -42,22 +43,22 @@ const Introduction = ({ data }) => {
           <div className="focus-tags" aria-label="Core engineering strengths">
             {(data.focusAreas || []).map(area => <span key={area}>{area}</span>)}
           </div>
-          <div className="contact-links">
-            <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><FontAwesomeIcon icon={faEnvelope} /> {data.email}</a>
-            <a href={data.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCode} /> GitHub <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="external-icon" /></a>
-            <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
-          </div>
-          <div className="education-inline">
-            <FontAwesomeIcon icon={faGraduationCap} />
-            <span>{data.education.degree}</span>
-          </div>
         </div>
-        <img
-          className="profile-image"
-          src={profileImage}
-          alt="Profile illustration"
-          onError={() => setProfileImage(FALLBACK_IMAGE)}
-        />
+        <div className="intro-media">
+          <img
+            className="profile-image"
+            src={profileImage}
+            alt="Profile illustration"
+            onError={() => setProfileImage(FALLBACK_IMAGE)}
+          />
+        </div>
+      </div>
+      <div className="contact-links">
+        <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><FontAwesomeIcon icon={faEnvelope} /> {data.email}</a>
+        <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub"><FontAwesomeIcon icon={faGithub} /></a>
+        <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} /></a>
+        <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
+        <span className="education-inline"><FontAwesomeIcon icon={faGraduationCap} /><span>{data.education.degree}</span></span>
       </div>
     </section>
   );
