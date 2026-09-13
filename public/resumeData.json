@@ -11,9 +11,9 @@
   "focusAreas": ["Applied AI", "Java", "Spring Boot", "Distributed Systems", "Microservices", "Cloud & Data"],
   "specialties": [
     {
-      "title": "🤖 Applied AI workflows",
-      "description": "Turning business rules and operational decisions into reliable, reviewable AI-assisted workflows.",
-      "stack": "Gemini · Vertex AI · Google ADK"
+      "title": "🤖 Retrieval-grounded AI systems",
+      "description": "Building AI experiences that answer from policy, claims context, and operational evidence instead of free-form guesses.",
+      "stack": "RAG · Gemini · Vertex AI · Google ADK"
     },
     {
       "title": "⚙️ Java backend systems",
@@ -27,6 +27,14 @@
     }
   ],
   "selectedWork": [
+    {
+      "title": "🧠 RAG-powered claims guidance assistant",
+      "context": "Applied AI · Healthcare",
+      "problem": "Operational teams needed fast, grounded answers that drew on plan rules, policy documents, and claim context without overloading reviewers with raw search work.",
+      "approach": "Built a retrieval-first workflow that assembled the right evidence from healthcare policies and claim records, then used Gemini and structured orchestration to produce reviewable recommendations with traceable citations.",
+      "focus": "Grounding the model in trusted source material, keeping outputs explainable, and making human review the safety layer for edge cases.",
+      "stack": "RAG · Gemini · Vertex AI SDK · Google ADK · Healthcare rules"
+    },
     {
       "title": "🤖 AI-assisted business-rule automation",
       "context": "Applied AI · Healthcare",
