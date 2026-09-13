@@ -7,6 +7,12 @@ body { background: var(--paper); color: var(--ink); }
 .intro-layout { align-items: center; display: flex; gap: 42px; justify-content: space-between; }
 .intro-content { min-width: 0; }
 .name-lockup { align-items: center; display: flex; gap: 12px; }
+.motto { align-self: flex-end; color: var(--muted); font-family: 'SFMono-Regular', Consolas, monospace; font-size: .62rem; font-weight: 700; letter-spacing: .01em; line-height: 1.2; margin-bottom: .35rem; white-space: nowrap; }
+.motto-step { display: inline-flex; gap: 3px; }
+.motto-step-1 { color: var(--accent); }
+.motto-step-2 { color: var(--signal); }
+.motto-step-3 { color: #52745a; }
+.motto-arrow { color: var(--muted); margin: 0 5px; }
 .linkedin-link { align-items: center; background: var(--signal); border-radius: 50%; color: var(--white); display: inline-flex; font-size: .9rem; height: 28px; justify-content: center; line-height: 1; width: 28px; }
 .linkedin-link:hover { text-decoration: none; transform: translateY(-1px); }
 .intro-media { flex: 0 0 180px; }
@@ -84,6 +90,9 @@ a:hover { text-decoration: underline; }
   .portfolio { padding: 24px 18px 56px; }
   .intro-layout { align-items: flex-start; flex-direction: column; gap: 22px; }
   .intro-media { align-items: flex-end; display: flex; flex-basis: auto; justify-content: flex-end; width: 100%; }
+  .name-lockup { align-items: baseline; gap: 9px; }
+  .motto { font-size: .56rem; margin-bottom: .2rem; }
+  .motto-arrow { margin: 0 3px; }
   .profile-image { flex-basis: 120px; height: 120px; margin-left: 0; width: 120px; }
   .experience-card { gap: 13px; grid-template-columns: 14px 52px minmax(0, 1fr); }
   .timeline-marker::before { height: calc(100% + 38px); top: -19px; }

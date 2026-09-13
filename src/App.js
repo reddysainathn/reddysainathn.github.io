@@ -36,7 +36,17 @@ const Introduction = ({ data }) => {
       <div className="intro-layout">
         <div className="intro-content">
           {data.eyebrow && <p className="eyebrow">{data.eyebrow}</p>}
-          <h1>{data.name}</h1>
+          <div className="name-lockup">
+            <h1>{data.name}</h1>
+            {Array.isArray(data.mottoSteps) && <span className="motto" aria-label="Build, fix, repeat">
+              {data.mottoSteps.map((step, index) => (
+                <React.Fragment key={step.label}>
+                  {index > 0 && <span className="motto-arrow" aria-hidden="true">=&gt;</span>}
+                  <span className={`motto-step motto-step-${index + 1}`}><span aria-hidden="true">{step.emoji}</span> {step.label}</span>
+                </React.Fragment>
+              ))}
+            </span>}
+          </div>
           <p className="headline">{data.headline}</p>
           <div className="availability-badge">Open to backend and applied AI roles</div>
           <p className="intro-copy">{data.intro}</p>

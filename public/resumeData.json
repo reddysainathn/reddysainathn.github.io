@@ -1,5 +1,10 @@
 {
   "name": "Sainath",
+  "mottoSteps": [
+    { "label": "Build", "emoji": "🛠️" },
+    { "label": "Fix", "emoji": "🔧" },
+    { "label": "Repeat", "emoji": "🔁" }
+  ],
   "eyebrow": "",
   "headline": "Java backend systems and applied AI workflows.",
   "intro": "Senior software engineer with 10+ years building production Java services and distributed systems. Specializing in AI-assisted workflows, backend architecture, and operational automation.",
