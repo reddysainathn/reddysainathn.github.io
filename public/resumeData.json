@@ -18,7 +18,7 @@
     {
       "title": "🤖 Retrieval-grounded AI systems",
       "description": "Building AI experiences that answer from policy, claims context, and operational evidence instead of free-form guesses.",
-      "stack": "RAG · Gemini · Vertex AI · Google ADK"
+      "stack": "RAG · Gemini · LangChain"
     },
     {
       "title": "⚙️ Java backend systems",
@@ -80,7 +80,7 @@
   },
   "skills": {
     "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting", "JavaScript", "HTML", "CSS"],
-    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "Prompt engineering", "Agentic workflows", "Document classification", "Rule evaluation"],
+    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "Prompt engineering", "Agentic workflows", "Document classification", "Rule evaluation"],
     "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "React", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "ExpressJS", "GraphQL"],
     "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
     "Cloud, DevOps & Security": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
@@ -93,7 +93,7 @@
       "startDate": "August 2022",
       "logo": "./logos/collective-health.svg",
       "mainFocus": "Applied AI, Backend & Data",
-      "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "Python", "React", "GraphQL", "Databricks"],
+      "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "React", "GraphQL", "Databricks"],
       "responsibilities": [
         "Engineered generative-AI claim-pend rule automation with Google ADK and Gemini to evaluate business rules, execute eligible workflows, and route exceptions for review.",
         "Designed X12 835 Electronic Remittance Advice automation with the Vertex AI SDK to identify and auto-resolve eligible errors.",
