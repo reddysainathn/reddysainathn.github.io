@@ -18,7 +18,7 @@
     {
       "title": "🤖 Retrieval-grounded AI systems",
       "description": "Building AI experiences that answer from policy, claims context, and operational evidence instead of free-form guesses.",
-      "stack": "RAG · Gemini · LangChain"
+      "stack": "RAG · Gemini · Vertex AI · Google ADK"
     },
     {
       "title": "⚙️ Java backend systems",
