@@ -16,6 +16,11 @@ const Experience = ({ experience = [], defaultLogo }) => (
           <div className="timeline-tech" aria-label={`${job.company} technologies`}>
             {(job.technologies || []).map(technology => <span key={technology}>{technology}</span>)}
           </div>
+          {!job.hideResponsibilities && Array.isArray(job.responsibilities) && job.responsibilities.length > 0 && (
+            <ul className="responsibilities-list">
+              {job.responsibilities.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+          )}
         </div>
       </article>
     ))}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faGraduationCap, faLocationDot, faPrint } from '@fortawesome/free-solid-svg-icons';
 
 const FALLBACK_IMAGE = '/images/profile-fallback.svg';
 
@@ -25,7 +25,7 @@ const Hero = ({ data }) => {
             </span>}
           </div>
           <p className="headline">{data.headline}</p>
-          <div className="availability-badge">Open to backend and applied AI roles</div>
+          {data.availability && <div className="availability-badge">{data.availability}</div>}
           <p className="intro-copy">{data.intro}</p>
           <div className="focus-tags" aria-label="Core engineering strengths">
             {(data.focusAreas || []).map(area => <span key={area}>{area}</span>)}
@@ -49,7 +49,8 @@ const Hero = ({ data }) => {
         <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub"><FontAwesomeIcon icon={faGithub} /></a>
         <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} /></a>
         <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
-        <span className="education-inline"><FontAwesomeIcon icon={faGraduationCap} /><span>{data.education.degree}</span></span>
+        <span className="education-inline"><FontAwesomeIcon icon={faGraduationCap} /><span>{[data.education.degree, data.education.school].filter(Boolean).join(' · ')}</span></span>
+        <button type="button" className="print-button no-print" onClick={() => window.print()}><FontAwesomeIcon icon={faPrint} /> Print resume</button>
       </div>
     </section>
   );

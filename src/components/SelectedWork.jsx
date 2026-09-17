@@ -15,6 +15,11 @@ const SelectedWork = ({ work = [] }) => (
             <div><b>Engineering focus</b><p>{project.focus}</p></div>
             <span className="work-stack">{project.stack}</span>
           </div>
+          {Array.isArray(project.links) && project.links.length > 0 && (
+            <div className="work-links">
+              {project.links.map(link => <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>)}
+            </div>
+          )}
         </article>
       ))}
     </div>

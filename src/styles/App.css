@@ -105,3 +105,17 @@ a:hover { text-decoration: underline; }
   .skills-grid { column-count: 1; }
   .contact-links { gap: 12px 20px; }
 }
+.print-button { background: var(--ink); border: 0; border-radius: 999px; color: #fff; cursor: pointer; font-size: .8rem; font-weight: 700; padding: 8px 14px; }
+.print-button:hover { opacity: .85; }
+.work-links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 10px; }
+.work-links a { font-size: .82rem; font-weight: 700; }
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  .portfolio { max-width: 100%; padding: 0; }
+  .profile-image { box-shadow: none; }
+  .section-block { padding: 10px 0; }
+  a { color: #000; text-decoration: none; }
+  .contact-links a[href^="http"]:after { content: " (" attr(href) ")"; font-weight: 400; }
+  .experience-card, .work-item { break-inside: avoid; }
+}
