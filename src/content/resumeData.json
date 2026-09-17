@@ -1,5 +1,5 @@
 {
-  "name": "Sainath",
+  "name": "Sainath R",
   "mottoSteps": [
     { "label": "Build", "emoji": "🛠️" },
     { "label": "Fix", "emoji": "🔧" },
@@ -7,13 +7,23 @@
   ],
   "eyebrow": "",
   "headline": "Java backend systems and applied AI workflows.",
-  "intro": "Senior software engineer with 10+ years building production Java services and distributed systems. Specializing in AI-assisted workflows, backend architecture, and operational automation.",
+  "intro": "Senior software engineer with {years}+ years building production Java services and distributed systems. Specializing in AI-assisted workflows, backend architecture, and operational automation.",
   "location": "United States",
+  "availability": "Open to backend and applied AI roles",
+  "workAuthorization": "",
+  "remotePreference": "",
   "profileImage": "/images/profile-photo.jpg",
   "email": "github.updates+am@gmail.com",
   "github": "https://github.com/reddysainathn",
   "linkedin": "https://www.linkedin.com/in/reddysainathn/",
-  "focusAreas": ["Applied AI", "Java", "Spring Boot", "Distributed Systems", "Microservices", "Cloud & Data"],
+  "focusAreas": [
+    { "label": "Applied AI", "icon": "ai" },
+    { "label": "Java", "icon": "java" },
+    { "label": "Spring Boot", "icon": "springboot" },
+    { "label": "Distributed Systems", "icon": "distributed" },
+    { "label": "Microservices", "icon": "microservices" },
+    { "label": "Cloud & Data", "icon": "cloud-data" }
+  ],
   "specialties": [
     {
       "title": "🤖 Retrieval-grounded AI systems",
@@ -35,53 +45,49 @@
     {
       "title": "🧠 RAG-powered claims guidance assistant",
       "context": "Applied AI · Healthcare",
-      "problem": "Operational teams needed fast, grounded answers that drew on plan rules, policy documents, and claim context without overloading reviewers with raw search work.",
-      "approach": "Built a retrieval-first workflow that assembled the right evidence from healthcare policies and claim records, then used Gemini and structured orchestration to produce reviewable recommendations with traceable citations.",
-      "focus": "Grounding the model in trusted source material, keeping outputs explainable, and making human review the safety layer for edge cases.",
+      "problem": "Claim reviewers search policy documents by hand, while ungrounded models cannot be trusted with benefits answers.",
+      "approach": "A retrieval-first pipeline that grounds Gemini answers in cited policy and claim evidence, with human review on every output.",
       "stack": "RAG · Gemini · Vertex AI SDK · Google ADK · Healthcare rules"
     },
     {
       "title": "🤖 AI-assisted business-rule automation",
       "context": "Applied AI · Healthcare",
-      "problem": "Complex business rules and exception paths required consistent evaluation without removing human review from ambiguous decisions.",
-      "approach": "Combined Gemini models, Google ADK, and configured rules to evaluate cases, execute eligible workflows, and route exceptions to a review experience.",
-      "focus": "Grounding model decisions in explicit rules, designing safe workflow boundaries, and preserving operational visibility.",
+      "problem": "High-volume routine cases consume reviewer bandwidth, while ambiguous cases still require judgment.",
+      "approach": "Gemini and ADK evaluate business rules to resolve standard cases automatically and escalate exceptions for review.",
       "stack": "Gemini · Vertex AI SDK · Google ADK · React"
     },
     {
       "title": "⚡ Event-driven Java service platform",
       "context": "Backend · Distributed systems",
-      "problem": "Long-running business processes needed reliable asynchronous coordination across independently deployed services.",
-      "approach": "Designed Spring Boot microservices and REST APIs around message-driven workflows, with Kafka and RabbitMQ handling event synchronization and reliable processing.",
-      "focus": "Service boundaries, asynchronous failure handling, reusable foundations, and production observability.",
+      "problem": "Long-running business processes span services that must coordinate reliably.",
+      "approach": "Spring Boot microservices communicating over Kafka and RabbitMQ, designed for asynchronous failure and replay.",
       "stack": "Java · Spring Boot · Kafka · RabbitMQ · Kubernetes"
     },
     {
       "title": "🧰 Developer operations platform",
       "context": "Internal platform · Production tooling",
-      "problem": "Operational scripts for remediation, test data, and support tasks were fragmented and difficult to discover or run consistently.",
-      "approach": "Unified the workflows behind a Python and Flask interface with reusable execution patterns, rollback support, and audit-friendly operations.",
-      "focus": "Reducing operational friction, making risky actions reversible, and giving engineers a clear path from diagnosis to resolution.",
+      "problem": "Operational scripts lived in scattered locations with no safe, consistent way to run them.",
+      "approach": "A unified Flask console with reusable execution patterns, rollback support, and full audit trails.",
       "stack": "Python · Flask · React · Data remediation"
     },
     {
       "title": "🕸️ Network graph and pathfinding service",
       "context": "Telecommunications · Network provisioning",
-      "problem": "Provisioning workflows needed to understand relationships between network devices and identify viable routes through a complex topology.",
-      "approach": "Modeled devices and relationships in Neo4j and exposed a REST API for shortest-path queries using Yen's K-Shortest path algorithm.",
-      "focus": "Choosing graph representations, exposing useful traversal APIs, and making network relationships actionable for service operations.",
+      "problem": "Network provisioning depends on viable routes through complex device topologies.",
+      "approach": "A Neo4j device graph with a REST API for Yen's K-shortest-path queries.",
       "stack": "Neo4j · Java · Spring Boot · REST APIs · Graph algorithms"
     }
   ],
   "education": {
     "degree": "Master's in Computer Science",
+    "school": "San Francisco Bay University",
     "graduationDate": "September 2015",
     "gpa": "3.6"
   },
   "skills": {
     "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting", "JavaScript", "HTML", "CSS"],
-    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "Prompt engineering", "Agentic workflows", "Document classification", "Rule evaluation"],
-    "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "React", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "ExpressJS", "GraphQL"],
+    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
+    "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "React", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
     "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
     "Cloud, DevOps & Security": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
   },
@@ -93,12 +99,14 @@
       "startDate": "August 2022",
       "logo": "./logos/collective-health.svg",
       "mainFocus": "Applied AI, Backend & Data",
-      "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "React", "GraphQL", "Databricks"],
+      "location": "Dallas, TX",
+      "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "React", "Express", "GraphQL", "Databricks"],
       "responsibilities": [
-        "Engineered generative-AI claim-pend rule automation with Google ADK and Gemini to evaluate business rules, execute eligible workflows, and route exceptions for review.",
-        "Designed X12 835 Electronic Remittance Advice automation with the Vertex AI SDK to identify and auto-resolve eligible errors.",
-        "Built a Python/Flask developer-tools platform that unified scripts for data remediation, test-data generation, and production support.",
-        "Built distributed Java microservices with Spring Boot for claims adjudication and X12 EDI workflows, integrating Kafka and RabbitMQ for reliable event-driven processing; also delivered a React and GraphQL dashboard tracing claims across complex processing states."
+        "Fluent in the applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
+        "Runs the team's Flask tooling hub: remediation, test data, and prod support in one auditable UI.",
+        "Ships claims visibility: an Express/GraphQL dashboard across every processing state.",
+        "Built the Databricks + Spark SQL source of truth for accumulator data.",
+        "Builds and runs Spring Boot adjudication + X12 837 services on Kafka/RabbitMQ — DLQ replay, Grafana alerts, rollback tooling."
       ],
       "hideResponsibilities": false
     },
@@ -110,11 +118,12 @@
       "endDate": "August 2022",
       "logo": "./logos/glue-up.svg",
       "mainFocus": "Backend",
+      "location": "McLean, VA",
       "technologies": ["Kotlin", "Spring Boot", "Play Framework", "MongoDB", "jOOQ", "Liquibase", "Maven"],
       "responsibilities": [
-        "Migrated standalone REST APIs from Play Framework to Kotlin and Spring Boot for a more maintainable microservice architecture.",
-        "Created Maven and Liquibase database modules, using jOOQ to generate reusable DAO classes and write native SQL across services.",
-        "Developed MongoDB APIs for dynamic properties and introduced TDD-oriented design documentation for new features."
+        "Rewrote Play APIs in Kotlin + Spring Boot.",
+        "Database modules on Maven/Liquibase; shared jOOQ DAOs.",
+        "MongoDB dynamic-property APIs with TDD design docs."
       ],
       "hideResponsibilities": false
     },
@@ -126,12 +135,14 @@
       "endDate": "September 2021",
       "logo": "./logos/verizon.svg",
       "mainFocus": "Backend & Network Provisioning",
+      "location": "Cary, NC",
       "technologies": ["Java", "Spring Boot", "Kafka", "Neo4j", "Hibernate", "Activiti", "Kubernetes", "Fortify"],
       "responsibilities": [
-        "Developed a Spring Boot base template for logging, authentication, and Artifactory configuration reused by 50+ microservices.",
-        "Integrated Kafka for real-time event synchronization and built asynchronous APIs for long-running provisioning workflows.",
-        "Built Neo4j graph models and a shortest-path API using Yen's K-Shortest path algorithm for network devices.",
-        "Resolved Fortify vulnerabilities and implemented transaction locking to prevent race conditions during device activation."
+        "Created the Spring Boot template the org builds services from.",
+        "Moves provisioning events over Kafka; async APIs for long-running flows.",
+        "Graphs network devices in Neo4j; serves Yen's shortest-path routing.",
+        "Cleans Fortify findings; locks transactions against activation races.",
+        "Pipelines to Kubernetes; shared Hibernate libs; AOP audit layer."
       ],
       "links": { "Fortify": "https://www.microfocus.com/en-us/cyberres/application-security/static-code-analysis" },
       "hideResponsibilities": false
@@ -144,11 +155,14 @@
       "endDate": "March 2018",
       "logo": "./logos/general-electric.svg",
       "mainFocus": "Full-Stack",
+      "location": "Overland Park, KS",
       "technologies": ["Java", "Spring Boot", "AWS EC2", "Oracle", "PostgreSQL", "Apache Solr", "SAML", "Jenkins"],
       "responsibilities": [
-        "Integrated SAML single sign-on for internal and external identity providers.",
-        "Migrated on-premises lower environments to AWS EC2 and built scripts to create on-demand testing environments.",
-        "Built Spring Boot APIs and schedulers to query Apache Solr and refresh indexed data from Oracle, then migrated services from Apache Karaf."
+        "Wired SAML SSO for internal + external providers.",
+        "Lifted lower envs to EC2 with scripted on-demand test envs.",
+        "Slashed log noise with new logging standards.",
+        "Solr search on Spring Boot, refreshed from Oracle on schedule.",
+        "Moved services off Karaf; Jenkins pipelines."
       ],
       "hideResponsibilities": false
     }

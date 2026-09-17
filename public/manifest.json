@@ -1,6 +1,6 @@
 {
   "short_name": "Sainath",
-  "name": "Sainath's Dev Blog",
+  "name": "Sainath — Portfolio",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#087f8c",
   "background_color": "#ffffff"
 }
