@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBriefcase, faCode, faEnvelope, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import resumeData from './data/resumeData.json';
 
 const FALLBACK_IMAGE = '/profile-fallback.svg';
 
 const App = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch('/resumeData.json')
-      .then(response => response.json())
-      .then(data => setData(data));
-  }, []);
-
-  if (!data) return <div>Loading...</div>;
+  const data = resumeData;
 
   return (
     <div className="portfolio">
@@ -59,6 +52,10 @@ const Introduction = ({ data }) => {
             className="profile-image"
             src={profileImage}
             alt="Profile illustration"
+            width="180"
+            height="180"
+            fetchPriority="high"
+            decoding="async"
             onError={() => setProfileImage(FALLBACK_IMAGE)}
           />
         </div>
@@ -130,7 +127,7 @@ const Experience = ({ experience = [], defaultLogo }) => (
       <article className={`experience-card ${index === 0 ? 'current-role' : ''}`} key={index}>
         <div className="timeline-marker" aria-hidden="true"><span /></div>
         <div className="logo-container">
-          <img src={job.logo || defaultLogo} alt={`${job.company} logo`} className="company-logo" />
+          <img src={job.logo || defaultLogo} alt={`${job.company} logo`} className="company-logo" loading="lazy" decoding="async" width="84" height="58" />
         </div>
         <div className="experience-details">
           <div className="role-line"><h3>{job.role}</h3><span className="duration">{job.startDate} - {job.endDate || 'Present'}</span></div>

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-
 :root { --ink: #172126; --muted: #5e6a6f; --accent: #087f8c; --signal: #e7784f; --line: #cfd9dc; --paper: #eef2f3; --white: #ffffff; }
 body { background: var(--paper); color: var(--ink); }
 .portfolio { max-width: 980px; margin: 0 auto; padding: 18px 28px 36px; text-align: left; }
