@@ -78,6 +78,7 @@
       "stack": "Neo4j · Java · Spring Boot · REST APIs · Graph algorithms"
     }
   ],
+  "testimonials": [],
   "education": {
     "degree": "Master's in Computer Science",
     "school": "San Francisco Bay University",
@@ -89,7 +90,7 @@
     "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
     "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "React", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
     "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
-    "Cloud, DevOps & Security": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
+    "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
   },
   "experience": [
     {

@@ -1,13 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 
-const CATEGORY_ICONS = {
-  'Languages': '💻',
-  'Applied AI': '🤖',
-  'Backend & Platform': '⚙️',
-  'Data': '🗄️',
-  'Cloud, DevOps & Security': '☁️',
-};
+const slug = category => category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const Skills = ({ skills = {} }) => (
   <section id="skills" className="skills section-block">
@@ -15,7 +9,7 @@ const Skills = ({ skills = {} }) => (
     <div className="skills-grid">
       {Object.entries(skills).map(([category, skillList]) => (
         <div className="skill-group" key={category}>
-          <h3>{CATEGORY_ICONS[category] && <span aria-hidden="true">{CATEGORY_ICONS[category]}</span>} {category} <span className="skill-count">{(Array.isArray(skillList) ? skillList : []).length}</span></h3>
+          <p className="skill-cmd"><span className="skill-name">{category}</span> <span className="code-accent">$</span> stack --{slug(category)} <span className="skill-count">{(Array.isArray(skillList) ? skillList : []).length}</span></p>
           <div>{(Array.isArray(skillList) ? skillList : []).map(skill => <span className="skill-pill" key={skill}>{skill}</span>)}</div>
         </div>
       ))}

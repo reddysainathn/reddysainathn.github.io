@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faFileLines, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faCopy, faEnvelope, faFileLines, faGraduationCap, faLocationDot, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { yearsOfExperience } from '../utils/dates';
 import { pdfFileName } from '../utils/pdf';
 import { trackEvent } from '../lib/events';
+import { getPreferredTheme, applyTheme } from '../lib/theme';
 import { TechIcon } from './TechIcon';
 
 const FALLBACK_IMAGE = '/images/profile-fallback.svg';
@@ -11,6 +12,45 @@ const FALLBACK_IMAGE = '/images/profile-fallback.svg';
 const Hero = ({ data }) => {
   const [profileImage, setProfileImage] = useState(data.profileImage || FALLBACK_IMAGE);
   const heroYears = yearsOfExperience(data.experience);
+  const [theme, setTheme] = useState(getPreferredTheme);
+  const [copied, setCopied] = useState(false);
+  const manualTheme = useRef(false);
+
+  useEffect(() => { applyTheme(theme); }, [theme]);
+
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = event => {
+      if (!manualTheme.current) setTheme(event.matches ? 'dark' : 'light');
+    };
+    if (query.addEventListener) query.addEventListener('change', onChange);
+    return () => { if (query.removeEventListener) query.removeEventListener('change', onChange); };
+  }, []);
+
+  const toggleTheme = () => {
+    manualTheme.current = true;
+    setTheme(previous => {
+      const next = previous === 'dark' ? 'light' : 'dark';
+      trackEvent('theme_toggle', { theme: next });
+      return next;
+    });
+  };
+
+  const copyEmail = async () => {
+    try {
+      await window.navigator.clipboard.writeText(data.email);
+    } catch {
+      const area = document.createElement('textarea');
+      area.value = data.email;
+      document.body.appendChild(area);
+      area.select();
+      try { document.execCommand('copy'); } catch { /* ignore */ }
+      area.remove();
+    }
+    setCopied(true);
+    trackEvent('contact_copy');
+    window.setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section className="introduction">
@@ -33,6 +73,7 @@ const Hero = ({ data }) => {
             {data.availability && <span className="availability-badge">{data.availability}</span>}
             {Number.isFinite(heroYears) && heroYears > 0 && <span className="years-pill">💼 {heroYears}+ years experience</span>}
             <button type="button" className="print-button no-print" onClick={() => { trackEvent('print_resume_click'); const prevTitle = document.title; document.title = pdfFileName(); window.print(); document.title = prevTitle; }}><FontAwesomeIcon icon={faFileLines} /> Resume</button>
+            <button type="button" className="print-button no-print" onClick={toggleTheme} aria-pressed={theme === 'dark'} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} title="Toggle theme"><FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} /></button>
           </div>
           <p className="intro-copy">{data.intro.replace('{years}', heroYears ?? 10)}</p>
         </div>
@@ -60,6 +101,7 @@ const Hero = ({ data }) => {
       </div>
       <div className="contact-links">
         <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><FontAwesomeIcon icon={faEnvelope} /> {data.email}</a>
+        <button type="button" className="icon-button no-print" onClick={copyEmail} aria-label={copied ? 'Email address copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email'}><FontAwesomeIcon icon={copied ? faCheck : faCopy} /></button>
         <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub"><TechIcon name="github" /></a>
         <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><TechIcon name="linkedin" /></a>
         <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
