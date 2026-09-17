@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
-import { initAnalytics } from './lib/analytics';
+import { initAnalytics } from './lib/events';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faFileLines, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { yearsOfExperience } from '../utils/dates';
 import { pdfFileName } from '../utils/pdf';
-import { trackEvent } from '../lib/analytics';
+import { trackEvent } from '../lib/events';
 import { TechIcon } from './TechIcon';
 
 const FALLBACK_IMAGE = '/images/profile-fallback.svg';
