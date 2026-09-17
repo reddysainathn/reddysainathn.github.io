@@ -123,8 +123,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
 .testimonial { background: var(--card); border: 1px solid var(--line); border-radius: 14px; margin: 0; padding: 16px 18px; }
 .testimonial blockquote { color: var(--body); font-size: .95rem; font-style: italic; line-height: 1.6; margin: 0 0 10px; }
 .testimonial figcaption { color: var(--muted); font-size: .8rem; font-weight: 600; }
-.footer-line { color: var(--muted); font-family: 'SFMono-Regular', Consolas, monospace; font-size: .75rem; margin: 4px 0; }
 .code-accent { color: var(--signal); font-weight: 700; }
+.status-bar { align-items: center; background: var(--ink); border-radius: 10px; color: var(--paper); display: flex; flex-wrap: wrap; font-family: 'SFMono-Regular', Consolas, monospace; font-size: .72rem; gap: 8px 16px; justify-content: space-between; margin-top: 12px; padding: 10px 14px; row-gap: 8px; }
+.status-bar .code-accent { color: var(--signal); }
+.status-key { background: transparent; border: 1px solid currentColor; border-radius: 6px; color: inherit; cursor: pointer; font: inherit; padding: 2px 8px; }
+.palette-backdrop { background: rgba(23, 33, 38, .45); inset: 0; position: fixed; z-index: 100; }
+.palette { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 24px 60px rgba(0, 0, 0, .25); left: 50%; max-width: 520px; position: fixed; top: 16vh; transform: translateX(-50%); width: calc(100% - 36px); z-index: 101; }
+.palette-input { background: transparent; border: 0; border-bottom: 1px solid var(--line); box-sizing: border-box; color: var(--ink); font-family: 'SFMono-Regular', Consolas, monospace; font-size: .9rem; outline: none; padding: 14px 16px; width: 100%; }
+.palette-list { list-style: none; margin: 0; max-height: 300px; overflow-y: auto; padding: 8px; }
+.palette-item { background: transparent; border: 0; border-radius: 8px; color: var(--ink); cursor: pointer; display: block; font-size: .88rem; font-weight: 600; padding: 10px 12px; text-align: left; width: 100%; }
+.palette-item.active { background: rgba(8, 127, 140, .10); }
+.palette-empty { color: var(--muted); font-size: .85rem; padding: 10px 12px; }
 .timeline-marker span[data-tenure]::after { background: var(--ink); border-radius: 8px; bottom: calc(100% + 10px); color: var(--invert); content: attr(data-tenure); font-family: 'SFMono-Regular', Consolas, monospace; font-size: .7rem; font-weight: 700; left: 50%; opacity: 0; padding: 6px 10px; pointer-events: none; position: absolute; transform: translate(-50%, 4px); transition: opacity .15s ease, transform .15s ease; white-space: nowrap; z-index: 5; }
 .timeline-marker span[data-tenure]:hover::after { opacity: 1; transform: translate(-50%, 0); }
 @media (max-width: 1024px) {

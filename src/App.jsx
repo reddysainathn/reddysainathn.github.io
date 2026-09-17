@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import PrintResume from './components/PrintResume';
+import CommandPalette from './components/CommandPalette';
 import Testimonials from './components/Testimonials';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Footer name={data.name} />
       </div>
       <PrintResume data={data} />
+      <CommandPalette />
     </>
   );
 };

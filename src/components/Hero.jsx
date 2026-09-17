@@ -24,7 +24,21 @@ const Hero = ({ data }) => {
       if (!manualTheme.current) setTheme(event.matches ? 'dark' : 'light');
     };
     if (query.addEventListener) query.addEventListener('change', onChange);
-    return () => { if (query.removeEventListener) query.removeEventListener('change', onChange); };
+    return () => {     if (query.removeEventListener) query.removeEventListener('change', onChange); };
+  }, []);
+
+  useEffect(() => {
+    const onPrint = () => printResume();
+    const onCopy = () => copyEmail();
+    const onTheme = () => toggleTheme();
+    window.addEventListener('portfolio:print', onPrint);
+    window.addEventListener('portfolio:copy-email', onCopy);
+    window.addEventListener('portfolio:toggle-theme', onTheme);
+    return () => {
+      window.removeEventListener('portfolio:print', onPrint);
+      window.removeEventListener('portfolio:copy-email', onCopy);
+      window.removeEventListener('portfolio:toggle-theme', onTheme);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -34,6 +48,14 @@ const Hero = ({ data }) => {
       trackEvent('theme_toggle', { theme: next });
       return next;
     });
+  };
+
+  const printResume = () => {
+    trackEvent('print_resume_click');
+    const prevTitle = document.title;
+    document.title = pdfFileName();
+    window.print();
+    document.title = prevTitle;
   };
 
   const copyEmail = async () => {
@@ -72,7 +94,7 @@ const Hero = ({ data }) => {
           <div className="badge-row">
             {data.availability && <span className="availability-badge">{data.availability}</span>}
             {Number.isFinite(heroYears) && heroYears > 0 && <span className="years-pill">💼 {heroYears}+ years experience</span>}
-            <button type="button" className="print-button no-print" onClick={() => { trackEvent('print_resume_click'); const prevTitle = document.title; document.title = pdfFileName(); window.print(); document.title = prevTitle; }}><FontAwesomeIcon icon={faFileLines} /> Resume</button>
+            <button type="button" className="print-button no-print" onClick={printResume}><FontAwesomeIcon icon={faFileLines} /> Resume</button>
             <button type="button" className="print-button no-print" onClick={toggleTheme} aria-pressed={theme === 'dark'} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} title="Toggle theme"><FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} /></button>
           </div>
           <p className="intro-copy">{data.intro.replace('{years}', heroYears ?? 10)}</p>

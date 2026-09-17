@@ -1,7 +1,11 @@
 const Footer = ({ name }) => (
   <footer className="site-footer" aria-label="Footer">
-    <p className="footer-line"><span className="code-accent">//</span> designed + built by {name} · React, Vite, GitHub Pages</p>
-    <p className="footer-line"><span className="code-accent">$</span> thanks --for-scrolling · © {new Date().getFullYear()}</p>
+    <div className="status-bar">
+      <span><span className="code-accent">//</span> Thanks — {name};</span>
+      <span><span className="code-accent">✓</span> 0 errors</span>
+      <button type="button" className="status-key no-print" onClick={() => window.dispatchEvent(new Event('portfolio:open-palette'))} aria-label="Open command palette">⌘K</button>
+      <span>{__COMMIT__} · {__BUILD_TIME__}</span>
+    </div>
   </footer>
 );
 
