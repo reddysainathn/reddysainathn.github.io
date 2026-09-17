@@ -1,12 +1,25 @@
-// Scroll-depth + section visibility → GA4 (gtag).
-// Silent no-op when trackers are blocked. No PII is collected.
+// Behavioral analytics → GA4 (gtag).
+// Silent no-ops when trackers are blocked. No PII is collected.
+// All listeners are passive/delegated; init is deferred to idle time
+// so measurement never costs first paint.
 const SECTION_IDS = ['expertise', 'selected-work', 'skills', 'experience'];
+
+const deviceBucket = () => {
+  if (typeof window === 'undefined') return undefined;
+  const width = window.innerWidth;
+  if (width <= 768) return 'mobile';
+  if (width <= 1024) return 'tablet';
+  return 'desktop';
+};
+
+export const trackEvent = (name, params = {}) => {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', name, { device_bucket: deviceBucket(), ...params });
+  }
+};
 
 export const initScrollTracking = () => {
   if (typeof window === 'undefined') return;
-  const send = (name, params) => {
-    if (typeof window.gtag === 'function') window.gtag('event', name, params);
-  };
 
   const seenSections = new Set();
   if ('IntersectionObserver' in window) {
@@ -15,7 +28,7 @@ export const initScrollTracking = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting && !seenSections.has(entry.target.id)) {
             seenSections.add(entry.target.id);
-            send('section_view', { section: entry.target.id });
+            trackEvent('section_view', { section: entry.target.id });
           }
         });
       },
@@ -38,7 +51,7 @@ export const initScrollTracking = () => {
     milestones.forEach(milestone => {
       if (pct >= milestone && !hit.has(milestone)) {
         hit.add(milestone);
-        send('scroll_depth', { percent: milestone });
+        trackEvent('scroll_depth', { percent: milestone });
       }
     });
   };
@@ -55,8 +68,55 @@ export const initScrollTracking = () => {
   check();
 };
 
-export const trackEvent = (name, params = {}) => {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-    window.gtag('event', name, params);
-  }
+export const initClickTracking = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  document.addEventListener('click', event => {
+    const anchor = event.target && event.target.closest ? event.target.closest('a') : null;
+    if (!anchor) return;
+    const href = anchor.getAttribute('href') || '';
+    if (href.startsWith('mailto:')) {
+      trackEvent('contact_click', { method: 'email' });
+      return;
+    }
+    if (/^https?:\/\//i.test(href)) {
+      let host = '';
+      try {
+        host = new URL(href).hostname;
+      } catch {
+        return;
+      }
+      if (host && host !== window.location.hostname) {
+        trackEvent('outbound_click', { host });
+      }
+    }
+  });
+};
+
+export const initEngagementTracking = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  const milestones = [30, 60, 180];
+  const hit = new Set();
+  let activeSeconds = 0;
+  window.setInterval(() => {
+    if (document.visibilityState !== 'visible') return;
+    activeSeconds += 5;
+    milestones.forEach(milestone => {
+      if (activeSeconds >= milestone && !hit.has(milestone)) {
+        hit.add(milestone);
+        trackEvent('engaged_time', { seconds: milestone });
+      }
+    });
+  }, 5000);
+};
+
+export const initPrintTracking = () => {
+  if (typeof window === 'undefined') return;
+  window.addEventListener('afterprint', () => trackEvent('print_completed'));
+};
+
+export const initAnalytics = () => {
+  initScrollTracking();
+  initClickTracking();
+  initEngagementTracking();
+  initPrintTracking();
 };
