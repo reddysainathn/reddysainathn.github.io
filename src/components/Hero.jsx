@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faFileLines, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { yearsOfExperience, pdfFileName } from '../utils';
+import { yearsOfExperience } from '../utils/dates';
+import { pdfFileName } from '../utils/pdf';
 import { trackEvent } from '../analytics';
 import { TechIcon } from './TechIcon';
 

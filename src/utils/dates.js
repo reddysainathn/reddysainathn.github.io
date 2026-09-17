@@ -29,10 +29,3 @@ export const roleTenure = (startDate, endDate) => {
   if (mos || !yrs) parts.push(`${mos} mo${mos === 1 ? '' : 's'}`);
   return parts.join(' ');
 };
-
-export const pdfFileName = () => {
-  const now = new Date();
-  const pad = value => String(value).padStart(2, '0');
-  const stamp = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
-  return `Sainath_Resume_GH${stamp}`;
-};

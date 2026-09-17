@@ -1,4 +1,4 @@
-import { yearsOfExperience } from '../utils';
+import { yearsOfExperience } from '../utils/dates';
 import { TechIcon } from './TechIcon';
 
 const handle = url => url.replace('https://', '').split('/').filter(Boolean).pop();
