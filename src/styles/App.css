@@ -93,6 +93,8 @@ a:hover { text-decoration: underline; }
 .years-pill { border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-family: 'SFMono-Regular', Consolas, monospace; font-size: .7rem; font-weight: 700; letter-spacing: .06em; padding: 7px 10px; text-transform: uppercase; }
 .contact-links > * { align-items: center; display: inline-flex; }
 ::selection { background: var(--accent); color: #fff; }
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 12px; }
 .section-tag { color: var(--muted); font-size: .8rem; font-weight: 400; }
 .specialty { transition: border-color .2s ease, transform .2s ease; }
 .specialty:hover { border-color: var(--signal); transform: translateX(4px); }

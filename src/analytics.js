@@ -114,9 +114,29 @@ export const initPrintTracking = () => {
   window.addEventListener('afterprint', () => trackEvent('print_completed'));
 };
 
+export const initHashSync = () => {
+  if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+  if (!('replaceState' in window.history)) return;
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && window.location.hash !== `#${entry.target.id}`) {
+          window.history.replaceState(null, '', `#${entry.target.id}`);
+        }
+      });
+    },
+    { rootMargin: '-45% 0px -45% 0px' }
+  );
+  SECTION_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+};
+
 export const initAnalytics = () => {
   initScrollTracking();
   initClickTracking();
   initEngagementTracking();
   initPrintTracking();
+  initHashSync();
 };
