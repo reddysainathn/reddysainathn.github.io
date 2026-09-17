@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
-import { roleTenure } from '../utils';
+import { roleTenure } from '../utils/dates';
 
 const Experience = ({ experience = [], defaultLogo }) => (
   <section id="experience" className="experience section-block">

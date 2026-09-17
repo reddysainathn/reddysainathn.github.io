@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faFileLines, faGraduationCap, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { yearsOfExperience, pdfFileName } from '../utils';
-import { trackEvent } from '../analytics';
+import { yearsOfExperience } from '../utils/dates';
+import { pdfFileName } from '../utils/pdf';
+import { trackEvent } from '../lib/events';
 import { TechIcon } from './TechIcon';
 
 const FALLBACK_IMAGE = '/images/profile-fallback.svg';
