@@ -7,6 +7,8 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import PrintResume from './components/PrintResume';
+import CommandPalette from './components/CommandPalette';
+import Testimonials from './components/Testimonials';
 
 const App = () => {
   const data = resumeData;
@@ -19,9 +21,11 @@ const App = () => {
         <SelectedWork work={data.selectedWork} />
         <Skills skills={data.skills} />
         <Experience experience={data.experience} defaultLogo={data.defaultLogo} />
+        <Testimonials testimonials={data.testimonials} />
         <Footer name={data.name} />
       </div>
       <PrintResume data={data} />
+      <CommandPalette />
     </>
   );
 };

@@ -2,7 +2,7 @@
 // Silent no-ops when trackers are blocked. No PII is collected.
 // All listeners are passive/delegated; init is deferred to idle time
 // so measurement never costs first paint.
-const SECTION_IDS = ['expertise', 'selected-work', 'skills', 'experience'];
+const SECTION_IDS = ['expertise', 'selected-work', 'skills', 'experience', 'testimonials'];
 
 const deviceBucket = () => {
   if (typeof window === 'undefined') return undefined;
@@ -114,6 +114,27 @@ export const initPrintTracking = () => {
   window.addEventListener('afterprint', () => trackEvent('print_completed'));
 };
 
+export const initReveals = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  const targets = document.querySelectorAll('.section-block, .site-footer');
+  if (!('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  targets.forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+};
+
 export const initHashSync = () => {
   if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
   if (!('replaceState' in window.history)) return;
@@ -139,4 +160,5 @@ export const initAnalytics = () => {
   initEngagementTracking();
   initPrintTracking();
   initHashSync();
+  initReveals();
 };

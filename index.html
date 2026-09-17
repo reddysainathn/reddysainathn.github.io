@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      } catch (e) {}
+    </script>
     <link rel="icon" href="./favicon2.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#087f8c" />
@@ -12,20 +18,20 @@
     <link rel="canonical" href="https://reddysainathn.github.io/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Sainath" />
-    <meta property="og:title" content="Sainath | Applied AI, Java & Data" />
+    <meta property="og:title" content="Sainath | Java & Data" />
     <meta
       property="og:description"
       content="10+ years building production Java services and distributed systems, now specializing in applied AI workflows and backend architecture."
     />
     <meta property="og:url" content="https://reddysainathn.github.io/" />
-    <meta property="og:image" content="https://reddysainathn.github.io/images/profile-photo.jpg" />
+    <meta property="og:image" content="https://reddysainathn.github.io/og-card.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Sainath | Applied AI, Java & Data" />
+    <meta name="twitter:title" content="Sainath | Java & Data" />
     <meta
       name="twitter:description"
       content="10+ years building production Java services and distributed systems, now specializing in applied AI workflows and backend architecture."
     />
-    <meta name="twitter:image" content="https://reddysainathn.github.io/images/profile-photo.jpg" />
+    <meta name="twitter:image" content="https://reddysainathn.github.io/og-card.png" />
     <link rel="apple-touch-icon" href="./logo192.png" />
     <link rel="manifest" href="./manifest.json" />
     <!-- Fonts: preconnect + display=swap instead of render-blocking CSS @import -->
@@ -46,7 +52,7 @@
     </script>
     <!-- Cloudflare Web Analytics - deferred -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6c5895f235c9492e8324e34b5563c72d"}'></script>
-    <title>Sainath | Applied AI, Java & Data</title>
+    <title>Sainath | Java & Data</title>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"Person","name":"Sainath","jobTitle":"Senior Software Engineer","url":"https://reddysainathn.github.io/","sameAs":["https://github.com/reddysainathn","https://www.linkedin.com/in/reddysainathn/"],"knowsAbout":["Java","Spring Boot","Applied AI","Distributed Systems","Microservices"]}
     </script>
