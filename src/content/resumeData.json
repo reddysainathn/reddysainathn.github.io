@@ -60,7 +60,7 @@
     {
       "title": "📊 Member data platform",
       "context": "Data · Healthcare",
-      "problem": "Accumulator data lived across systems; analytics and client reporting disagreed.",
+      "problem": "Accumulator data spanned multiple systems, complicating consistent analytics and reporting.",
       "approach": "A Databricks + Spark SQL source of truth feeding Looker datasets and Airflow-driven daily client reports.",
       "stack": "Databricks · Spark SQL · Airflow · Looker"
     },
@@ -96,7 +96,7 @@
   "skills": {
     "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting"],
     "Backend & Platform": ["Spring Boot", "Flask", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
-    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
+    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Ragas", "Vertex AI Evaluation", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
     "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS"],
     "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
