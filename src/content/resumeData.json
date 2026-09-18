@@ -37,9 +37,9 @@
       "stack": "Java · Spring Boot · Kafka · RabbitMQ"
     },
     {
-      "title": "🧰 Engineering platforms",
-      "description": "Building internal tools and data foundations that make teams faster and production operations clearer.",
-      "stack": "Python · Databricks · GraphQL · Kubernetes"
+      "title": "🧰 Data engineering & platforms",
+      "description": "Building reliable datasets, pipelines, and internal tools that make teams faster and production operations clearer.",
+      "stack": "Python · Databricks · Spark · Airflow · GraphQL · Kubernetes"
     }
   ],
   "selectedWork": [
