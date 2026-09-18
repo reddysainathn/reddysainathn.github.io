@@ -8,7 +8,6 @@ body { background: var(--paper); color: var(--ink); }
 .name-lockup { align-items: baseline; display: flex; flex-wrap: wrap; gap: 4px 12px; }
 .motto { color: var(--muted); font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: .75rem; font-weight: 700; letter-spacing: .01em; line-height: 1.2; margin: 0; white-space: nowrap; }
 .motto-step { display: inline-flex; gap: 3px; }
-.motto [aria-hidden="true"] { font-size: 1.1em; line-height: 1; }
 .motto-step-1 { color: var(--accent); }
 .motto-step-2 { color: var(--signal); }
 .motto-step-3 { color: var(--thumb); }
