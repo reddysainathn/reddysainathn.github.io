@@ -58,6 +58,13 @@
       "stack": "Gemini · Vertex AI SDK · Google ADK · ReactJS"
     },
     {
+      "title": "📊 Member data platform",
+      "context": "Data · Healthcare",
+      "problem": "Accumulator data lived across systems; analytics and client reporting disagreed.",
+      "approach": "A Databricks + Spark SQL source of truth feeding Looker datasets and Airflow-driven daily client reports.",
+      "stack": "Databricks · Spark SQL · Airflow · Looker"
+    },
+    {
       "title": "⚡ Event-driven Java service platform",
       "context": "Backend · Distributed systems",
       "problem": "Long-running business processes span services that must coordinate reliably.",
