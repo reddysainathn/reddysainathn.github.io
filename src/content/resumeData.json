@@ -87,9 +87,10 @@
     "gpa": "3.6"
   },
   "skills": {
-    "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting", "JavaScript", "HTML", "CSS"],
+    "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting"],
     "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
-    "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "ReactJS", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
+    "Backend & Platform": ["Spring Boot", "Flask", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
+    "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS"],
     "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
   },
