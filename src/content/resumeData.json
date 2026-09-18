@@ -112,7 +112,7 @@
       "location": "Dallas, TX",
       "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "ReactJS", "Express", "GraphQL", "Databricks", "Airflow", "Looker"],
       "responsibilities": [
-        "Fluent in the Applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
+        "Well-versed in the Applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
         "Runs the team's Flask tooling hub: remediation, test data, and prod support in one auditable UI.",
         "Ships claims visibility: an Express/GraphQL dashboard across every processing state.",
         "Built the Databricks + Spark SQL source of truth for accumulator data.",
