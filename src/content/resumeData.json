@@ -3,13 +3,13 @@
   "mottoSteps": [
     { "label": "Build", "emoji": "🛠️" },
     { "label": "Fix", "emoji": "🔧" },
-    { "label": "Repeat", "emoji": "↺" }
+    { "label": "Repeat", "emoji": "∞" }
   ],
   "eyebrow": "",
-  "headline": "Backend, Data & Applied AI Workflows.",
+  "headline": "Backend, Data & Applied AI.",
   "intro": "Software engineer with {years}+ years building production Java services and distributed systems. Specializing in AI-assisted workflows, backend architecture, and operational automation.",
   "location": "United States",
-  "availability": "# Actively Exploring Roles",
+  "availability": "# Open to New Roles",
   "workAuthorization": "",
   "remotePreference": "",
   "profileImage": "/images/profile-photo.jpg",
@@ -37,9 +37,9 @@
       "stack": "Java · Spring Boot · Kafka · RabbitMQ"
     },
     {
-      "title": "🧰 Engineering platforms",
-      "description": "Building internal tools and data foundations that make teams faster and production operations clearer.",
-      "stack": "Python · Databricks · GraphQL · Kubernetes"
+      "title": "🧰 Data engineering & platforms",
+      "description": "Building reliable datasets, pipelines, and internal tools that make teams faster and production operations clearer.",
+      "stack": "Python · Databricks · Spark · Airflow · GraphQL · Kubernetes"
     }
   ],
   "selectedWork": [
@@ -56,6 +56,13 @@
       "problem": "High-volume routine cases consume reviewer bandwidth, while ambiguous cases still require judgment.",
       "approach": "Gemini and ADK evaluate business rules to resolve standard cases automatically and escalate exceptions for review.",
       "stack": "Gemini · Vertex AI SDK · Google ADK · ReactJS"
+    },
+    {
+      "title": "📊 Member data platform",
+      "context": "Data · Healthcare",
+      "problem": "Accumulator data spanned multiple systems, complicating consistent analytics and reporting.",
+      "approach": "A Databricks + Spark SQL source of truth feeding Looker datasets and Airflow-driven daily client reports.",
+      "stack": "Databricks · Spark SQL · Airflow · Looker"
     },
     {
       "title": "⚡ Event-driven Java service platform",
@@ -87,9 +94,10 @@
     "gpa": "3.6"
   },
   "skills": {
-    "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting", "JavaScript", "HTML", "CSS"],
-    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
-    "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "ReactJS", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
+    "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting"],
+    "Backend & Platform": ["Spring Boot", "Flask", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
+    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Ragas", "Vertex AI Evaluation", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
+    "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS"],
     "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
   },
@@ -104,7 +112,7 @@
       "location": "Dallas, TX",
       "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "ReactJS", "Express", "GraphQL", "Databricks", "Airflow", "Looker"],
       "responsibilities": [
-        "Fluent in the Applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
+        "Well-versed in the Applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
         "Runs the team's Flask tooling hub: remediation, test data, and prod support in one auditable UI.",
         "Ships claims visibility: an Express/GraphQL dashboard across every processing state.",
         "Built the Databricks + Spark SQL source of truth for accumulator data.",

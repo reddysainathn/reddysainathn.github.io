@@ -85,7 +85,7 @@ const Hero = ({ data }) => {
               {data.mottoSteps.map((step, index) => (
                 <React.Fragment key={step.label}>
                   {index > 0 && <span className="motto-arrow" aria-hidden="true">-&gt;</span>}
-                  <span className={`motto-step motto-step-${index + 1}`}><span aria-hidden="true">{step.emoji}</span> {step.label}</span>
+                  <span className={`motto-step motto-step-${index + 1}`}>{step.emoji && <span aria-hidden="true">{step.emoji}</span>}{step.icon && <TechIcon name={step.icon} />}{' '}{step.label}</span>
                 </React.Fragment>
               ))}
             </span>}
@@ -124,8 +124,8 @@ const Hero = ({ data }) => {
       <div className="contact-links">
         <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><FontAwesomeIcon icon={faEnvelope} /> {data.email}</a>
         <button type="button" className="icon-button no-print" onClick={copyEmail} aria-label={copied ? 'Email address copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email'}><FontAwesomeIcon icon={copied ? faCheck : faCopy} /></button>
-        <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub"><TechIcon name="github" /></a>
-        <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><TechIcon name="linkedin" /></a>
+        <a className="icon-link" href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub"><TechIcon name="github" /></a>
+        <a className="icon-link" href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><TechIcon name="linkedin" /></a>
         <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
         <span className="education-inline"><FontAwesomeIcon icon={faGraduationCap} /><span>{[data.education.degree, data.education.school].filter(Boolean).join(' · ')}</span></span>
       </div>

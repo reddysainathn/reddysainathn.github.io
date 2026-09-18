@@ -8,7 +8,7 @@ const Experience = ({ experience = [], defaultLogo }) => (
     <div className="section-heading"><FontAwesomeIcon icon={faBriefcase} /><h2>Career timeline</h2></div>
     {(Array.isArray(experience) ? experience : []).map((job, index) => (
       <article className={`experience-card ${index === 0 ? 'current-role' : ''}`} key={index}>
-        <div className="timeline-marker" title={roleTenure(job.startDate, job.endDate) || undefined} aria-label={`${job.role} at ${job.company}: ${roleTenure(job.startDate, job.endDate) || job.startDate}`}><span data-tenure={roleTenure(job.startDate, job.endDate) || undefined} /></div>
+        <div className="timeline-marker" aria-label={`${job.role} at ${job.company}: ${roleTenure(job.startDate, job.endDate) || job.startDate}`}><span data-tenure={roleTenure(job.startDate, job.endDate) || undefined} /></div>
         <div className="logo-container">
           <img src={job.logo || defaultLogo} alt={`${job.company} logo`} className="company-logo" loading="lazy" decoding="async" width="84" height="58" />
         </div>
