@@ -100,6 +100,11 @@ a:hover { text-decoration: underline; }
 .years-pill { border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-family: 'SFMono-Regular', Consolas, monospace; font-size: .7rem; font-weight: 700; letter-spacing: .06em; padding: 7px 10px; text-transform: uppercase; }
 .contact-links > * { align-items: center; display: inline-flex; }
 ::selection { background: var(--accent); color: #fff; }
+html { scrollbar-color: var(--line) var(--paper); scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--line); border: 2px solid var(--paper); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
 .reveal.revealed { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
