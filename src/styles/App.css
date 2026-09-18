@@ -1,5 +1,5 @@
 :root { --ink: #172126; --muted: #5e6a6f; --accent: #087f8c; --signal: #e7784f; --line: #cfd9dc; --paper: #eef2f3; --white: #ffffff; --invert: #ffffff; --card: #ffffff; --body: #354247; --thumb: #52745a; color-scheme: light; }
-[data-theme="dark"] { --ink: #e9f0f2; --muted: #9fb0b5; --accent: #3fb6c2; --signal: #f0926b; --line: #2b3a40; --paper: #0f1619; --white: #ffffff; --invert: #10181b; --card: #172227; --body: #c2ced2; --thumb: #8fb996; color-scheme: dark; }
+[data-theme="dark"] { --ink: #e9f0f2; --muted: #9fb0b5; --accent: #3fb6c2; --signal: #f0926b; --line: #2b3a40; --paper: #131c20; --white: #ffffff; --invert: #10181b; --card: #172227; --body: #c2ced2; --thumb: #8fb996; color-scheme: dark; }
 body { background: var(--paper); color: var(--ink); }
 .portfolio { max-width: 980px; margin: 0 auto; padding: 18px 28px 36px; text-align: left; }
 .introduction { padding: 12px 0 18px; border-bottom: 1px solid var(--line); }
