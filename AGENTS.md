@@ -17,6 +17,7 @@
 ## Planning & communication
 - Plan first for anything beyond a trivial edit; present the plan, then implement on approval.
 - Use question prompts for real decisions (scope, naming, strategy) instead of guessing twice.
+- Implement the smallest diff that does the job: reuse existing classes/styles, zero new CSS when possible.
 - Keep responses short and factual. No emojis unless requested.
 
 ## Performance (hard budget)
@@ -43,5 +44,12 @@
 - No Tailwind (declined — custom CSS with variables is the system).
 - No prerender/SSG (declined, revisit only for SEO emergencies).
 - Dark mode via `data-theme` + OS default; print always forces a clean light resume.
+- All motion must be GPU-only keyframes/transitions with `prefers-reduced-motion` guards and print final states.
 - Analytics: custom events centralized in `src/lib/events.js` (`section_view`, `scroll_depth`, `print_resume_click`, `print_completed`, `contact_click`, `contact_copy`, `outbound_click`, `engaged_time`, `theme_toggle`, `palette_open`, `palette_action`); Cloudflare is pageviews-only backup.
 - Filenames must be adblock-safe: never `analytics.js` or other EasyPrivacy-matching names (use `events.js` style neutrals).
+
+## Parked threads (blocked on user content, do not invent)
+- Clickable proof: project GitHub/demo URLs for Selected systems cards (`project.links` support already coded).
+- Testimonials: 2–3 quotes (`testimonials: []` renders nothing until filled).
+- Work authorization + remote preference (JSON fields exist, empty).
+- PageSpeed before/after receipt for the migration (live site is the old baseline until merged work deploys).
