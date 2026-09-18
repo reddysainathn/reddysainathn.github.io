@@ -140,13 +140,15 @@ export const initHashSync = () => {
   if (!('replaceState' in window.history)) return;
   const observer = new IntersectionObserver(
     entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && window.location.hash !== `#${entry.target.id}`) {
-          window.history.replaceState(null, '', `#${entry.target.id}`);
-        }
-      });
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => SECTION_IDS.indexOf(a.target.id) - SECTION_IDS.indexOf(b.target.id));
+      const current = visible[visible.length - 1];
+      if (current && window.location.hash !== `#${current.target.id}`) {
+        window.history.replaceState(null, '', `#${current.target.id}`);
+      }
     },
-    { rootMargin: '-45% 0px -45% 0px' }
+    { rootMargin: '-60% 0px -25% 0px' }
   );
   SECTION_IDS.forEach(id => {
     const el = document.getElementById(id);

@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import PrintResume from './components/PrintResume';
 import CommandPalette from './components/CommandPalette';
+import Scrollbar from './components/Scrollbar';
 import Testimonials from './components/Testimonials';
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
       </div>
       <PrintResume data={data} />
       <CommandPalette />
+      <Scrollbar />
     </>
   );
 };
