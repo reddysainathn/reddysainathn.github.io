@@ -1,9 +1,9 @@
 {
   "name": "Sainath R",
   "mottoSteps": [
-    { "label": "Build" },
-    { "label": "Fix" },
-    { "label": "Repeat" }
+    { "label": "Build", "emoji": "🛠️" },
+    { "label": "Fix", "emoji": "🔧" },
+    { "label": "Repeat", "emoji": "♻️" }
   ],
   "eyebrow": "",
   "headline": "Backend, Data & Applied AI Workflows.",
