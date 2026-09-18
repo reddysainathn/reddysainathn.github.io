@@ -3,7 +3,7 @@
   "mottoSteps": [
     { "label": "Build", "emoji": "🛠️" },
     { "label": "Fix", "emoji": "🔧" },
-    { "label": "Repeat", "emoji": "♻️" }
+    { "label": "Repeat", "emoji": "↻" }
   ],
   "eyebrow": "",
   "headline": "Backend, Data & Applied AI Workflows.",
