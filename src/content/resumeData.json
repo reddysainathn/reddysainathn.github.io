@@ -3,13 +3,13 @@
   "mottoSteps": [
     { "label": "Build", "emoji": "🛠️" },
     { "label": "Fix", "emoji": "🔧" },
-    { "label": "Repeat", "emoji": "🔁" }
+    { "label": "Repeat", "emoji": "↺" }
   ],
   "eyebrow": "",
-  "headline": "Java backend systems and applied AI workflows.",
+  "headline": "Backend, Data & Applied AI Workflows.",
   "intro": "Software engineer with {years}+ years building production Java services and distributed systems. Specializing in AI-assisted workflows, backend architecture, and operational automation.",
   "location": "United States",
-  "availability": "Open to backend and applied AI roles",
+  "availability": "# Actively Exploring Roles",
   "workAuthorization": "",
   "remotePreference": "",
   "profileImage": "/images/profile-photo.jpg",
@@ -22,7 +22,8 @@
     { "label": "Spring Boot", "icon": "springboot" },
     { "label": "Distributed Systems", "icon": "distributed" },
     { "label": "Microservices", "icon": "microservices" },
-    { "label": "Cloud & Data", "icon": "cloud-data" }
+    { "label": "Data Engineering", "icon": "data-engineering" },
+    { "label": "Cloud", "icon": "cloud" }
   ],
   "specialties": [
     {
@@ -54,7 +55,7 @@
       "context": "Applied AI · Healthcare",
       "problem": "High-volume routine cases consume reviewer bandwidth, while ambiguous cases still require judgment.",
       "approach": "Gemini and ADK evaluate business rules to resolve standard cases automatically and escalate exceptions for review.",
-      "stack": "Gemini · Vertex AI SDK · Google ADK · React"
+      "stack": "Gemini · Vertex AI SDK · Google ADK · ReactJS"
     },
     {
       "title": "⚡ Event-driven Java service platform",
@@ -68,7 +69,7 @@
       "context": "Internal platform · Production tooling",
       "problem": "Operational scripts lived in scattered locations with no safe, consistent way to run them.",
       "approach": "A unified Flask console with reusable execution patterns, rollback support, and full audit trails.",
-      "stack": "Python · Flask · React · Data remediation"
+      "stack": "Python · Flask · ReactJS · Data remediation"
     },
     {
       "title": "🕸️ Network graph and pathfinding service",
@@ -88,7 +89,7 @@
   "skills": {
     "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting", "JavaScript", "HTML", "CSS"],
     "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
-    "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "React", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
+    "Backend & Platform": ["Spring Boot", "Flask", "HTMX", "ReactJS", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
     "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
   },
@@ -101,12 +102,13 @@
       "logo": "./logos/collective-health.svg",
       "mainFocus": "Applied AI, Backend & Data",
       "location": "Dallas, TX",
-      "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "React", "Express", "GraphQL", "Databricks"],
+      "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "ReactJS", "Express", "GraphQL", "Databricks", "Airflow", "Looker"],
       "responsibilities": [
-        "Fluent in the applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
+        "Fluent in the Applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
         "Runs the team's Flask tooling hub: remediation, test data, and prod support in one auditable UI.",
         "Ships claims visibility: an Express/GraphQL dashboard across every processing state.",
         "Built the Databricks + Spark SQL source of truth for accumulator data.",
+        "Automates daily client reporting with Airflow over warehouse queries into Looker datasets.",
         "Builds and runs Spring Boot adjudication + X12 837 services on Kafka/RabbitMQ — DLQ replay, Grafana alerts, rollback tooling."
       ],
       "hideResponsibilities": false

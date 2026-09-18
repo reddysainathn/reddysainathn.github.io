@@ -84,7 +84,7 @@ const Hero = ({ data }) => {
             {Array.isArray(data.mottoSteps) && <span className="motto" aria-label="Build, fix, repeat">
               {data.mottoSteps.map((step, index) => (
                 <React.Fragment key={step.label}>
-                  {index > 0 && <span className="motto-arrow" aria-hidden="true">=&gt;</span>}
+                  {index > 0 && <span className="motto-arrow" aria-hidden="true">-&gt;</span>}
                   <span className={`motto-step motto-step-${index + 1}`}><span aria-hidden="true">{step.emoji}</span> {step.label}</span>
                 </React.Fragment>
               ))}

@@ -46,6 +46,16 @@ const STROKE_ICONS = {
       <path d="M3 12A9 3 0 0 0 21 12" />
     </>
   ),
+  'data-engineering': (
+    <>
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+      <path d="M3 12A9 3 0 0 0 21 12" />
+    </>
+  ),
+  cloud: (
+    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+  ),
 };
 
 export const TechIcon = ({ name }) => {
