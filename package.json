@@ -7,18 +7,18 @@
     "node": ">=20.19.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.3.1",
-    "@fortawesome/free-brands-svg-icons": "^7.3.1",
-    "@fortawesome/free-solid-svg-icons": "^7.3.1",
-    "@fortawesome/react-fontawesome": "^3.5.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/prerender-entry.jsx --outDir dist-ssr && node tools/snapshot.mjs",
+    "build_legacy": "vite build && cp dist/index.html dist/404.html",
     "postbuild": "cp dist/index.html dist/404.html",
     "preview": "vite preview",
+    "format": "prettier --write src index.html",
+    "format:check": "prettier --check src index.html",
+    "setup": "git config core.hooksPath tools/git-hooks",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -35,8 +35,13 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.3.1",
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
+    "@fortawesome/react-fontawesome": "^3.5.0",
     "@vitejs/plugin-react": "^6.1.1",
     "gh-pages": "^6.3.0",
+    "prettier": "^3.9.8",
     "vite": "^8.3.0"
   }
 }

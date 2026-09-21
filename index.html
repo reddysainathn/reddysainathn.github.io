@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <script>
       try {
-        document.documentElement.dataset.theme =
-          matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       } catch (e) {}
     </script>
     <link rel="icon" href="./favicon2.svg" />
@@ -46,16 +45,30 @@
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-6X9PTEH23X"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
 
       gtag('config', 'G-6X9PTEH23X');
     </script>
     <!-- Cloudflare Web Analytics - deferred -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6c5895f235c9492e8324e34b5563c72d"}'></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "6c5895f235c9492e8324e34b5563c72d"}'
+    ></script>
     <title>Sainath | Backend & Data</title>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"Person","name":"Sainath","jobTitle":"Software Engineer","url":"https://reddysainathn.github.io/","sameAs":["https://github.com/reddysainathn","https://www.linkedin.com/in/reddysainathn/"],"knowsAbout":["Java","Spring Boot","Applied AI","Distributed Systems","Microservices"]}
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sainath",
+        "jobTitle": "Software Engineer",
+        "url": "https://reddysainathn.github.io/",
+        "sameAs": ["https://github.com/reddysainathn", "https://www.linkedin.com/in/reddysainathn/"],
+        "knowsAbout": ["Java", "Spring Boot", "Applied AI", "Distributed Systems", "Microservices"]
+      }
     </script>
   </head>
   <body>

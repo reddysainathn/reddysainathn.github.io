@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const mod = await import(join(root, 'dist-ssr', 'prerender-entry.mjs'));
+const target = join(root, 'dist', 'index.html');
+const before = fs.readFileSync(target, 'utf8');
+const slot = '<div id="root"></div>';
+if (!before.includes(slot)) throw new Error('slot missing');
+fs.writeFileSync(target, before.replace(slot, '<div id="root">' + mod.render() + '</div>'));

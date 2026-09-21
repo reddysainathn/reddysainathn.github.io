@@ -2,16 +2,13 @@ const VALID_THEMES = ['light', 'dark'];
 
 export const getPreferredTheme = () => {
   if (typeof window === 'undefined') return 'light';
-  if (
-    typeof window.matchMedia === 'function' &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  ) {
+  if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     return 'dark';
   }
   return 'light';
 };
 
-export const applyTheme = theme => {
+export const applyTheme = (theme) => {
   if (typeof document === 'undefined') return;
   const next = VALID_THEMES.includes(theme) ? theme : 'light';
   document.documentElement.dataset.theme = next;

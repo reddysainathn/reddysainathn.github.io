@@ -24,8 +24,8 @@ export const initScrollTracking = () => {
   const seenSections = new Set();
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting && !seenSections.has(entry.target.id)) {
             seenSections.add(entry.target.id);
             trackEvent('section_view', { section: entry.target.id });
@@ -34,7 +34,7 @@ export const initScrollTracking = () => {
       },
       { threshold: 0.35 }
     );
-    SECTION_IDS.forEach(id => {
+    SECTION_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
@@ -48,7 +48,7 @@ export const initScrollTracking = () => {
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     if (scrollable <= 0) return;
     const pct = Math.round((window.scrollY / scrollable) * 100);
-    milestones.forEach(milestone => {
+    milestones.forEach((milestone) => {
       if (pct >= milestone && !hit.has(milestone)) {
         hit.add(milestone);
         trackEvent('scroll_depth', { percent: milestone });
@@ -70,7 +70,7 @@ export const initScrollTracking = () => {
 
 export const initClickTracking = () => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
-  document.addEventListener('click', event => {
+  document.addEventListener('click', (event) => {
     const anchor = event.target && event.target.closest ? event.target.closest('a') : null;
     if (!anchor) return;
     const href = anchor.getAttribute('href') || '';
@@ -100,7 +100,7 @@ export const initEngagementTracking = () => {
   window.setInterval(() => {
     if (document.visibilityState !== 'visible') return;
     activeSeconds += 5;
-    milestones.forEach(milestone => {
+    milestones.forEach((milestone) => {
       if (activeSeconds >= milestone && !hit.has(milestone)) {
         hit.add(milestone);
         trackEvent('engaged_time', { seconds: milestone });
@@ -119,8 +119,8 @@ export const initReveals = () => {
   const targets = document.querySelectorAll('.section-block, .site-footer');
   if (!('IntersectionObserver' in window)) return;
   const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
           observer.unobserve(entry.target);
@@ -129,7 +129,7 @@ export const initReveals = () => {
     },
     { threshold: 0.12 }
   );
-  targets.forEach(el => {
+  targets.forEach((el) => {
     el.classList.add('reveal');
     observer.observe(el);
   });
@@ -139,9 +139,9 @@ export const initHashSync = () => {
   if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
   if (!('replaceState' in window.history)) return;
   const observer = new IntersectionObserver(
-    entries => {
+    (entries) => {
       const visible = entries
-        .filter(entry => entry.isIntersecting)
+        .filter((entry) => entry.isIntersecting)
         .sort((a, b) => SECTION_IDS.indexOf(a.target.id) - SECTION_IDS.indexOf(b.target.id));
       const current = visible[visible.length - 1];
       if (current && window.location.hash !== `#${current.target.id}`) {
@@ -150,7 +150,7 @@ export const initHashSync = () => {
     },
     { rootMargin: '-60% 0px -25% 0px' }
   );
-  SECTION_IDS.forEach(id => {
+  SECTION_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (el) observer.observe(el);
   });
