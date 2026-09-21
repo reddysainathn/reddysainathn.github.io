@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { TechIcon } from './TechIcon';
 
 const SelectedWork = ({ work = [] }) => (
   <section id="selected-work" className="selected-work section-block">
-    <div className="section-heading"><FontAwesomeIcon icon={faCode} /><h2>Selected systems</h2><span className="section-tag">Problems, architecture, tradeoffs</span></div>
+    <div className="section-heading"><TechIcon name="code" /><h2>Selected systems</h2><span className="section-tag">Problems, architecture, tradeoffs</span></div>
     <div className="work-list">
       {(Array.isArray(work) ? work : []).map(project => (
         <article className="work-item" key={project.title}>

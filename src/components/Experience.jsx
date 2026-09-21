@@ -1,11 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { TechIcon } from './TechIcon';
 import { roleTenure } from '../utils/dates';
 
 const Experience = ({ experience = [], defaultLogo }) => (
   <section id="experience" className="experience section-block">
     <div className="timeline-rail" aria-hidden="true" />
-    <div className="section-heading"><FontAwesomeIcon icon={faBriefcase} /><h2>Career timeline</h2></div>
+    <div className="section-heading"><TechIcon name="briefcase" /><h2>Career timeline</h2></div>
     {(Array.isArray(experience) ? experience : []).map((job, index) => (
       <article className={`experience-card ${index === 0 ? 'current-role' : ''}`} key={index}>
         <div className="timeline-marker" aria-label={`${job.role} at ${job.company}: ${roleTenure(job.startDate, job.endDate) || job.startDate}`}><span data-tenure={roleTenure(job.startDate, job.endDate) || undefined} /></div>

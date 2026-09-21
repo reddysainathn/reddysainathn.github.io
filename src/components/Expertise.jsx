@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { TechIcon } from './TechIcon';
 
 const Expertise = ({ specialties = [] }) => (
   <section id="expertise" className="specialties section-block">
-    <div className="section-heading"><FontAwesomeIcon icon={faCode} /><h2>What I build</h2><span className="section-tag">Three practices, one engineer</span></div>
+    <div className="section-heading"><TechIcon name="code" /><h2>What I build</h2><span className="section-tag">Three practices, one engineer</span></div>
     <div className="specialty-grid">
       {(Array.isArray(specialties) ? specialties : []).map(specialty => (
         <article className="specialty" key={specialty.title}>

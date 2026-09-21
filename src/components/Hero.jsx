@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCopy, faEnvelope, faFileLines, faGraduationCap, faLocationDot, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { yearsOfExperience } from '../utils/dates';
 import { pdfFileName } from '../utils/pdf';
 import { trackEvent } from '../lib/events';
@@ -94,8 +92,8 @@ const Hero = ({ data }) => {
           <div className="badge-row">
             {data.availability && <span className="availability-badge">{data.availability}</span>}
             {Number.isFinite(heroYears) && heroYears > 0 && <span className="years-pill">💼 {heroYears}+ years experience</span>}
-            <button type="button" className="print-button no-print" onClick={printResume}><FontAwesomeIcon icon={faFileLines} /> Resume</button>
-            <button type="button" className="print-button no-print" onClick={toggleTheme} aria-pressed={theme === 'dark'} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} title="Toggle theme"><FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} /></button>
+            <button type="button" className="print-button no-print" onClick={printResume}><TechIcon name="file-lines" /> Resume</button>
+            <button type="button" className="print-button no-print" onClick={toggleTheme} aria-pressed={theme === 'dark'} suppressHydrationWarning aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} title="Toggle theme"><TechIcon name={theme === 'dark' ? 'sun' : 'moon'} /></button>
           </div>
           <p className="intro-copy">{data.intro.replace('{years}', heroYears ?? 10)}</p>
         </div>
@@ -122,10 +120,10 @@ const Hero = ({ data }) => {
         })}
       </div>
       <div className="contact-links">
-        <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><FontAwesomeIcon icon={faEnvelope} /> {data.email}</a>
-        <button type="button" className="icon-button no-print" onClick={copyEmail} aria-label={copied ? 'Email address copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email'}><FontAwesomeIcon icon={copied ? faCheck : faCopy} /></button>
-        <span><FontAwesomeIcon icon={faLocationDot} /> {data.location}</span>
-        <span className="education-inline"><FontAwesomeIcon icon={faGraduationCap} /><span>{[data.education.degree, data.education.school].filter(Boolean).join(' · ')}</span></span>
+        <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}><TechIcon name="envelope" /> {data.email}</a>
+        <button type="button" className="icon-button no-print" onClick={copyEmail} aria-label={copied ? 'Email address copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email'}><TechIcon name={copied ? 'check' : 'copy'} /></button>
+        <span><TechIcon name="location-dot" /> {data.location}</span>
+        <span className="education-inline"><TechIcon name="graduation-cap" /><span>{[data.education.degree, data.education.school].filter(Boolean).join(' · ')}</span></span>
       </div>
     </section>
   );
