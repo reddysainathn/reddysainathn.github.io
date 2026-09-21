@@ -21,8 +21,11 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Verify production build
-        run: npm run build
+    - name: Check formatting
+      run: npm run format:check
+
+    - name: Verify production build
+      run: npm run build

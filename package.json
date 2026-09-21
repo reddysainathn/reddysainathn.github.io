@@ -18,7 +18,6 @@
     "preview": "vite preview",
     "format": "prettier --write src index.html",
     "format:check": "prettier --check src index.html",
-    "prepare": "husky",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -41,7 +40,6 @@
     "@fortawesome/react-fontawesome": "^3.5.0",
     "@vitejs/plugin-react": "^6.1.1",
     "gh-pages": "^6.3.0",
-    "husky": "^9.1.7",
     "prettier": "^3.9.8",
     "vite": "^8.3.0"
   }
