@@ -18,6 +18,7 @@
     "preview": "vite preview",
     "format": "prettier --write src index.html",
     "format:check": "prettier --check src index.html",
+    "setup": "git config core.hooksPath tools/git-hooks",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
