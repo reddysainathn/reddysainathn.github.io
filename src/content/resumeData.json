@@ -95,11 +95,62 @@
   },
   "skills": {
     "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting"],
-    "Backend & Platform": ["Spring Boot", "Flask", "Kafka", "RabbitMQ", "Hibernate", "Liquibase", "Activiti", "Play Framework", "ExpressJS", "GraphQL"],
-    "Applied AI": ["Vertex AI SDK", "Gemini models", "Google ADK", "LangChain", "RAG", "Ragas", "Vertex AI Evaluation", "Prompt engineering", "Agentic workflows", "AI-assisted code generation", "Document classification", "Rule evaluation"],
+    "Backend & Platform": [
+      "Spring Boot",
+      "Flask",
+      "Kafka",
+      "RabbitMQ",
+      "Hibernate",
+      "Liquibase",
+      "Activiti",
+      "Play Framework",
+      "ExpressJS",
+      "GraphQL"
+    ],
+    "Applied AI": [
+      "Vertex AI SDK",
+      "Gemini models",
+      "Google ADK",
+      "LangChain",
+      "RAG",
+      "Ragas",
+      "Vertex AI Evaluation",
+      "Prompt engineering",
+      "Agentic workflows",
+      "AI-assisted code generation",
+      "Document classification",
+      "Rule evaluation"
+    ],
     "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS"],
-    "Data": ["Databricks", "Spark SQL", "Airflow", "Looker", "PostgreSQL", "Oracle", "MySQL", "MongoDB", "Neo4j", "Redis", "Apache Solr", "pandas", "NumPy"],
-    "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Git", "Linux", "Splunk", "Grafana", "SonarQube", "Fortify", "SAML", "OAuth 2.0"]
+    "Data": [
+      "Databricks",
+      "Spark SQL",
+      "Airflow",
+      "Looker",
+      "PostgreSQL",
+      "Oracle",
+      "MySQL",
+      "MongoDB",
+      "Neo4j",
+      "Redis",
+      "Apache Solr",
+      "pandas",
+      "NumPy"
+    ],
+    "Cloud & DevOps": [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "Git",
+      "Linux",
+      "Splunk",
+      "Grafana",
+      "SonarQube",
+      "Fortify",
+      "SAML",
+      "OAuth 2.0"
+    ]
   },
   "experience": [
     {
@@ -110,7 +161,22 @@
       "logo": "./logos/collective-health.svg",
       "mainFocus": "Applied AI, Backend & Data",
       "location": "Dallas, TX",
-      "technologies": ["Java", "Spring Boot", "Kafka", "RabbitMQ", "Gemini", "Vertex AI", "LangChain", "Python", "ReactJS", "Express", "GraphQL", "Databricks", "Airflow", "Looker"],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "RabbitMQ",
+        "Gemini",
+        "Vertex AI",
+        "LangChain",
+        "Python",
+        "ReactJS",
+        "Express",
+        "GraphQL",
+        "Databricks",
+        "Airflow",
+        "Looker"
+      ],
       "responsibilities": [
         "Well-versed in the Applied-AI stack: Gemini, Vertex AI, Google ADK, RAG retrieval.",
         "Runs the team's Flask tooling hub: remediation, test data, and prod support in one auditable UI.",

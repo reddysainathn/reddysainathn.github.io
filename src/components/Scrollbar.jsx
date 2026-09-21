@@ -29,17 +29,20 @@ const Scrollbar = () => {
     const requestPaint = () => {
       if (!ticking) {
         ticking = true;
-        requestAnimationFrame(() => { ticking = false; paint(); });
+        requestAnimationFrame(() => {
+          ticking = false;
+          paint();
+        });
       }
     };
 
-    const onDragMove = (startY, startScroll) => event => {
+    const onDragMove = (startY, startScroll) => (event) => {
       const { total, maxTop } = metrics();
       if (total <= 0 || maxTop <= 0) return;
       window.scrollTo(0, startScroll + ((event.clientY - startY) / maxTop) * total);
     };
 
-    const onThumbDown = event => {
+    const onThumbDown = (event) => {
       event.preventDefault();
       const startY = event.clientY;
       const startScroll = window.scrollY;
@@ -52,7 +55,7 @@ const Scrollbar = () => {
       window.addEventListener('mouseup', up);
     };
 
-    const onRailDown = event => {
+    const onRailDown = (event) => {
       if (event.target !== event.currentTarget) return;
       const { total } = metrics();
       if (total <= 0) return;

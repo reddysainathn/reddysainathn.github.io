@@ -1,7 +1,7 @@
 export const yearsOfExperience = (experience = []) => {
   const starts = (Array.isArray(experience) ? experience : [])
-    .map(job => new Date(job.startDate))
-    .filter(date => !Number.isNaN(date.getTime()));
+    .map((job) => new Date(job.startDate))
+    .filter((date) => !Number.isNaN(date.getTime()));
   if (starts.length === 0) return null;
   const earliest = new Date(Math.min(...starts));
   const now = new Date();
