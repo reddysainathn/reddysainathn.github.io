@@ -1,3 +1,7 @@
+const commit = typeof __COMMIT__ !== 'undefined' ? __COMMIT__ : '';
+const buildTime = typeof __BUILD_TIME__ !== 'undefined' ? __BUILD_TIME__ : '';
+const stamp = [commit, buildTime].filter(Boolean).join(' · ');
+
 const Footer = ({ name }) => (
   <footer className="site-footer" aria-label="Footer">
     <div className="status-bar">
@@ -15,9 +19,7 @@ const Footer = ({ name }) => (
       >
         ⌘K
       </button>
-      <span>
-        {__COMMIT__} · {__BUILD_TIME__}
-      </span>
+      <span>{stamp}</span>
     </div>
   </footer>
 );
