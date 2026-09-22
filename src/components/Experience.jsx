@@ -36,16 +36,16 @@ const Experience = ({ experience = [], defaultLogo }) => (
           </div>
           <p className="company-line">
             <strong>{job.company}</strong>
-            <span>·</span>
-            {job.domain}
-            <span>·</span>
-            {job.mainFocus}
             {job.location && (
               <>
                 <span>·</span>
                 {job.location}
               </>
             )}
+            <span>·</span>
+            {job.domain}
+            <span>·</span>
+            {job.mainFocus}
           </p>
           <div className="timeline-tech" aria-label={`${job.company} technologies`}>
             {(job.technologies || []).map((technology) => (

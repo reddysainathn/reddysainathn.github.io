@@ -17,8 +17,8 @@
     "build_legacy": "vite build && cp dist/index.html dist/404.html",
     "postbuild": "cp dist/index.html dist/404.html",
     "preview": "vite preview",
-    "format": "prettier --write src index.html",
-    "format:check": "prettier --check src index.html",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "setup": "git config core.hooksPath tools/git-hooks",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"

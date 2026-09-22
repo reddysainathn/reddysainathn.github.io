@@ -156,7 +156,7 @@
     {
       "role": "Lead Software Engineer",
       "company": "Collective Health",
-      "domain": "Healthcare benefits and claims administration",
+      "domain": "Healthcare Benefits and Claims Administration",
       "startDate": "August 2022",
       "logo": "./logos/collective-health.svg",
       "mainFocus": "Applied AI, Backend & Data",
@@ -190,7 +190,7 @@
     {
       "role": "Software Engineer",
       "company": "Glueup.com (Event Bank)",
-      "domain": "Events, CRM, webinars, and networking",
+      "domain": "Events, CRM, Webinars, and Networking",
       "startDate": "October 2021",
       "endDate": "August 2022",
       "logo": "./logos/glue-up.svg",
@@ -207,7 +207,7 @@
     {
       "role": "Software Engineer",
       "company": "Verizon",
-      "domain": "Telecommunications and network provisioning",
+      "domain": "Telecommunications and Network Provisioning",
       "startDate": "April 2018",
       "endDate": "September 2021",
       "logo": "./logos/verizon.svg",
@@ -227,7 +227,7 @@
     {
       "role": "Application Developer",
       "company": "General Electric",
-      "domain": "Energy and pipeline operations",
+      "domain": "Energy and Pipeline Operations",
       "startDate": "October 2015",
       "endDate": "March 2018",
       "logo": "./logos/general-electric.svg",

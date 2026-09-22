@@ -1,2 +1,2 @@
 #!/bin/sh
-npm run format && git add -u -- src index.html
+npm run format && git add -u
