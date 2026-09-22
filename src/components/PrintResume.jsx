@@ -1,4 +1,4 @@
-import { yearsOfExperience } from '../utils/dates';
+import { yearsOfExperience, roleTenure } from '../utils/dates';
 import { TechIcon } from './TechIcon';
 
 const handle = (url) => url.replace('https://', '').split('/').filter(Boolean).pop();
@@ -10,7 +10,17 @@ const PrintResume = ({ data }) => {
     <div className="print-resume print-only" aria-hidden="true">
       <header>
         <h1>{data.name}</h1>
-        <p className="pr-headline">{data.headline}</p>
+        <p className="pr-headline">
+          {data.headline}
+          {years && (
+            <>
+              <span aria-hidden="true"> · </span>
+              <strong>
+                {years}+ years experience{data.availability ? ` · ${data.availability}` : ''}
+              </strong>
+            </>
+          )}
+        </p>
         <p className="pr-contact">
           {data.email && (
             <a href={`mailto:${data.email}`}>
@@ -34,17 +44,6 @@ const PrintResume = ({ data }) => {
               </a>
             </>
           )}
-          {data.location && (
-            <>
-              <span aria-hidden="true"> · 📍 </span>
-              {data.location}
-            </>
-          )}
-        </p>
-        <p className="pr-snapshot">
-          {[years && `${years}+ years experience`, data.availability, data.workAuthorization, data.remotePreference]
-            .filter(Boolean)
-            .join('  ·  ')}
         </p>
       </header>
       <section>
@@ -57,9 +56,10 @@ const PrintResume = ({ data }) => {
               </span>
               <span className="pr-dates">
                 {job.startDate} – {job.endDate || 'Present'}
+                {roleTenure(job.startDate, job.endDate) && ` · ${roleTenure(job.startDate, job.endDate)}`}
               </span>
             </p>
-            <p className="pr-meta">{[job.domain, job.mainFocus].filter(Boolean).join(' · ')}</p>
+            <p className="pr-meta">{[job.location, job.domain, job.mainFocus].filter(Boolean).join(' · ')}</p>
             {!job.hideResponsibilities && Array.isArray(job.responsibilities) && job.responsibilities.length > 0 && (
               <ul>
                 {job.responsibilities.map((item, i) => (
@@ -88,11 +88,13 @@ const PrintResume = ({ data }) => {
       </section>
       <section>
         <h2>Skills</h2>
-        {Object.entries(data.skills || {}).map(([category, skillList]) => (
-          <p key={category} className="pr-skills">
-            <strong>{category}:</strong> {(Array.isArray(skillList) ? skillList : []).join(', ')}
-          </p>
-        ))}
+        <div className="pr-cols">
+          {Object.entries(data.skills || {}).map(([category, skillList]) => (
+            <p key={category} className="pr-skills">
+              <strong>{category}:</strong> {(Array.isArray(skillList) ? skillList : []).join(', ')}
+            </p>
+          ))}
+        </div>
       </section>
       <section>
         <h2>Education</h2>

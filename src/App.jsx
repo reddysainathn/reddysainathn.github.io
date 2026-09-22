@@ -16,6 +16,9 @@ const App = () => {
 
   return (
     <>
+      <a className="skip-link no-print" href="#expertise">
+        Skip to content
+      </a>
       <div className="portfolio">
         <Hero data={data} />
         <Expertise specialties={data.specialties} />

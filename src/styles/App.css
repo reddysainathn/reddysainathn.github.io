@@ -4,7 +4,7 @@
   --accent: #087f8c;
   --signal: #e7784f;
   --line: #cfd9dc;
-  --paper: #eef2f3;
+  --paper: #f2f5f6;
   --white: #ffffff;
   --invert: #ffffff;
   --card: #ffffff;
@@ -1196,13 +1196,30 @@ button:focus-visible {
     transform: none !important;
   }
   .print-resume {
+    background: #f6f8f7;
     color: #000;
     font-size: 11px;
     line-height: 1.45;
   }
+  .print-resume header {
+    border-bottom: 2px solid #000;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+  .print-resume header > * {
+    text-align: center;
+  }
   .print-resume h1 {
-    font-size: 22px;
+    font-size: 24px;
     letter-spacing: 0;
+  }
+  .print-resume .pr-cols {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  .print-resume .pr-skills {
+    break-inside: avoid;
   }
   .print-resume h2 {
     border-bottom: 1px solid #000;
@@ -1223,8 +1240,13 @@ button:focus-visible {
     color: #000;
   }
   .print-resume .pr-contact a {
+    border: 1px solid #333;
+    border-radius: 999px;
     color: #000;
     font-weight: 700;
+    padding: 1px 8px;
+    text-decoration: none;
+    white-space: nowrap;
   }
   .print-resume .pr-headline {
     font-size: 12px;
@@ -1281,6 +1303,37 @@ button:focus-visible {
   }
 }
 @media print {
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 100 1000;
+    font-display: swap;
+    src: url('/fonts/dm-sans-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
+  }
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: -48px;
+    z-index: 200;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus-visible {
+    top: 12px;
+  }
   :root {
     --ink: #172126;
     --muted: #5e6a6f;

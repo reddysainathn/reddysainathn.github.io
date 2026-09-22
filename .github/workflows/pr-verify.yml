@@ -2,7 +2,7 @@ name: Verify PR
 
 on:
   pull_request:
-    branches: ["dev", "master"]
+    branches: ['dev', 'master']
 
 concurrency:
   group: pr-verify-${{ github.ref }}
@@ -21,11 +21,11 @@ jobs:
           node-version: 24
           cache: npm
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Check formatting
-      run: npm run format:check
+      - name: Check formatting
+        run: npm run format:check
 
-    - name: Verify production build
-      run: npm run build
+      - name: Verify production build
+        run: npm run build
