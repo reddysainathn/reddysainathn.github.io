@@ -47,7 +47,7 @@
 - All motion must be GPU-only keyframes/transitions with `prefers-reduced-motion` guards and print final states.
 - Analytics: custom events centralized in `src/lib/events.js` (`section_view`, `scroll_depth`, `print_resume_click`, `print_completed`, `contact_click`, `contact_copy`, `outbound_click`, `engaged_time`, `theme_toggle`, `palette_open`, `palette_action`); Cloudflare is pageviews-only backup.
 - Filenames must be adblock-safe: never `analytics.js` or other EasyPrivacy-matching names (use `events.js` style neutrals).
-- Icon sourcing (all icons inlined in `src/components/TechIcon.jsx`, zero requests): FontAwesome Free marks from `https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@<major>/svgs/solid/<name>.svg`; brand marks from the `simple-icons` CDN; line icons from `lucide-static`. FA Free is CC BY 4.0 — keep the attribution header in TechIcon.jsx and the packages in devDependencies as the source record.
+- Icon sourcing (all icons inlined in `src/components/TechIcon.jsx`, zero requests): FontAwesome Free marks from `https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@<major>/svgs/solid/<name>.svg`; brand marks from the `simple-icons` CDN; line icons from `lucide-static`. FA Free is CC BY 4.0 — keep the attribution header in TechIcon.jsx (packages intentionally absent from dependencies).
 
 ## Parked threads (blocked on user content, do not invent)
 - Clickable proof: project GitHub/demo URLs for Selected systems cards (`project.links` support already coded).

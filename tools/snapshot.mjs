@@ -2,11 +2,7 @@ import fs from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const outName = fs
-  .readdirSync(join(root, 'dist-ssr'))
-  .find(f => /^prerender-entry\.m?js$/.test(f));
-if (!outName) throw new Error('ssr bundle missing');
-const mod = await import(join(root, 'dist-ssr', outName));
+const mod = await import(join(root, 'dist-ssr', 'prerender-entry.mjs'));
 const target = join(root, 'dist', 'index.html');
 const before = fs.readFileSync(target, 'utf8');
 const slot = '<div id="root"></div>';

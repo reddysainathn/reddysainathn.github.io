@@ -2,8 +2,8 @@ const ICONS = {
   // Brand marks: Simple Icons (CC0). UI marks: Lucide (ISC).
   // App icons below are Font Awesome Free 7.x by Fonticons, Inc.
   // (Icons: CC BY 4.0 — https://fontawesome.com/license/free),
-  // inlined so the app ships zero icon requests. The packages remain
-  // in devDependencies as the canonical source record.
+  // inlined so the app ships zero icon requests. Refetch source:
+  // https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@<major>/svgs/solid/<name>.svg
   java: {
     vb: '0 0 24 24',
     fill: true,
