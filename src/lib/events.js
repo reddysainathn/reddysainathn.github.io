@@ -2,7 +2,24 @@
 // Silent no-ops when trackers are blocked. No PII is collected.
 // All listeners are passive/delegated; init is deferred to idle time
 // so measurement never costs first paint.
+// Measurement runs ONLY on the canonical host (plus localhost for testing);
+// UX behaviors (hash sync, reveals) run everywhere.
 const SECTION_IDS = ['expertise', 'selected-work', 'skills', 'experience', 'testimonials'];
+
+const DEFAULT_HOSTS = ['reddysainathn.github.io'];
+
+const allowedHosts = () => {
+  if (typeof window !== 'undefined' && Array.isArray(window.__analyticsHosts)) {
+    return window.__analyticsHosts;
+  }
+  return DEFAULT_HOSTS;
+};
+
+export const isAnalyticsEnabled = () => {
+  if (typeof window === 'undefined') return false;
+  if (typeof window.__analyticsEnabled === 'boolean') return window.__analyticsEnabled;
+  return allowedHosts().includes(window.location.hostname);
+};
 
 const deviceBucket = () => {
   if (typeof window === 'undefined') return undefined;
@@ -13,6 +30,7 @@ const deviceBucket = () => {
 };
 
 export const trackEvent = (name, params = {}) => {
+  if (!isAnalyticsEnabled()) return;
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
     window.gtag('event', name, { device_bucket: deviceBucket(), ...params });
   }
@@ -157,10 +175,12 @@ export const initHashSync = () => {
 };
 
 export const initAnalytics = () => {
+  initHashSync();
+  initReveals();
+  if (!isAnalyticsEnabled()) return;
+  trackEvent('page_view');
   initScrollTracking();
   initClickTracking();
   initEngagementTracking();
   initPrintTracking();
-  initHashSync();
-  initReveals();
 };
