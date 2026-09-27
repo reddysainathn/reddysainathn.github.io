@@ -13,3 +13,5 @@ Personal portfolio site, built with React 19 + Vite and deployed to GitHub Pages
 ## Deploy
 
 Pushes to `dev` trigger `.github/workflows/react-gh-pages.yml`, which builds `dist/` and publishes it to the `gh-pages` branch.
+
+Cloudflare Pages mirrors the same output: build command `npm run build`, output directory `dist`, `NODE_VERSION=24`.
