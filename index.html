@@ -53,38 +53,26 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Analytics load only on the canonical host. Preview, staging,
-         and local deploys stay untracked. Page views are sent
-         manually by initAnalytics since auto page_view is disabled below. -->
+    <!-- Google tag (gtag.js) - deferred so it never blocks first paint.
+         Host allowlist gate is parked for now (see window.__analyticsHosts
+         below) - tracking runs on all hosts until re-enabled. -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-6X9PTEH23X"></script>
     <script>
-      // Allowed analytics hosts — add domains here, one per line.
-      // e.g. 'localhost', '127.0.0.1', 'sainath.pages.dev'
-      window.__analyticsHosts = ['reddysainathn.github.io'];
-      try {
-        var hostOK = window.__analyticsHosts.indexOf(location.hostname) !== -1;
-        window.__analyticsEnabled = hostOK;
-        if (hostOK) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-          gtag('config', 'G-6X9PTEH23X', { send_page_view: false });
-
-          var gtagScript = document.createElement('script');
-          gtagScript.defer = true;
-          gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-6X9PTEH23X';
-          document.head.appendChild(gtagScript);
-
-          var cfScript = document.createElement('script');
-          cfScript.defer = true;
-          cfScript.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-          cfScript.setAttribute('data-cf-beacon', '{"token": "6c5895f235c9492e8324e34b5563c72d"}');
-          document.head.appendChild(cfScript);
-        }
-      } catch (e) {}
+      gtag('config', 'G-6X9PTEH23X');
     </script>
+    <!-- window.__analyticsHosts = ['reddysainathn.github.io']; -->
+    <!-- Cloudflare Web Analytics - deferred -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "6c5895f235c9492e8324e34b5563c72d"}'
+    ></script>
     <title>Sainath | Backend & Data</title>
     <script type="application/ld+json">
       {

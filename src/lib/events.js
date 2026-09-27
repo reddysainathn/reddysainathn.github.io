@@ -30,7 +30,8 @@ const deviceBucket = () => {
 };
 
 export const trackEvent = (name, params = {}) => {
-  if (!isAnalyticsEnabled()) return;
+  // Host gate parked: track everywhere until re-enabled.
+  // if (!isAnalyticsEnabled()) return;
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
     window.gtag('event', name, { device_bucket: deviceBucket(), ...params });
   }
@@ -177,8 +178,9 @@ export const initHashSync = () => {
 export const initAnalytics = () => {
   initHashSync();
   initReveals();
-  if (!isAnalyticsEnabled()) return;
-  trackEvent('page_view');
+  // Host gate parked: auto page_view from gtag config covers all hosts.
+  // if (!isAnalyticsEnabled()) return;
+  // trackEvent('page_view');
   initScrollTracking();
   initClickTracking();
   initEngagementTracking();
