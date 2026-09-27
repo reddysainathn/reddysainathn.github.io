@@ -39,7 +39,9 @@ const Experience = ({ experience = [], defaultLogo }) => (
             {job.location && (
               <>
                 <span>·</span>
-                {job.location}
+                <span className="job-location">
+                  <TechIcon name="location-dot" /> {job.location}
+                </span>
               </>
             )}
             <span>·</span>

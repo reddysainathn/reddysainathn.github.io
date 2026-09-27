@@ -573,9 +573,6 @@ h2 {
   margin: 0;
   transition: color 0.2s ease;
 }
-.experience-card:hover .role-line h3 {
-  color: var(--accent);
-}
 .duration {
   color: var(--accent);
   font-size: 0.82rem;
@@ -584,9 +581,20 @@ h2 {
 }
 .company-line {
   color: var(--ink);
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   font-weight: 600;
   margin: 4px 0 10px;
+}
+.company-line span.job-location {
+  color: var(--accent);
+  font-weight: 700;
+}
+.company-line .tag-icon {
+  color: #d93025;
+  height: 0.95em;
+  margin-right: 2px;
+  vertical-align: -2px;
+  width: 0.95em;
 }
 .company-line strong {
   font-weight: 700;
@@ -1303,20 +1311,6 @@ button:focus-visible {
   }
 }
 @media print {
-  @font-face {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 100 1000;
-    font-display: swap;
-    src: url('/fonts/dm-sans-latin.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 300 700;
-    font-display: swap;
-    src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
-  }
   .skip-link {
     position: absolute;
     left: 12px;
