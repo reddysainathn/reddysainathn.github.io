@@ -3,17 +3,17 @@ const buildTime = typeof __BUILD_TIME__ !== 'undefined' ? __BUILD_TIME__ : '';
 const stamp = [commit, buildTime].filter(Boolean).join(' · ');
 
 const Footer = ({ name }) => (
-  <footer className="site-footer" aria-label="Footer">
-    <div className="status-bar">
+  <footer className="site-footer [border-top:1px_solid_var(--line)] mt-2 pt-5 pb-2 text-center" aria-label="Footer">
+    <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-[10px] bg-ink px-3.5 py-2.5 font-mono [font-size:0.72rem] text-paper">
       <span>
-        <span className="code-accent">//</span> Thanks — {name.replace(/\s+R$/, '')};
+        <span className="font-bold text-signal">//</span> Thanks — {name.replace(/\s+R$/, '')};
       </span>
       <span>
-        <span className="code-accent">✓</span> 0 errors
+        <span className="font-bold text-signal">✓</span> 0 errors
       </span>
       <button
         type="button"
-        className="status-key no-print"
+        className="print:hidden rounded-md border border-solid border-current bg-transparent px-2 py-[2px] [font:inherit] text-inherit cursor-pointer"
         onClick={() => window.dispatchEvent(new Event('portfolio:open-palette'))}
         aria-label="Open command palette"
       >

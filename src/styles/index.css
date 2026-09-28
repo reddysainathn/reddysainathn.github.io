@@ -1,3 +1,33 @@
+/* Step 1: theme + utilities only — preflight stays out until it gets its
+   own reviewed step with explicit fixes (it resets heading weights and
+   svg display, which this design relies on). */
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* dark: utilities follow the data-theme toggle; OS default untouched. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* Map existing tokens so utilities read naturally. `inline` keeps the
+   var() references live so the toggle re-themes utilities for free. */
+@theme inline {
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-signal: var(--signal);
+  --color-line: var(--line);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-body: var(--body);
+  --color-thumb: var(--thumb);
+  --color-invert: var(--invert);
+}
+
+/* Exact mono stack used across eyebrow, motto, badges, pills. */
+@theme {
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: 'DM Sans', 'Helvetica Neue', sans-serif;

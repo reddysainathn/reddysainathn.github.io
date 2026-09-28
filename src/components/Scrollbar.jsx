@@ -78,8 +78,11 @@ const Scrollbar = () => {
   }, []);
 
   return (
-    <div className="scroll-rail no-print" aria-hidden="true">
-      <div className="scroll-thumb" ref={thumbRef} />
+    <div
+      className="fixed inset-y-0 right-0 z-[90] w-[18px] print:hidden before:absolute before:inset-y-0 before:left-1/2 before:w-[2px] before:-translate-x-1/2 before:bg-line before:content-['']"
+      aria-hidden="true"
+    >
+      <div className="absolute left-1/2 top-0 w-2 cursor-pointer rounded-md bg-accent hover:bg-signal" ref={thumbRef} />
     </div>
   );
 };
