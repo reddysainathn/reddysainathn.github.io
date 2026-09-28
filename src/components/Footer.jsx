@@ -13,7 +13,7 @@ const Footer = ({ name }) => (
       </span>
       <button
         type="button"
-        className="no-print rounded-md border border-solid border-current bg-transparent px-2 py-[2px] [font:inherit] text-inherit cursor-pointer"
+        className="print:hidden rounded-md border border-solid border-current bg-transparent px-2 py-[2px] [font:inherit] text-inherit cursor-pointer"
         onClick={() => window.dispatchEvent(new Event('portfolio:open-palette'))}
         aria-label="Open command palette"
       >

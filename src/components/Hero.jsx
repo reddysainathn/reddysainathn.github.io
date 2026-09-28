@@ -133,7 +133,7 @@ const Hero = ({ data }) => {
 
   return (
     <section className="[border-bottom:1px_solid_var(--line)] pt-3 pb-[18px]">
-      <div className="flex items-center justify-between gap-[42px] max-[1024px]:gap-[28px] max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[22px]">
+      <div className="flex items-center justify-between gap-[42px] print:gap-[20px] print:max-[768px]:gap-[20px] max-[1024px]:gap-[28px] max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[22px]">
         <div className="intro-content min-w-0">
           {data.eyebrow && (
             <p className="mt-0 mb-3 font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-accent">
@@ -211,14 +211,14 @@ const Hero = ({ data }) => {
             )}
             <button
               type="button"
-              className="no-print relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
+              className="print:hidden relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
               onClick={printResume}
             >
               <TechIcon name="file-lines" className="h-[1em] w-[1em] align-[-0.125em]" /> Resume
             </button>
             <button
               type="button"
-              className="no-print relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
+              className="print:hidden relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
               onClick={toggleTheme}
               aria-pressed={theme === 'dark'}
               suppressHydrationWarning
@@ -235,7 +235,7 @@ const Hero = ({ data }) => {
           <picture style={{ display: 'contents' }}>
             <source srcSet={profileImage.replace(/\.jpg$/i, '.webp')} type="image/webp" />
             <img
-              className="my-auto mx-0 aspect-square h-full w-auto max-h-[170px] max-w-full rounded-full object-cover object-[center_top] shadow-[0_18px_30px_rgba(23,33,38,0.08)] max-[1024px]:max-h-[130px] max-[768px]:m-0 max-[768px]:aspect-auto max-[768px]:h-[120px] max-[768px]:max-h-none max-[768px]:w-[120px]"
+              className="my-auto mx-0 aspect-square h-full w-auto max-h-[170px] max-w-full rounded-full object-cover object-[center_top] shadow-[0_18px_30px_rgba(23,33,38,0.08)] print:shadow-none max-[1024px]:max-h-[130px] max-[768px]:m-0 max-[768px]:aspect-auto max-[768px]:h-[120px] max-[768px]:max-h-none max-[768px]:w-[120px]"
               src={profileImage}
               alt="Photo of Sainath R"
               width="180"
@@ -275,7 +275,7 @@ const Hero = ({ data }) => {
         </a>
         <button
           type="button"
-          className="no-print inline-flex flex-none cursor-pointer items-center justify-center rounded-lg bg-transparent px-2 py-[6px] text-xs text-muted [border:1px_solid_var(--line)] hover:border-accent hover:text-accent"
+          className="print:hidden inline-flex flex-none cursor-pointer items-center justify-center rounded-lg bg-transparent px-2 py-[6px] text-xs text-muted [border:1px_solid_var(--line)] hover:border-accent hover:text-accent"
           onClick={copyEmail}
           aria-label={copied ? 'Email address copied' : 'Copy email address'}
         >

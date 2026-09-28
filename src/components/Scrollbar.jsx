@@ -78,7 +78,7 @@ const Scrollbar = () => {
   }, []);
 
   return (
-    <div className="scroll-rail no-print" aria-hidden="true">
+    <div className="scroll-rail print:hidden" aria-hidden="true">
       <div className="scroll-thumb" ref={thumbRef} />
     </div>
   );

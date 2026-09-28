@@ -392,18 +392,12 @@ button:focus-visible {
   }
 }
 @media print {
-  .no-print {
-    display: none !important;
-  }
   body {
     background: #fff;
   }
   .portfolio {
     max-width: 100%;
     padding: 0;
-  }
-  .profile-image {
-    box-shadow: none;
   }
   .section-block {
     padding: 10px 0;
@@ -421,16 +415,10 @@ button:focus-visible {
     overflow: visible;
     white-space: normal;
   }
-  .intro-layout {
-    gap: 20px;
-  }
   .experience-card,
   .work-item {
     break-inside: avoid;
   }
-}
-.print-only {
-  display: none;
 }
 @media print {
   .intro-content > *,
@@ -448,111 +436,12 @@ button:focus-visible {
   .section-block {
     content-visibility: visible;
   }
-  .print-only {
-    display: block !important;
-  }
   .reveal {
     opacity: 1 !important;
     transform: none !important;
   }
-  .print-resume {
-    background: #f6f8f7;
-    color: #000;
-    font-size: 11px;
-    line-height: 1.45;
-  }
-  .print-resume header {
-    border-bottom: 2px solid #000;
-    margin-bottom: 4px;
-    padding-bottom: 8px;
-    text-align: center;
-  }
-  .print-resume header > * {
-    text-align: center;
-  }
-  .print-resume h1 {
-    font-size: 24px;
-    letter-spacing: 0;
-  }
-  .print-resume .pr-cols {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  .print-resume .pr-skills {
-    break-inside: avoid;
-  }
-  .print-resume h2 {
-    border-bottom: 1px solid #000;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    margin: 12px 0 6px;
-    padding-bottom: 2px;
-    text-transform: uppercase;
-  }
-  .print-resume p,
-  .print-resume ul {
-    margin: 4px 0;
-  }
-  .print-resume ul {
-    padding-left: 16px;
-  }
-  .print-resume a {
-    color: #000;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-  }
-  .print-resume .pr-contact a {
-    border: 1px solid #333;
-    border-radius: 999px;
-    color: #000;
-    font-weight: 700;
-    padding: 1px 8px;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .print-resume .pr-headline {
-    font-size: 12px;
-    font-weight: 600;
-  }
-  .print-resume .pr-contact,
-  .print-resume .pr-snapshot {
-    font-size: 10px;
-  }
-  .print-resume .pr-role span {
-    color: #333;
-    font-weight: 400;
-  }
-  .print-resume .pr-meta,
-  .print-resume .pr-tech {
-    color: #333;
-    font-size: 10px;
-  }
-  .print-resume .pr-job {
-    break-inside: avoid;
-  }
-  .print-resume .pr-signoff {
-    color: #333;
-    font-family: Consolas, monospace;
-    margin-top: 14px;
-    text-align: center;
-  }
   @page {
     margin: 12mm;
-  }
-  .print-resume h2 {
-    break-after: avoid;
-  }
-  .print-resume .pr-role {
-    align-items: baseline;
-    display: flex;
-    gap: 12px;
-    justify-content: space-between;
-  }
-  .print-resume .pr-dates {
-    color: #333;
-    font-weight: 400;
-    white-space: nowrap;
   }
 }
 @media (hover: none) {

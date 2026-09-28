@@ -106,7 +106,7 @@ const CommandPalette = () => {
 
   return (
     <div
-      className="palette-backdrop no-print"
+      className="palette-backdrop print:hidden"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) setOpen(false);
       }}
