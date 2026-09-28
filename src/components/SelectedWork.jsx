@@ -2,33 +2,44 @@ import { TechIcon } from './TechIcon';
 
 const SelectedWork = ({ work = [] }) => (
   <section id="selected-work" className="selected-work section-block">
-    <div className="section-heading">
-      <TechIcon name="code" />
+    <div className="mb-3 flex items-center gap-[11px]">
+      <TechIcon name="code" className="h-[1em] w-[1em] text-signal" />
       <h2>Selected systems</h2>
-      <span className="section-tag">Problems, architecture, tradeoffs</span>
+      <span className="text-[0.8rem] font-normal text-muted max-[768px]:hidden">Problems, architecture, tradeoffs</span>
     </div>
-    <div className="work-list">
+    <div>
       {(Array.isArray(work) ? work : []).map((project) => (
-        <article className="work-item" key={project.title}>
-          <header className="work-header">
-            <h3>{project.title}</h3>
-            <small>{project.context}</small>
+        <article
+          className="work-item mb-[14px] rounded-[14px] bg-card px-[18px] py-4 [border:1px_solid_var(--line)] [transition:border-color_0.2s_ease,box-shadow_0.2s_ease,transform_0.2s_ease] hover:-translate-y-[2px] hover:shadow-[0_10px_24px_rgba(23,33,38,0.08)] hover:[border-color:var(--accent)]"
+          key={project.title}
+        >
+          <header className="mb-[10px] flex items-baseline justify-between gap-4">
+            <h3 className="m-0 text-[1.12rem] text-ink">{project.title}</h3>
+            <small className="text-right font-mono text-[0.75rem] uppercase text-accent">{project.context}</small>
           </header>
-          <div className="work-notes">
+          <div className="grid grid-cols-2 gap-x-[18px] gap-y-3 max-[768px]:grid-cols-1">
             <div>
-              <b>Problem</b>
-              <p>{project.problem}</p>
+              <b className="font-mono text-[0.75rem] uppercase text-accent">Problem</b>
+              <p className="mt-[5px] mb-0 text-[0.92rem] leading-[1.5] text-body">{project.problem}</p>
             </div>
             <div>
-              <b>Approach</b>
-              <p>{project.approach}</p>
+              <b className="font-mono text-[0.75rem] uppercase text-accent">Approach</b>
+              <p className="mt-[5px] mb-0 text-[0.92rem] leading-[1.5] text-body">{project.approach}</p>
             </div>
-            <span className="work-stack">{project.stack}</span>
+            <span className="col-span-full text-[0.75rem] font-bold text-accent max-[768px]:col-auto">
+              {project.stack}
+            </span>
           </div>
           {Array.isArray(project.links) && project.links.length > 0 && (
-            <div className="work-links">
+            <div className="mt-[10px] flex flex-wrap gap-x-4 gap-y-2">
               {project.links.map((link) => (
-                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[0.82rem] font-bold"
+                >
                   {link.label}
                 </a>
               ))}

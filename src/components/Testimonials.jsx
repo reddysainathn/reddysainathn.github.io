@@ -6,10 +6,10 @@ const Testimonials = ({ testimonials = [] }) => {
 
   return (
     <section id="testimonials" className="testimonials section-block">
-      <div className="section-heading">
-        <TechIcon name="quote-left" />
+      <div className="mb-3 flex items-center gap-[11px]">
+        <TechIcon name="quote-left" className="h-[1em] w-[1em] text-signal" />
         <h2>Kind words</h2>
-        <span className="section-tag">From people I've shipped with</span>
+        <span className="text-[0.8rem] font-normal text-muted max-[768px]:hidden">From people I've shipped with</span>
       </div>
       <div className="testimonial-list">
         {items.map((item) => (
