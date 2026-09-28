@@ -260,9 +260,6 @@ button:focus-visible {
   }
 }
 @media print {
-  .portfolio {
-    display: none !important;
-  }
   .section-block {
     content-visibility: visible;
   }

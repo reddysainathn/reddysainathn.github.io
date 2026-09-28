@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <>
-      <div className="mx-auto max-w-[980px] px-7 pt-[18px] pb-9 text-left max-[1024px]:px-[22px] max-[1024px]:pt-[18px] max-[1024px]:pb-8 max-[768px]:px-[18px] max-[768px]:pt-6 max-[768px]:pb-14 print:max-w-full print:p-0">
+      <div className="mx-auto max-w-[980px] px-7 pt-[18px] pb-9 text-left max-[1024px]:px-[22px] max-[1024px]:pt-[18px] max-[1024px]:pb-8 max-[768px]:px-[18px] max-[768px]:pt-6 max-[768px]:pb-14 print:hidden">
         <Hero data={data} />
         <Expertise specialties={data.specialties} />
         <SelectedWork work={data.selectedWork} />
