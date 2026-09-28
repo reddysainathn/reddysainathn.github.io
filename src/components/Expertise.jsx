@@ -5,7 +5,7 @@ const Expertise = ({ specialties = [] }) => (
     <div className="mb-3 flex items-center gap-[11px]">
       <TechIcon name="code" className="h-[1em] w-[1em] text-signal" />
       <h2 className="m-0 font-display text-[1.1rem] font-bold uppercase tracking-[-0.02em] text-ink">What I build</h2>
-      <span className="text-[0.8rem] font-normal text-muted max-[768px]:hidden">Three practices, one engineer</span>
+      <span className="text-[0.8rem] font-normal text-muted max-[768px]:hidden">What I do best</span>
     </div>
     <div className="grid grid-cols-3 gap-[18px] max-[768px]:grid-cols-1">
       {(Array.isArray(specialties) ? specialties : []).map((specialty) => (
