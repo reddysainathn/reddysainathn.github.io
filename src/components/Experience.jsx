@@ -29,14 +29,16 @@ const CompanyLogo = ({ job, defaultLogo }) => {
 };
 
 const Experience = ({ experience = [], defaultLogo }) => (
-  <section id="experience" className="section-block relative overflow-visible">
+  <section id="experience" className="section-block relative overflow-visible scroll-mt-3">
     <div
       className="absolute bottom-0 left-[29px] top-0 z-[1] w-[2px] bg-[linear-gradient(transparent_0,var(--accent)_48px,var(--line)_160px,var(--line)_calc(100%_-_24px),transparent_100%)] max-[768px]:left-[7px]"
       aria-hidden="true"
     />
     <div className="relative z-[1] mb-3 flex items-center gap-[11px] bg-paper">
       <TechIcon name="briefcase" className="h-[1em] w-[1em] text-signal" />
-      <h2>Career timeline</h2>
+      <h2 className="m-0 font-display text-[1.1rem] font-bold uppercase tracking-[-0.02em] text-ink">
+        Career timeline
+      </h2>
     </div>
     {(Array.isArray(experience) ? experience : []).map((job, index) => (
       <article
@@ -57,7 +59,9 @@ const Experience = ({ experience = [], defaultLogo }) => (
         </div>
         <div className="min-w-0 grow">
           <div className="flex items-baseline justify-between gap-[18px] max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[5px]">
-            <h3 className="m-0 text-[1.25rem] text-ink [transition:color_0.2s_ease]">{job.role}</h3>
+            <h3 className="m-0 font-display text-[1.25rem] font-bold text-ink [transition:color_0.2s_ease]">
+              {job.role}
+            </h3>
             <span className="text-[0.82rem] font-semibold whitespace-nowrap text-accent max-[768px]:whitespace-normal">
               {job.startDate} - {job.endDate || 'Present'}
             </span>

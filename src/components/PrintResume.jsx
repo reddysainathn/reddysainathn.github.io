@@ -12,7 +12,9 @@ const PrintResume = ({ data }) => {
       aria-hidden="true"
     >
       <header className="print:mb-1 print:border-b-2 print:pb-2 print:text-center print:[border-bottom:2px_solid_#000]">
-        <h1 className="print:text-center print:text-[24px]! print:tracking-normal!">{data.name}</h1>
+        <h1 className="m-0 font-display font-bold print:text-center print:text-[24px]! print:tracking-normal!">
+          {data.name}
+        </h1>
         <p className="print:my-1 print:text-center print:text-[12px] print:font-semibold">
           {data.headline}
           {years && (
@@ -60,7 +62,7 @@ const PrintResume = ({ data }) => {
         </p>
       </header>
       <section>
-        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="font-display font-bold print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:text-ink print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Experience
         </h2>
         {(Array.isArray(data.experience) ? data.experience : []).map((job, index) => (
@@ -99,7 +101,7 @@ const PrintResume = ({ data }) => {
         ))}
       </section>
       <section>
-        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="font-display font-bold print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:text-ink print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Selected Work
         </h2>
         {(Array.isArray(data.selectedWork) ? data.selectedWork : []).map((project) => (
@@ -116,7 +118,7 @@ const PrintResume = ({ data }) => {
         ))}
       </section>
       <section>
-        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="font-display font-bold print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:text-ink print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Skills
         </h2>
         <div className="print:columns-2 print:gap-5">
@@ -128,7 +130,7 @@ const PrintResume = ({ data }) => {
         </div>
       </section>
       <section>
-        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="font-display font-bold print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:text-ink print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Education
         </h2>
         <p className="print:my-1">

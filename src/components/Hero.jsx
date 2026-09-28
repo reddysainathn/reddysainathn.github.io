@@ -141,7 +141,9 @@ const Hero = ({ data }) => {
             </p>
           )}
           <div className="name-lockup flex flex-wrap items-baseline gap-x-3 gap-y-1 max-[768px]:gap-[9px]">
-            <h1>{data.name}</h1>
+            <h1 className="m-0 font-display text-[clamp(2rem,5vw,3.2rem)] font-bold leading-none tracking-[-0.05em]">
+              {data.name}
+            </h1>
             {Array.isArray(data.mottoSteps) && (
               <span
                 className="font-mono text-xs font-bold tracking-[0.01em] whitespace-nowrap text-muted max-[768px]:text-[0.66rem] max-[360px]:whitespace-normal leading-[1.2]"

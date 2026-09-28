@@ -1,10 +1,12 @@
 import { TechIcon } from './TechIcon';
 
 const SelectedWork = ({ work = [] }) => (
-  <section id="selected-work" className="selected-work section-block">
+  <section id="selected-work" className="selected-work section-block scroll-mt-3">
     <div className="mb-3 flex items-center gap-[11px]">
       <TechIcon name="code" className="h-[1em] w-[1em] text-signal" />
-      <h2>Selected systems</h2>
+      <h2 className="m-0 font-display text-[1.1rem] font-bold uppercase tracking-[-0.02em] text-ink">
+        Selected systems
+      </h2>
       <span className="text-[0.8rem] font-normal text-muted max-[768px]:hidden">Problems, architecture, tradeoffs</span>
     </div>
     <div>
@@ -14,7 +16,7 @@ const SelectedWork = ({ work = [] }) => (
           key={project.title}
         >
           <header className="mb-[10px] flex items-baseline justify-between gap-4">
-            <h3 className="m-0 text-[1.12rem] text-ink">{project.title}</h3>
+            <h3 className="m-0 font-display text-[1.12rem] font-bold text-ink">{project.title}</h3>
             <small className="text-right font-mono text-[0.75rem] uppercase text-accent">{project.context}</small>
           </header>
           <div className="grid grid-cols-2 gap-x-[18px] gap-y-3 max-[768px]:grid-cols-1">
