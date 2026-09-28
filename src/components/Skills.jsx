@@ -24,7 +24,7 @@ const Skills = ({ skills = {} }) => (
           <div>
             {(Array.isArray(skillList) ? skillList : []).map((skill) => (
               <span
-                className="mr-[6px] mb-[6px] rounded-full bg-card px-[10px] py-[7px] text-[0.78rem] font-semibold text-ink shadow-[inset_0_0_0_1px_rgba(8,127,140,0.06)] [border:1px_solid_rgba(8,127,140,0.34)] [transition:background_0.2s_ease,transform_0.2s_ease] hover:-translate-y-[1px] hover:bg-card"
+                className="mr-[6px] mb-[6px] inline-block rounded-full bg-card px-[10px] py-[7px] text-[0.78rem] font-semibold text-ink shadow-[inset_0_0_0_1px_rgba(8,127,140,0.06)] [border:1px_solid_rgba(8,127,140,0.34)] [transition:background_0.2s_ease,transform_0.2s_ease] hover:-translate-y-[1px] hover:bg-card"
                 key={skill}
               >
                 {skill}
