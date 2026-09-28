@@ -189,13 +189,14 @@ const ICONS = {
   },
 };
 
-export const TechIcon = ({ name }) => {
+export const TechIcon = ({ name, className }) => {
   const icon = ICONS[name];
+  const svgClass = className ? `tag-icon ${className}` : 'tag-icon';
   if (!icon) return null;
   if (icon.fill) {
     return (
       <svg
-        className="tag-icon"
+        className={svgClass}
         viewBox={icon.vb}
         width="14"
         height="14"
@@ -209,7 +210,7 @@ export const TechIcon = ({ name }) => {
   }
   return (
     <svg
-      className="tag-icon"
+      className={svgClass}
       viewBox={icon.vb}
       width="14"
       height="14"

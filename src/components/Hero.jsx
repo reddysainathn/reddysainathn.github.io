@@ -132,67 +132,110 @@ const Hero = ({ data }) => {
   };
 
   return (
-    <section className="introduction">
-      <div className="intro-layout">
-        <div className="intro-content">
-          {data.eyebrow && <p className="eyebrow">{data.eyebrow}</p>}
-          <div className="name-lockup">
+    <section className="[border-bottom:1px_solid_var(--line)] pt-3 pb-[18px]">
+      <div className="flex items-center justify-between gap-[42px] max-[1024px]:gap-[28px] max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[22px]">
+        <div className="intro-content min-w-0">
+          {data.eyebrow && (
+            <p className="mt-0 mb-3 font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-accent">
+              {data.eyebrow}
+            </p>
+          )}
+          <div className="name-lockup flex flex-wrap items-baseline gap-x-3 gap-y-1 max-[768px]:gap-[9px]">
             <h1>{data.name}</h1>
             {Array.isArray(data.mottoSteps) && (
-              <span className="motto" aria-label="Build, fix, repeat">
+              <span
+                className="font-mono text-xs font-bold tracking-[0.01em] whitespace-nowrap text-muted max-[768px]:text-[0.66rem] max-[360px]:whitespace-normal leading-[1.2]"
+                aria-label="Build, fix, repeat"
+              >
                 {data.mottoSteps.map((step, index) => (
                   <React.Fragment key={step.label}>
                     {index > 0 && (
-                      <span className="motto-arrow" aria-hidden="true">
+                      <span
+                        className="mx-[5px] text-[1.25em] leading-none text-muted max-[768px]:mx-[3px]"
+                        aria-hidden="true"
+                      >
                         -&gt;
                       </span>
                     )}
-                    <span className={`motto-step motto-step-${index + 1}`}>
-                      {step.emoji && <span aria-hidden="true">{step.emoji}</span>}
-                      {step.icon && <TechIcon name={step.icon} />} {step.label}
+                    <span
+                      className={`inline-flex gap-[3px] ${index === 0 ? 'text-accent' : index === 1 ? 'text-signal' : 'text-thumb'}`}
+                    >
+                      {step.emoji && (
+                        <span className="text-[1.25em] leading-none" aria-hidden="true">
+                          {step.emoji}
+                        </span>
+                      )}
+                      {step.icon && (
+                        <TechIcon name={step.icon} className="h-[1em] w-[1em] mr-[3px] align-[-2px] text-[1.25em]" />
+                      )}{' '}
+                      {step.label}
                     </span>
                   </React.Fragment>
                 ))}
               </span>
             )}
           </div>
-          <p className="headline">
+          <p className="mt-[10px] mb-2 max-w-[690px] font-display text-[clamp(1.05rem,1.8vw,1.35rem)] leading-[1.25]">
             {data.headline}{' '}
-            <span className="headline-social">
-              <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                <TechIcon name="github" />
+            <span className="ml-3 inline-flex gap-[10px] whitespace-nowrap align-baseline">
+              <a
+                href={data.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+                className="text-ink hover:text-accent"
+              >
+                <TechIcon name="github" className="h-[1em] w-[1em] mr-[5px] align-[-2px]" />
               </a>
-              <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                <TechIcon name="linkedin" />
+              <a
+                href={data.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+                className="text-ink hover:text-accent"
+              >
+                <TechIcon name="linkedin" className="h-[1em] w-[1em] mr-[5px] align-[-2px]" />
               </a>
             </span>
           </p>
-          <div className="badge-row">
-            {data.availability && <span className="availability-badge">{data.availability}</span>}
-            {Number.isFinite(heroYears) && heroYears > 0 && (
-              <span className="years-pill">💼 {heroYears}+ years experience</span>
+          <div className="m-0 mb-[10px] flex flex-wrap items-center gap-2">
+            {data.availability && (
+              <span className="inline-block rounded-full bg-[rgba(8,127,140,0.08)] px-[10px] py-[7px] font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-accent [border:1px_solid_rgba(8,127,140,0.28)] dark:[border-color:rgba(255,255,255,0.6)]">
+                {data.availability}
+              </span>
             )}
-            <button type="button" className="print-button no-print" onClick={printResume}>
-              <TechIcon name="file-lines" /> Resume
+            {Number.isFinite(heroYears) && heroYears > 0 && (
+              <span className="rounded-full px-[10px] py-[7px] font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--line)] dark:[border-color:rgba(255,255,255,0.75)]">
+                💼 {heroYears}+ years experience
+              </span>
+            )}
+            <button
+              type="button"
+              className="no-print relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
+              onClick={printResume}
+            >
+              <TechIcon name="file-lines" className="h-[1em] w-[1em] align-[-0.125em]" /> Resume
             </button>
             <button
               type="button"
-              className="print-button no-print"
+              className="no-print relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
               onClick={toggleTheme}
               aria-pressed={theme === 'dark'}
               suppressHydrationWarning
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              <TechIcon name={theme === 'dark' ? 'sun' : 'moon'} />
+              <TechIcon name={theme === 'dark' ? 'sun' : 'moon'} className="h-[1em] w-[1em] align-[-0.125em]" />
             </button>
           </div>
-          <p className="intro-copy">{data.intro.replace('{years}', heroYears ?? 10)}</p>
+          <p className="m-0 max-w-[720px] text-base leading-[1.6] text-muted">
+            {data.intro.replace('{years}', heroYears ?? 10)}
+          </p>
         </div>
-        <div className="intro-media">
+        <div className="intro-media order-[-1] flex flex-none self-stretch max-[768px]:w-full max-[768px]:items-center max-[768px]:justify-start">
           <picture style={{ display: 'contents' }}>
             <source srcSet={profileImage.replace(/\.jpg$/i, '.webp')} type="image/webp" />
             <img
-              className="profile-image"
+              className="my-auto mx-0 aspect-square h-full w-auto max-h-[170px] max-w-full rounded-full object-cover object-[center_top] shadow-[0_18px_30px_rgba(23,33,38,0.08)] max-[1024px]:max-h-[130px] max-[768px]:m-0 max-[768px]:aspect-auto max-[768px]:h-[120px] max-[768px]:max-h-none max-[768px]:w-[120px]"
               src={profileImage}
               alt="Photo of Sainath R"
               width="180"
@@ -204,20 +247,26 @@ const Hero = ({ data }) => {
           </picture>
         </div>
       </div>
-      <div className="focus-tags" aria-label="Core engineering strengths">
+      <div
+        className="focus-tags mt-4 flex flex-nowrap gap-1.5 overflow-x-auto pb-[2px] max-[768px]:flex-wrap max-[768px]:overflow-visible"
+        aria-label="Core engineering strengths"
+      >
         {(data.focusAreas || []).map((area) => {
           const label = area.label || area;
           return (
-            <span key={label}>
-              {area.icon && <TechIcon name={area.icon} />}
+            <span
+              key={label}
+              className="whitespace-nowrap px-[9px] py-[6px] font-mono text-[0.7rem] font-bold text-ink [border:1px_solid_var(--line)] dark:bg-card dark:[border-color:rgba(63,182,194,0.5)]"
+            >
+              {area.icon && <TechIcon name={area.icon} className="h-[0.95em] w-[0.95em] mr-[6px] align-[-2px]" />}
               {label}
             </span>
           );
         })}
       </div>
-      <div className="contact-links">
+      <div className="contact-links mt-[18px] flex flex-nowrap items-center gap-x-3 gap-y-2 overflow-x-visible whitespace-nowrap pb-[2px] max-[1024px]:flex-wrap max-[1024px]:gap-y-[10px] max-[768px]:flex-wrap max-[768px]:gap-x-5 max-[768px]:gap-y-3 max-[768px]:overflow-visible max-[768px]:whitespace-normal">
         <a
-          className="email-link"
+          className="email-link flex-none inline-flex items-center text-[0.78rem]"
           href={`mailto:${data.email}`}
           onClick={emailRecruiter}
           data-tip="Click to say hello — opens your mail app"
@@ -226,24 +275,29 @@ const Hero = ({ data }) => {
         </a>
         <button
           type="button"
-          className="icon-button no-print"
+          className="no-print inline-flex flex-none cursor-pointer items-center justify-center rounded-lg bg-transparent px-2 py-[6px] text-xs text-muted [border:1px_solid_var(--line)] hover:border-accent hover:text-accent"
           onClick={copyEmail}
           aria-label={copied ? 'Email address copied' : 'Copy email address'}
         >
-          <TechIcon name={copied ? 'check' : 'copy'} />
+          <TechIcon name={copied ? 'check' : 'copy'} className="h-[1em] w-[1em] align-[-0.125em]" />
         </button>
-        <span>
-          <TechIcon name="location-dot" /> {data.location}
+        <span className="flex-none inline-flex items-center text-[0.78rem] font-semibold text-ink">
+          <TechIcon name="location-dot" className="text-[#d93025]" /> {data.location}
         </span>
-        <span className="education-inline">
-          <TechIcon name="graduation-cap" />
-          <span>
+        <span className="flex flex-none flex-wrap items-center gap-2 font-semibold text-muted">
+          <TechIcon name="graduation-cap" className="text-signal" />
+          <span className="text-[0.88rem]">
             {data.education.degree}
             {data.education.school && (
               <>
                 {' · '}
                 {data.education.schoolUrl ? (
-                  <a href={data.education.schoolUrl} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={data.education.schoolUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-none font-bold text-accent underline decoration-[1px] underline-offset-[3px] dark:text-[#7fdae2]"
+                  >
                     {data.education.school}
                   </a>
                 ) : (

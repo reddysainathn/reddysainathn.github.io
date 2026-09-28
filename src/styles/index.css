@@ -25,6 +25,7 @@
 /* Exact mono stack used across eyebrow, motto, badges, pills. */
 @theme {
   --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: 'Space Grotesk', sans-serif;
 }
 
 body {
