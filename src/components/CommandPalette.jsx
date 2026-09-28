@@ -106,15 +106,20 @@ const CommandPalette = () => {
 
   return (
     <div
-      className="palette-backdrop print:hidden"
+      className="fixed inset-0 z-[100] bg-[rgba(23,33,38,0.45)] print:hidden"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) setOpen(false);
       }}
     >
-      <div className="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div
+        className="palette fixed left-1/2 top-[16vh] z-[101] w-[calc(100%_-_36px)] max-w-[520px] -translate-x-1/2 animate-[pop_0.12s_ease_both] rounded-[14px] bg-card shadow-[0_24px_60px_rgba(0,0,0,0.25)] [border:1px_solid_var(--line)]"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Command palette"
+      >
         <input
           ref={inputRef}
-          className="palette-input"
+          className="box-border w-full border-x-0 border-t-0 bg-transparent px-4 py-[14px] font-mono text-[0.9rem] text-ink outline-none [border-bottom:1px_solid_var(--line)] pointer-coarse:text-base"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           onKeyDown={(event) => {
@@ -132,12 +137,12 @@ const CommandPalette = () => {
           placeholder="Type a command…"
           aria-label="Command palette"
         />
-        <ul className="palette-list">
+        <ul className="m-0 max-h-[300px] list-none overflow-y-auto p-2">
           {filtered.map((action, index) => (
             <li key={action.id}>
               <button
                 type="button"
-                className={`palette-item${index === active ? ' active' : ''}`}
+                className={`${index === active ? 'bg-[rgba(8,127,140,0.1)] ' : 'bg-transparent '}block w-full cursor-pointer rounded-lg border-0 px-3 py-[10px] text-left text-[0.88rem] font-semibold text-ink`}
                 onMouseEnter={() => setActive(index)}
                 onClick={() => runAction(action)}
               >
@@ -145,7 +150,7 @@ const CommandPalette = () => {
               </button>
             </li>
           ))}
-          {filtered.length === 0 && <li className="palette-empty">No matching command</li>}
+          {filtered.length === 0 && <li className="px-3 py-[10px] text-[0.85rem] text-muted">No matching command</li>}
         </ul>
       </div>
     </div>

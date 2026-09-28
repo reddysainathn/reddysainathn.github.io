@@ -1,7 +1,7 @@
 import { TechIcon } from './TechIcon';
 
 const SelectedWork = ({ work = [] }) => (
-  <section id="selected-work" className="selected-work section-block scroll-mt-3">
+  <section id="selected-work" className="section-block scroll-mt-3">
     <div className="mb-3 flex items-center gap-[11px]">
       <TechIcon name="code" className="h-[1em] w-[1em] text-signal" />
       <h2 className="m-0 font-display text-[1.1rem] font-bold uppercase tracking-[-0.02em] text-ink">

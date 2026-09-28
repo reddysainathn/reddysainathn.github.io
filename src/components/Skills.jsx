@@ -7,7 +7,7 @@ const slug = (category) =>
     .replace(/^-|-$/g, '');
 
 const Skills = ({ skills = {} }) => (
-  <section id="skills" className="skills section-block scroll-mt-3">
+  <section id="skills" className="section-block scroll-mt-3">
     <div className="mb-3 flex items-center gap-[11px]">
       <TechIcon name="code" className="h-[1em] w-[1em] text-signal" />
       <h2 className="m-0 font-display text-[1.1rem] font-bold uppercase tracking-[-0.02em] text-ink">Core stack</h2>
