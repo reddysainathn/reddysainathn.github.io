@@ -159,22 +159,10 @@ const Hero = ({ data }) => {
           <p className="headline">
             {data.headline}{' '}
             <span className="headline-social">
-              <a
-                href={data.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub profile"
-                title="GitHub"
-              >
+              <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
                 <TechIcon name="github" />
               </a>
-              <a
-                href={data.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-                title="LinkedIn"
-              >
+              <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
                 <TechIcon name="linkedin" />
               </a>
             </span>
@@ -194,7 +182,6 @@ const Hero = ({ data }) => {
               aria-pressed={theme === 'dark'}
               suppressHydrationWarning
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-              title="Toggle theme"
             >
               <TechIcon name={theme === 'dark' ? 'sun' : 'moon'} />
             </button>
@@ -242,7 +229,6 @@ const Hero = ({ data }) => {
           className="icon-button no-print"
           onClick={copyEmail}
           aria-label={copied ? 'Email address copied' : 'Copy email address'}
-          title={copied ? 'Copied!' : 'Copy email'}
         >
           <TechIcon name={copied ? 'check' : 'copy'} />
         </button>

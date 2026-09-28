@@ -216,7 +216,7 @@ h1 {
   flex-wrap: nowrap;
   gap: 8px 12px;
   margin: 18px 0 0;
-  overflow-x: auto;
+  overflow-x: visible;
   padding-bottom: 2px;
   white-space: nowrap;
 }
@@ -248,7 +248,7 @@ h1 {
 .contact-links .email-link::after {
   content: attr(data-tip);
   position: absolute;
-  bottom: calc(100% + 8px);
+  top: calc(100% + 8px);
   left: 0;
   background: var(--ink);
   color: var(--paper);
@@ -1033,6 +1033,7 @@ button:focus-visible {
   }
   .contact-links {
     row-gap: 10px;
+    flex-wrap: wrap;
   }
 }
 @media (max-width: 768px) {
@@ -1286,6 +1287,9 @@ button:focus-visible {
   }
   .print-resume a {
     color: #000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
   .print-resume .pr-contact a {
     border: 1px solid #333;
@@ -1343,6 +1347,15 @@ button:focus-visible {
 @media (max-width: 360px) {
   .motto {
     white-space: normal;
+  }
+}
+@media (hover: none) {
+  a:hover {
+    background-size: 0% 1px;
+  }
+  .contact-links .email-link:hover::after,
+  .timeline-marker span[data-tenure]:hover::after {
+    opacity: 0;
   }
 }
 @media (pointer: coarse) {
