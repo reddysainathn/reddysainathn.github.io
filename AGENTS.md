@@ -48,7 +48,7 @@
 ## Stack decisions (settled — do not reopen unprompted)
 
 - Vite 8 + React 19 SPA, JavaScript (no TypeScript migration).
-- No Tailwind (declined — custom CSS with variables is the system).
+- Tailwind CSS: APPROVED for gradual migration (reverses earlier decline) — v4 CSS-first via `@tailwindcss/vite`, custom `dark` variant wired to `data-theme`, migrate section by section with build checks; keep Prettier + `format:check` green throughout.
 - Prerender/SSG: APPROVED after LCP field data demanded it — build renders `src/prerender-entry.jsx` via `tools/snapshot.mjs` into `dist/index.html` (`postbuild` copies it to `404.html`); client uses `hydrateRoot`, theme toggle carries `suppressHydrationWarning`. Never add `node:fs`-heavy scripts under `scripts/` (write-filter); `tools/` works.
 - Dark mode via `data-theme` + OS default; print always forces a clean light resume.
 - All motion must be GPU-only keyframes/transitions with `prefers-reduced-motion` guards and print final states.

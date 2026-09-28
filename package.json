@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --config vite.ssr.config.mjs && node tools/snapshot.mjs",
+    "build": "vite build && vite build --config vite.ssr.config.mjs && node tools/snapshot.mjs && rm -rf dist-ssr",
     "build_legacy": "vite build && cp dist/index.html dist/404.html",
     "postbuild": "cp dist/index.html dist/404.html",
     "preview": "vite preview",
