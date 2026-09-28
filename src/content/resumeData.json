@@ -122,7 +122,7 @@
       "Document classification",
       "Rule evaluation"
     ],
-    "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS"],
+    "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
     "Data": [
       "Databricks",
       "Spark SQL",
