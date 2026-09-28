@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import { execSync } from 'node:child_process';
 
 const commitHash = (() => {
@@ -14,7 +15,7 @@ const buildDate = new Date().toISOString().slice(0, 10);
 // Dedicated SSR config: always emits dist-ssr/prerender-entry.mjs,
 // independent of Vite version defaults or package type.
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   define: {
     __COMMIT__: JSON.stringify(commitHash),
     __BUILD_TIME__: JSON.stringify(buildDate),
