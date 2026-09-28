@@ -141,7 +141,7 @@ const Hero = ({ data }) => {
             </p>
           )}
           <div className="name-lockup flex flex-wrap items-baseline gap-x-3 gap-y-1 max-[768px]:gap-[9px]">
-            <h1 className="m-0 font-display text-[clamp(2rem,5vw,3.2rem)] font-bold leading-none tracking-[-0.05em]">
+            <h1 className="m-0 font-display text-[clamp(1.5rem,4vw,2.4rem)] font-bold leading-none tracking-[-0.05em]">
               {data.name}
             </h1>
             {Array.isArray(data.mottoSteps) && (
@@ -229,12 +229,12 @@ const Hero = ({ data }) => {
               <TechIcon name={theme === 'dark' ? 'sun' : 'moon'} className="h-[1em] w-[1em] align-[-0.125em]" />
             </button>
           </div>
-          <p className="m-0 max-w-[720px] text-base leading-[1.6] text-muted">
+          <p className="m-0 max-w-[720px] font-display text-base leading-[1.6] text-body underline decoration-[1px] underline-offset-[3px]">
             {data.intro.replace('{years}', heroYears ?? 10)}
           </p>
         </div>
         <div className="intro-media order-[-1] flex flex-none self-stretch max-[768px]:w-full max-[768px]:items-center max-[768px]:justify-start">
-          <picture style={{ display: 'contents' }}>
+          <picture className="contents">
             <source srcSet={profileImage.replace(/\.jpg$/i, '.webp')} type="image/webp" />
             <img
               className="my-auto mx-0 aspect-square h-full w-auto max-h-[170px] max-w-full rounded-full object-cover object-[center_top] shadow-[0_18px_30px_rgba(23,33,38,0.08)] print:shadow-none max-[1024px]:max-h-[130px] max-[768px]:m-0 max-[768px]:aspect-auto max-[768px]:h-[120px] max-[768px]:max-h-none max-[768px]:w-[120px]"
