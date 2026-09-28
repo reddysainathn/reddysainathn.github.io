@@ -47,8 +47,7 @@ h1 {
   line-height: 1;
   margin: 0;
 }
-.contact-links .tag-icon,
-.pr-contact .tag-icon {
+.contact-links .tag-icon {
   height: 1.05em;
   margin-right: 5px;
   vertical-align: -2px;

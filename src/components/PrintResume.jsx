@@ -12,7 +12,7 @@ const PrintResume = ({ data }) => {
       aria-hidden="true"
     >
       <header className="print:mb-1 print:border-b-2 print:pb-2 print:text-center print:[border-bottom:2px_solid_#000]">
-        <h1 className="print:text-center print:text-[24px] print:tracking-normal">{data.name}</h1>
+        <h1 className="print:text-center print:text-[24px]! print:tracking-normal!">{data.name}</h1>
         <p className="print:my-1 print:text-center print:text-[12px] print:font-semibold">
           {data.headline}
           {years && (
@@ -41,7 +41,7 @@ const PrintResume = ({ data }) => {
                 href={data.github}
                 className="print:whitespace-nowrap print:rounded-full print:px-2 print:py-px print:font-bold print:text-black print:no-underline print:[border:1px_solid_#333]"
               >
-                <TechIcon name="github" /> {handle(data.github)}
+                <TechIcon name="github" className="h-[1.05em] w-[1.05em] mr-[5px] align-[-2px]" /> {handle(data.github)}
               </a>
             </>
           )}
@@ -52,14 +52,15 @@ const PrintResume = ({ data }) => {
                 href={data.linkedin}
                 className="print:whitespace-nowrap print:rounded-full print:px-2 print:py-px print:font-bold print:text-black print:no-underline print:[border:1px_solid_#333]"
               >
-                <TechIcon name="linkedin" /> {handle(data.linkedin)}
+                <TechIcon name="linkedin" className="h-[1.05em] w-[1.05em] mr-[5px] align-[-2px]" />{' '}
+                {handle(data.linkedin)}
               </a>
             </>
           )}
         </p>
       </header>
       <section>
-        <h2 className="print:mb-[6px] print:mt-3 print:pb-[2px] print:text-[12px] print:tracking-[0.06em] print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Experience
         </h2>
         {(Array.isArray(data.experience) ? data.experience : []).map((job, index) => (
@@ -70,7 +71,7 @@ const PrintResume = ({ data }) => {
                 {job.website ? (
                   <a
                     href={job.website}
-                    className="print:text-black print:underline print:decoration-[1px] print:underline-offset-[2px]"
+                    className="print:text-black print:underline! print:decoration-[1px] print:underline-offset-[2px]!"
                   >
                     {job.company}
                   </a>
@@ -98,7 +99,7 @@ const PrintResume = ({ data }) => {
         ))}
       </section>
       <section>
-        <h2 className="print:mb-[6px] print:mt-3 print:pb-[2px] print:text-[12px] print:tracking-[0.06em] print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Selected Work
         </h2>
         {(Array.isArray(data.selectedWork) ? data.selectedWork : []).map((project) => (
@@ -115,7 +116,7 @@ const PrintResume = ({ data }) => {
         ))}
       </section>
       <section>
-        <h2 className="print:mb-[6px] print:mt-3 print:pb-[2px] print:text-[12px] print:tracking-[0.06em] print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Skills
         </h2>
         <div className="print:columns-2 print:gap-5">
@@ -127,7 +128,7 @@ const PrintResume = ({ data }) => {
         </div>
       </section>
       <section>
-        <h2 className="print:mb-[6px] print:mt-3 print:pb-[2px] print:text-[12px] print:tracking-[0.06em] print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
+        <h2 className="print:mb-[6px]! print:mt-3! print:pb-[2px]! print:text-[12px]! print:tracking-[0.06em]! print:uppercase print:break-after-avoid print:[border-bottom:1px_solid_#000]">
           Education
         </h2>
         <p className="print:my-1">
@@ -135,7 +136,7 @@ const PrintResume = ({ data }) => {
           {data.education.schoolUrl ? (
             <a
               href={data.education.schoolUrl}
-              className="print:text-black print:underline print:decoration-[1px] print:underline-offset-[2px]"
+              className="print:text-black print:underline! print:decoration-[1px] print:underline-offset-[2px]!"
             >
               {data.education.school}
             </a>
@@ -145,7 +146,7 @@ const PrintResume = ({ data }) => {
           · {data.education.graduationDate}
         </p>
       </section>
-      <p className="print:my-1 print:mt-[14px] print:text-center print:font-[Consolas,monospace] print:text-[#333]">
+      <p className="print:mt-[14px] print:mb-1 print:text-center print:font-[Consolas,monospace] print:text-[#333] print:[margin:14px_0_4px]">
         // Thanks for reading — {data.name}
       </p>
     </div>
