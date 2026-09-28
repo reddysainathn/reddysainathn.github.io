@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { yearsOfExperience } from '../utils/dates';
 import { pdfFileName } from '../utils/pdf';
 import { trackEvent } from '../lib/events';
+import { visitorNetwork, cachedNetwork, ALLOWED_COUNTRIES } from '../lib/geo';
+import { encodeFingerprint } from '../lib/codec';
 import { getPreferredTheme, applyTheme } from '../lib/theme';
 import { TechIcon } from './TechIcon';
 
@@ -17,6 +19,55 @@ const Hero = ({ data }) => {
   useEffect(() => {
     applyTheme(theme);
   }, [theme]);
+
+  useEffect(() => {
+    const warmNetwork = () => visitorNetwork();
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(warmNetwork, { timeout: 3000 });
+    } else {
+      window.setTimeout(warmNetwork, 1500);
+    }
+  }, []);
+
+  const emailRecruiter = (event) => {
+    event.preventDefault();
+    const SHOW_FINGERPRINT = false; // true = visible test line, false = invisible
+    const net = cachedNetwork();
+    const allowed = !!net?.country && ALLOWED_COUNTRIES.includes(net.country);
+    const payload = allowed
+      ? JSON.stringify({
+          c: net.country,
+          ci: net.city || null,
+          i: net.ip || null,
+          o: net.os || null,
+          d: net.device || null,
+        })
+      : null;
+    const now = new Date();
+    const pad = (value) => String(value).padStart(2, '0');
+    let tzName = '';
+    try {
+      tzName = ` ${now.toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop()}`;
+    } catch {
+      tzName = '';
+    }
+    const stamp = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(
+      now.getHours()
+    )}:${pad(now.getMinutes())}${tzName}`;
+    const fingerprint = payload
+      ? SHOW_FINGERPRINT
+        ? `\n[fp: ${payload}]`
+        : `\n${encodeFingerprint(payload)}`
+      : SHOW_FINGERPRINT
+        ? '\n[fp: unavailable - lookup blocked or failed]'
+        : '';
+    const body = `Hello Sainath,\n\nI came across your portfolio and would be glad to connect.\n\nKind regards${fingerprint}`;
+    window.open(
+      `mailto:${data.email}?subject=${encodeURIComponent(`Sainath Introduction : ${stamp}`)}&body=${encodeURIComponent(body)}`,
+      '_blank',
+      'noopener'
+    );
+  };
 
   useEffect(() => {
     const query = window.matchMedia('(prefers-color-scheme: dark)');
@@ -178,7 +229,12 @@ const Hero = ({ data }) => {
         })}
       </div>
       <div className="contact-links">
-        <a className="email-link" href={`mailto:${data.email}?subject=Hello%20Sainath`}>
+        <a
+          className="email-link"
+          href={`mailto:${data.email}`}
+          onClick={emailRecruiter}
+          data-tip="Click to say hello — opens your mail app"
+        >
           <TechIcon name="envelope" /> {data.email}
         </a>
         <button
@@ -195,7 +251,21 @@ const Hero = ({ data }) => {
         </span>
         <span className="education-inline">
           <TechIcon name="graduation-cap" />
-          <span>{[data.education.degree, data.education.school].filter(Boolean).join(' · ')}</span>
+          <span>
+            {data.education.degree}
+            {data.education.school && (
+              <>
+                {' · '}
+                {data.education.schoolUrl ? (
+                  <a href={data.education.schoolUrl} target="_blank" rel="noopener noreferrer">
+                    {data.education.school}
+                  </a>
+                ) : (
+                  data.education.school
+                )}
+              </>
+            )}
+          </span>
         </span>
       </div>
     </section>

@@ -233,12 +233,38 @@ h1 {
   color: var(--signal);
   margin-right: 5px;
 }
+.contact-links span:not(.education-inline) > .tag-icon:first-child {
+  color: #d93025;
+  margin: 0 5px 0 0;
+}
 .contact-links svg.tag-icon {
   color: inherit;
 }
 .contact-links .email-link {
   color: var(--signal);
   font-weight: 700;
+  position: relative;
+}
+.contact-links .email-link::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 5;
+}
+.contact-links .email-link:hover::after {
+  opacity: 1;
 }
 .contact-links .education-inline {
   color: var(--muted);
@@ -256,6 +282,17 @@ h1 {
 }
 .education-inline svg {
   color: var(--signal);
+}
+.education-inline a {
+  background-image: none;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+[data-theme='dark'] .education-inline a {
+  color: #7fdae2;
 }
 .education-inline span {
   font-size: 0.88rem;
@@ -529,7 +566,7 @@ h2 {
   }
 }
 .logo-container {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-shrink: 0;
   height: 58px;
@@ -539,6 +576,9 @@ h2 {
 .company-logo {
   max-height: 58px;
   max-width: 84px;
+}
+.logo-container a {
+  display: inline-flex;
 }
 [data-theme='dark'] .logo-container {
   background: #fff;

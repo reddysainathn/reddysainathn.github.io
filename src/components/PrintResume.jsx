@@ -52,7 +52,7 @@ const PrintResume = ({ data }) => {
           <div className="pr-job" key={index}>
             <p className="pr-role">
               <span>
-                <strong>{job.role}</strong> — {job.company}
+                <strong>{job.role}</strong> — {job.website ? <a href={job.website}>{job.company}</a> : job.company}
               </span>
               <span className="pr-dates">
                 {job.startDate} – {job.endDate || 'Present'}
@@ -99,7 +99,13 @@ const PrintResume = ({ data }) => {
       <section>
         <h2>Education</h2>
         <p>
-          {[data.education.degree, data.education.school, data.education.graduationDate].filter(Boolean).join(' · ')}
+          {data.education.degree} ·{' '}
+          {data.education.schoolUrl ? (
+            <a href={data.education.schoolUrl}>{data.education.school}</a>
+          ) : (
+            data.education.school
+          )}{' '}
+          · {data.education.graduationDate}
         </p>
       </section>
       <p className="pr-signoff">// Thanks for reading — {data.name}</p>
