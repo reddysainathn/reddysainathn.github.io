@@ -1,6 +1,27 @@
 import { TechIcon } from './TechIcon';
 import { roleTenure } from '../utils/dates';
 
+const CompanyLogo = ({ job, defaultLogo }) => {
+  const img = (
+    <img
+      src={job.logo || defaultLogo}
+      alt={`${job.company} logo`}
+      className="company-logo"
+      loading="lazy"
+      decoding="async"
+      width="84"
+      height="58"
+    />
+  );
+  return job.website ? (
+    <a href={job.website} target="_blank" rel="noopener noreferrer" aria-label={`${job.company} website`}>
+      {img}
+    </a>
+  ) : (
+    img
+  );
+};
+
 const Experience = ({ experience = [], defaultLogo }) => (
   <section id="experience" className="experience section-block">
     <div className="timeline-rail" aria-hidden="true" />
@@ -17,15 +38,7 @@ const Experience = ({ experience = [], defaultLogo }) => (
           <span data-tenure={roleTenure(job.startDate, job.endDate) || undefined} />
         </div>
         <div className="logo-container">
-          <img
-            src={job.logo || defaultLogo}
-            alt={`${job.company} logo`}
-            className="company-logo"
-            loading="lazy"
-            decoding="async"
-            width="84"
-            height="58"
-          />
+          <CompanyLogo job={job} defaultLogo={defaultLogo} />
         </div>
         <div className="experience-details">
           <div className="role-line">
@@ -35,7 +48,15 @@ const Experience = ({ experience = [], defaultLogo }) => (
             </span>
           </div>
           <p className="company-line">
-            <strong>{job.company}</strong>
+            <strong>
+              {job.website ? (
+                <a href={job.website} target="_blank" rel="noopener noreferrer">
+                  {job.company}
+                </a>
+              ) : (
+                job.company
+              )}
+            </strong>
             {job.location && (
               <>
                 <span>·</span>

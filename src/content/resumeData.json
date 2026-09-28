@@ -90,6 +90,7 @@
   "education": {
     "degree": "Master's in Computer Science",
     "school": "San Francisco Bay University",
+    "schoolUrl": "https://www.sfbu.edu/",
     "graduationDate": "September 2015",
     "gpa": "3.6"
   },
@@ -156,6 +157,7 @@
     {
       "role": "Lead Software Engineer",
       "company": "Collective Health",
+      "website": "https://www.collectivehealth.com",
       "domain": "Healthcare Benefits TPA",
       "startDate": "August 2022",
       "logo": "./logos/collective-health.svg",
@@ -190,6 +192,7 @@
     {
       "role": "Software Engineer",
       "company": "Glueup.com (Event Bank)",
+      "website": "https://www.glueup.com",
       "domain": "Events, CRM, Webinars, Networking",
       "startDate": "October 2021",
       "endDate": "August 2022",
@@ -207,6 +210,7 @@
     {
       "role": "Software Engineer",
       "company": "Verizon",
+      "website": "https://www.verizon.com/business/products/internet/",
       "domain": "Wireline Network Provisioning",
       "startDate": "April 2018",
       "endDate": "September 2021",
@@ -227,6 +231,7 @@
     {
       "role": "Application Developer",
       "company": "General Electric",
+      "website": "https://www.ge.com/news/reports/ge-baker-hughes-form-new-fullstream-digital-industrial-service-company",
       "domain": "Oil & Gas Pipeline Operations",
       "startDate": "October 2015",
       "endDate": "March 2018",

@@ -62,3 +62,5 @@
 - Testimonials: 2–3 quotes (`testimonials: []` renders nothing until filled).
 - Work authorization + remote preference (JSON fields exist, empty).
 - PageSpeed before/after receipt for the migration (live site is the old baseline until merged work deploys).
+- Split Collective Health into two timeline cards (Senior ~2022–2024, Lead ~2024–Present) with era-allocated bullets — needs user-confirmed boundary month + bullet split.
+- Custom site cursor (tried crosshair + SVG arrow, both looked off — needs a better mark).
