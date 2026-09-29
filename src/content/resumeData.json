@@ -27,59 +27,59 @@
   ],
   "specialties": [
     {
-      "title": "🤖 AI systems",
+      "title": "🤖 Applied AI Systems",
       "description": "Building AI experiences that answer from policy, claims context, and operational evidence instead of free-form guesses.",
       "stack": "RAG · Gemini · Vertex AI · Google ADK"
     },
     {
-      "title": "⚙️ Java backend systems",
+      "title": "⚙️ Backend Systems",
       "description": "Designing resilient services and event-driven architectures for complex, long-running processes.",
       "stack": "Java · Spring Boot · Kafka · RabbitMQ"
     },
     {
-      "title": "🧰 Data engineering & platforms",
+      "title": "🧰 Data Engineering & Platforms",
       "description": "Building reliable datasets, pipelines, and internal tools that make teams faster and production operations clearer.",
       "stack": "Python · Databricks · Spark · Airflow · GraphQL · Kubernetes"
     }
   ],
   "selectedWork": [
     {
-      "title": "🧠 RAG-powered claims guidance assistant",
+      "title": "🧠 RAG-Powered Claims Guidance Assistant",
       "context": "Applied AI · Healthcare",
       "problem": "Claim reviewers search policy documents by hand, while ungrounded models cannot be trusted with benefits answers.",
       "approach": "A retrieval-first pipeline that grounds Gemini answers in cited policy and claim evidence, with human review on every output.",
       "stack": "RAG · Gemini · Vertex AI SDK · Google ADK · Healthcare rules"
     },
     {
-      "title": "🤖 AI-assisted business-rule automation",
+      "title": "🤖 AI-Assisted Business-Rule Automation",
       "context": "Applied AI · Healthcare",
       "problem": "High-volume routine cases consume reviewer bandwidth, while ambiguous cases still require judgment.",
       "approach": "Gemini and ADK evaluate business rules to resolve standard cases automatically and escalate exceptions for review.",
       "stack": "Gemini · Vertex AI SDK · Google ADK · ReactJS"
     },
     {
-      "title": "📊 Member data platform",
+      "title": "📊 Member Data Platform",
       "context": "Data · Healthcare",
       "problem": "Accumulator data spanned multiple systems, complicating consistent analytics and reporting.",
       "approach": "A Databricks + Spark SQL source of truth feeding Looker datasets and Airflow-driven daily client reports.",
       "stack": "Databricks · Spark SQL · Airflow · Looker"
     },
     {
-      "title": "⚡ Event-driven Java service platform",
+      "title": "⚡ Event-Driven Backend Platform",
       "context": "Backend · Distributed systems",
       "problem": "Long-running business processes span services that must coordinate reliably.",
       "approach": "Spring Boot microservices communicating over Kafka and RabbitMQ, designed for asynchronous failure and replay.",
       "stack": "Java · Spring Boot · Kafka · RabbitMQ · Kubernetes"
     },
     {
-      "title": "🧰 Developer operations platform",
+      "title": "🧰 Developer Operations Platform",
       "context": "Internal platform · Production tooling",
       "problem": "Operational scripts lived in scattered locations with no safe, consistent way to run them.",
       "approach": "A unified Flask console with reusable execution patterns, rollback support, and full audit trails.",
       "stack": "Python · Flask · ReactJS · Data remediation"
     },
     {
-      "title": "🕸️ Network graph and pathfinding service",
+      "title": "🕸️ Network Graph & Pathfinding Service",
       "context": "Telecommunications · Network provisioning",
       "problem": "Network provisioning depends on viable routes through complex device topologies.",
       "approach": "A Neo4j device graph with a REST API for Yen's K-shortest-path queries.",

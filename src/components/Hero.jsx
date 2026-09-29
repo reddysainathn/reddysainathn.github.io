@@ -133,7 +133,7 @@ const Hero = ({ data }) => {
 
   return (
     <section className="[border-bottom:1px_solid_var(--line)] pt-3 pb-[18px]">
-      <div className="flex items-center justify-between gap-[42px] print:gap-[20px] print:max-[768px]:gap-[20px] max-[1024px]:gap-[28px] max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[22px]">
+      <div className="flex items-center justify-start gap-8 print:gap-[20px] print:max-[768px]:gap-[20px] max-[1024px]:gap-[28px] max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[22px]">
         <div className="intro-content min-w-0">
           {data.eyebrow && (
             <p className="mt-0 mb-3 font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-accent">
