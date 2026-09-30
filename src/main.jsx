@@ -2,7 +2,11 @@ import React from 'react';
 import { hydrateRoot, createRoot } from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
-import { initAnalytics } from './lib/events';
+import { initAnalytics, initScrollPosition } from './lib/events';
+
+// Set start position synchronously (top, or deep-link target) before paint.
+// Analytics stays idle-deferred below.
+initScrollPosition();
 
 const rootElement = document.getElementById('root');
 const tree = (

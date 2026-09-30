@@ -20,7 +20,12 @@ const CommandPalette = () => {
         id: 'top',
         label: 'Go to top',
         keywords: 'home start',
-        run: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+        run: () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (window.location.hash && 'replaceState' in window.history) {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        },
       },
       { id: 'expertise', label: 'Go to What I build', keywords: '01 expertise', run: () => scrollToId('expertise') },
       {

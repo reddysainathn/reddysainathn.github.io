@@ -28,7 +28,7 @@
 - Page must stay very fast: minimal requests, tiny bundles, no render-blocking chains.
 - Verify with real commands and check exit codes directly (`> log 2>&1; echo $?`) — never trust `| tail` for pass/fail.
 - Inline tiny SVGs (zero requests) instead of icon files; self-host assets rather than hotlinking.
-- Fonts stay on Google CDN (`preconnect` + `display=swap`); no self-hosting, no new font families without approval.
+- Fonts are self-hosted variable `woff2` in `public/fonts` (`preload` + `display=swap`); no new font families without approval.
 - Analytics/listeners must be passive, delegated, idle-deferred; measurement never costs first paint.
 
 ## Content honesty (non-negotiable)

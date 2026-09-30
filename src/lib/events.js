@@ -154,25 +154,80 @@ export const initReveals = () => {
   });
 };
 
+export const initScrollPosition = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  try {
+    if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+  } catch {
+    /* ignore */
+  }
+  const apply = () => {
+    const hash = window.location.hash.slice(1);
+    if (hash && SECTION_IDS.includes(hash)) {
+      // Deep link (e.g. #experience): honor it instantly, no smooth swoop.
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+    } else if (!window.location.hash) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  };
+  apply();
+  // Dev client-render mounts sections async — retry once painted if target missing.
+  if (window.location.hash && !document.getElementById(window.location.hash.slice(1))) {
+    window.addEventListener('load', apply, { once: true });
+  }
+};
+
 export const initHashSync = () => {
   if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
   if (!('replaceState' in window.history)) return;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => SECTION_IDS.indexOf(a.target.id) - SECTION_IDS.indexOf(b.target.id));
-      const current = visible[visible.length - 1];
-      if (current && window.location.hash !== `#${current.target.id}`) {
-        window.history.replaceState(null, '', `#${current.target.id}`);
+  const topLimit = () => {
+    const first = document.getElementById(SECTION_IDS[0]);
+    return Math.max(first ? first.offsetTop - 80 : 160, 0);
+  };
+  // Scrollspy in document order: the current section is the deepest one
+  // whose top has crossed the upper-third line. Recomputed from all
+  // sections (not just changed entries) so the hash always follows
+  // reading order and never skips or runs ahead. Hero has no hash.
+  const syncHash = () => {
+    if (window.scrollY < topLimit()) {
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
-    },
-    { rootMargin: '-60% 0px -25% 0px' }
-  );
+      return;
+    }
+    const probe = window.innerHeight * 0.35;
+    let current = null;
+    for (const id of SECTION_IDS) {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= probe) current = id;
+    }
+    if (current && window.location.hash !== `#${current}`) {
+      window.history.replaceState(null, '', `#${current}`);
+    }
+  };
+  const observer = new IntersectionObserver(syncHash, { rootMargin: '-60% 0px -25% 0px' });
   SECTION_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (el) observer.observe(el);
   });
+  // rAF-throttled passive scroll keeps the hash tracking every frame in
+  // order (observer alone only fires on band crossings, which lag). The
+  // observer stays as backup for resizes and layout shifts without scroll.
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    syncHash();
+  };
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(onScroll);
+      }
+    },
+    { passive: true }
+  );
 };
 
 export const initAnalytics = () => {

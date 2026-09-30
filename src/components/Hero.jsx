@@ -243,6 +243,7 @@ const Hero = ({ data }) => {
               width="180"
               height="180"
               fetchPriority="high"
+              loading="eager"
               decoding="async"
               onError={() => setProfileImage(FALLBACK_IMAGE)}
             />
@@ -286,7 +287,7 @@ const Hero = ({ data }) => {
         <span className="flex-none inline-flex items-center text-[0.78rem] font-semibold text-ink">
           <TechIcon name="location-dot" className="text-[#d93025]" /> {data.location}
         </span>
-        <span className="flex flex-none flex-wrap items-center gap-2 font-semibold text-muted">
+        <span className="flex min-w-0 flex-nowrap items-center gap-2 font-semibold text-muted max-[768px]:items-start">
           <TechIcon name="graduation-cap" className="text-signal" />
           <span className="text-[0.88rem]">
             {data.education.degree}

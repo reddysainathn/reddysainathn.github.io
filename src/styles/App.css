@@ -130,29 +130,13 @@ a:hover {
     transform: scale(1);
   }
 }
-.intro-content > * {
-  animation: rise 0.35s ease both;
-}
-.intro-content > .name-lockup {
-  animation: none;
-}
-.intro-content > *:nth-child(2) {
-  animation-delay: 0.05s;
-}
-.intro-content > *:nth-child(3) {
-  animation-delay: 0.1s;
-}
-.intro-content > *:nth-child(4) {
-  animation-delay: 0.15s;
-}
-.intro-media {
-  animation: settle 0.35s ease both;
-}
-.focus-tags {
-  animation: rise 0.35s 0.2s ease both;
-}
+/* Hero paints immediately — entrance animations delayed LCP (opacity:0 + fill
+   `both` pushed image/text paint by 350ms+). Hover/scroll motion untouched. */
+.intro-content > *,
+.intro-media,
+.focus-tags,
 .contact-links {
-  animation: rise 0.35s 0.25s ease both;
+  animation: none;
 }
 .reveal {
   opacity: 0;
