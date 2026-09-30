@@ -19,7 +19,7 @@ const Footer = ({ name }) => (
       >
         ⌘K
       </button>
-      <span>{stamp}</span>
+      <span className="max-[768px]:hidden">{stamp}</span>
     </div>
   </footer>
 );

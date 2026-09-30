@@ -31,7 +31,7 @@ const CompanyLogo = ({ job, defaultLogo }) => {
 const Experience = ({ experience = [], defaultLogo }) => (
   <section id="experience" className="section-block relative overflow-visible scroll-mt-3">
     <div
-      className="absolute bottom-0 left-[29px] top-0 z-[1] w-[2px] bg-[linear-gradient(transparent_0,var(--accent)_48px,var(--line)_160px,var(--line)_calc(100%_-_24px),transparent_100%)] max-[768px]:left-[7px]"
+      className="absolute bottom-0 left-[29px] top-0 z-[1] w-[2px] bg-[linear-gradient(transparent_0,var(--accent)_48px,var(--line)_160px,var(--line)_calc(100%_-_24px),transparent_100%)] max-[768px]:left-[26px]"
       aria-hidden="true"
     />
     <div className="relative z-[1] mb-3 flex items-center gap-[11px] bg-paper">
@@ -66,7 +66,7 @@ const Experience = ({ experience = [], defaultLogo }) => (
               {job.startDate} - {job.endDate || 'Present'}
             </span>
           </div>
-          <p className="mt-1 mb-[10px] text-[0.9rem] font-semibold text-ink">
+          <p className="mt-1 mb-[10px] text-[0.9rem] font-semibold text-ink max-[768px]:flex max-[768px]:flex-col max-[768px]:gap-[2px]">
             <strong>
               {job.website ? (
                 <a href={job.website} target="_blank" rel="noopener noreferrer">
@@ -78,8 +78,8 @@ const Experience = ({ experience = [], defaultLogo }) => (
             </strong>
             {job.location && (
               <>
-                <span className="px-[7px] text-muted">·</span>
-                <span className="px-[7px] font-bold text-accent">
+                <span className="px-[7px] text-muted max-[768px]:hidden">·</span>
+                <span className="px-[7px] font-bold text-accent max-[768px]:px-0">
                   <TechIcon
                     name="location-dot"
                     className="h-[0.95em] w-[0.95em] mr-[2px] align-[-2px] text-[#d93025]"
@@ -88,10 +88,10 @@ const Experience = ({ experience = [], defaultLogo }) => (
                 </span>
               </>
             )}
-            <span className="px-[7px] text-muted">·</span>
-            {job.domain}
-            <span className="px-[7px] text-muted">·</span>
-            {job.mainFocus}
+            <span className="px-[7px] text-muted max-[768px]:hidden">·</span>
+            <span>{job.domain}</span>
+            <span className="px-[7px] text-muted max-[768px]:hidden">·</span>
+            <span>{job.mainFocus}</span>
           </p>
           <div className="flex flex-wrap gap-[7px]" aria-label={`${job.company} technologies`}>
             {(job.technologies || []).map((technology) => (
