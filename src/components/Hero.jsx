@@ -250,10 +250,7 @@ const Hero = ({ data }) => {
           </picture>
         </div>
       </div>
-      <div
-        className="focus-tags mt-4 flex flex-nowrap gap-1.5 overflow-x-auto pb-[2px] max-[768px]:flex-wrap max-[768px]:overflow-visible"
-        aria-label="Core engineering strengths"
-      >
+      <div className="focus-tags mt-4 flex flex-wrap gap-1.5 pb-[2px]" aria-label="Core engineering strengths">
         {(data.focusAreas || []).map((area) => {
           const label = area.label || area;
           return (
