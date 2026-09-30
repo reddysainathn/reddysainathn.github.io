@@ -243,6 +243,7 @@ const Hero = ({ data }) => {
               width="180"
               height="180"
               fetchPriority="high"
+              loading="eager"
               decoding="async"
               onError={() => setProfileImage(FALLBACK_IMAGE)}
             />

@@ -28,6 +28,25 @@
   --font-display: 'Space Grotesk', sans-serif;
 }
 
+/* Self-hosted variable fonts (public/fonts, latin subsets) — same origin +
+   preload, so first paint rarely swaps. Weights cover all utilities in use
+   (normal 400, semibold 600, bold 700). */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans-latin.woff2') format('woff2');
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
   font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
