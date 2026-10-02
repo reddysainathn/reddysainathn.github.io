@@ -95,7 +95,7 @@
     "gpa": "3.6"
   },
   "skills": {
-    "Languages": ["Java", "Kotlin", "Python", "SQL", "Shell scripting"],
+    "Languages": ["Java", "Kotlin", "Python", "JavaScript", "SQL", "Shell scripting"],
     "Backend & Platform": [
       "Spring Boot",
       "Flask",
@@ -172,8 +172,9 @@
         "Vertex AI",
         "LangChain",
         "Python",
+        "JavaScript",
         "ReactJS",
-        "Express",
+        "ExpressJS",
         "GraphQL",
         "Databricks",
         "Airflow",

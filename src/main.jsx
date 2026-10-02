@@ -2,11 +2,16 @@ import React from 'react';
 import { hydrateRoot, createRoot } from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
-import { initAnalytics, initScrollPosition } from './lib/events';
+import { initAnalytics, initScrollPosition, initHashSync, initReveals } from './lib/events';
 
 // Set start position synchronously (top, or deep-link target) before paint.
-// Analytics stays idle-deferred below.
+// Reveals + hash sync run sync too: they were idle-deferred via initAnalytics,
+// so prerendered sections were hidden (`.reveal` → opacity:0) after paint and
+// only faded in after scrolling well inside — the reported blank next block.
+// Analytics tracking stays idle-deferred below.
 initScrollPosition();
+initHashSync();
+initReveals();
 
 const rootElement = document.getElementById('root');
 const tree = (

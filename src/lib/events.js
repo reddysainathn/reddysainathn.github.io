@@ -133,10 +133,18 @@ export const initPrintTracking = () => {
   window.addEventListener('afterprint', () => trackEvent('print_completed'));
 };
 
+let revealsWired = false;
+let hashSyncWired = false;
+
 export const initReveals = () => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (revealsWired) return;
+  revealsWired = true;
   const targets = document.querySelectorAll('.section-block, .site-footer');
-  if (!('IntersectionObserver' in window)) return;
+  if (!('IntersectionObserver' in window)) {
+    // No observer (old browser / prerender): leave content visible.
+    return;
+  }
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -146,9 +154,13 @@ export const initReveals = () => {
         }
       });
     },
-    { threshold: 0.12 }
+    // Reveal as soon as any pixel is within 200px below the viewport, so the
+    // next block fades in before the user scrolls it into view. Threshold 0.12
+    // kept sections at opacity:0 until scrolled well inside (reported blank).
+    { threshold: 0, rootMargin: '0px 0px 200px 0px' }
   );
   targets.forEach((el) => {
+    if (el.classList.contains('revealed')) return;
     el.classList.add('reveal');
     observer.observe(el);
   });
@@ -180,6 +192,8 @@ export const initScrollPosition = () => {
 export const initHashSync = () => {
   if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
   if (!('replaceState' in window.history)) return;
+  if (hashSyncWired) return;
+  hashSyncWired = true;
   const topLimit = () => {
     const first = document.getElementById(SECTION_IDS[0]);
     return Math.max(first ? first.offsetTop - 80 : 160, 0);
