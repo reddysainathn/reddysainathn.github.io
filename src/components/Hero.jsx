@@ -188,6 +188,7 @@ const Hero = ({ data }) => {
                 className="text-ink hover:text-accent"
               >
                 <TechIcon name="github" className="h-[1em] w-[1em] mr-[5px] align-[-2px]" />
+                <span className="sr-only">GitHub profile</span>
               </a>
               <a
                 href={data.linkedin}
@@ -197,6 +198,7 @@ const Hero = ({ data }) => {
                 className="text-ink hover:text-accent"
               >
                 <TechIcon name="linkedin" className="h-[1em] w-[1em] mr-[5px] align-[-2px]" />
+                <span className="sr-only">LinkedIn profile</span>
               </a>
             </span>
           </p>

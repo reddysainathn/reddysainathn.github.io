@@ -22,6 +22,7 @@ const CompanyLogo = ({ job, defaultLogo }) => {
       className="inline-flex"
     >
       {img}
+      <span className="sr-only">{`${job.company} website`}</span>
     </a>
   ) : (
     img
