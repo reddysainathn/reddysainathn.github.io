@@ -32,7 +32,7 @@ const CompanyLogo = ({ job, defaultLogo }) => {
 const Experience = ({ experience = [], defaultLogo }) => (
   <section id="experience" className="section-block relative overflow-visible scroll-mt-3">
     <div
-      className="absolute bottom-0 left-[29px] top-0 z-[1] w-[2px] bg-[linear-gradient(transparent_0,var(--accent)_48px,var(--line)_160px,var(--line)_calc(100%_-_24px),transparent_100%)] max-[768px]:left-[26px]"
+      className="absolute bottom-0 left-[24px] top-0 z-[1] w-[2px] bg-[linear-gradient(transparent_0,var(--accent)_48px,var(--line)_160px,var(--line)_calc(100%_-_24px),transparent_100%)] max-[768px]:left-[22px]"
       aria-hidden="true"
     />
     <div className="relative z-[1] mb-2 flex items-center gap-[11px] bg-paper">
@@ -47,13 +47,10 @@ const Experience = ({ experience = [], defaultLogo }) => (
         key={index}
       >
         <div
-          className="timeline-marker relative flex items-center justify-center overflow-visible"
+          className="timeline-marker relative flex items-start justify-center overflow-visible pt-[23px] max-[768px]:pt-4"
           aria-label={`${job.role} at ${job.company}: ${roleTenure(job.startDate, job.endDate) || job.startDate}`}
         >
-          <span
-            data-tenure={roleTenure(job.startDate, job.endDate) || undefined}
-            className="relative z-[2] h-3 w-3 rounded-full bg-paper [border:2px_solid_var(--accent)]"
-          />
+          <span className="relative z-[2] h-3 w-3 rounded-full bg-paper [border:2px_solid_var(--accent)]" />
         </div>
         <div className="flex h-[58px] w-[84px] shrink-0 items-center justify-center max-[768px]:h-[44px] max-[768px]:w-[52px] dark:bg-white dark:rounded-[12px] dark:p-1.5 dark:[box-sizing:border-box]">
           <CompanyLogo job={job} defaultLogo={defaultLogo} />
@@ -65,6 +62,12 @@ const Experience = ({ experience = [], defaultLogo }) => (
             </h3>
             <span className="text-[0.82rem] font-semibold whitespace-nowrap text-accent max-[768px]:whitespace-normal">
               {job.startDate} - {job.endDate || 'Present'}
+              {roleTenure(job.startDate, job.endDate) && (
+                <span className={index === 0 ? 'font-bold text-signal' : 'font-normal text-muted'}>
+                  {' '}
+                  · {roleTenure(job.startDate, job.endDate)}
+                </span>
+              )}
             </span>
           </div>
           <p className="mt-1 mb-1.5 text-[0.9rem] font-semibold text-ink max-[768px]:flex max-[768px]:flex-col max-[768px]:gap-[2px]">
