@@ -2,14 +2,16 @@ const commit = typeof __COMMIT__ !== 'undefined' ? __COMMIT__ : '';
 const buildTime = typeof __BUILD_TIME__ !== 'undefined' ? __BUILD_TIME__ : '';
 const stamp = [commit, buildTime].filter(Boolean).join(' · ');
 
+const accentMark = 'font-bold text-signal';
+
 const Footer = ({ name }) => (
   <footer className="site-footer [border-top:1px_solid_var(--line)] mt-1 pt-3 pb-2 text-center" aria-label="Footer">
     <div className="mt-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-[10px] bg-ink px-3 py-2 font-mono [font-size:0.72rem] text-paper">
       <span>
-        <span className="font-bold text-signal">//</span> Thanks — {name.replace(/\s+R$/, '')};
+        <span className={accentMark}>//</span> Thanks — {name.replace(/\s+R$/, '')};
       </span>
       <span>
-        <span className="font-bold text-signal">✓</span> 0 errors
+        <span className={accentMark}>✓</span> 0 errors
       </span>
       <button
         type="button"

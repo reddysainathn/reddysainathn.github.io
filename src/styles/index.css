@@ -24,7 +24,7 @@
 
 /* Exact mono stack used across eyebrow, motto, badges, pills. */
 @theme {
-  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
   --font-display: 'Space Grotesk', sans-serif;
 }
 
@@ -47,6 +47,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
   font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
@@ -64,8 +72,4 @@ textarea {
 
 * {
   box-sizing: border-box;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

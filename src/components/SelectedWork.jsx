@@ -1,32 +1,29 @@
-import { TechIcon } from './TechIcon';
+import { Section, SectionHead, cardShell, cardTitle } from './ui';
+
+const labelMono = 'font-mono text-[0.75rem] uppercase text-accent';
+const bodyText = 'mt-1 mb-0 text-[0.92rem] leading-[1.5] text-body';
 
 const SelectedWork = ({ work = [] }) => (
-  <section id="selected-work" className="section-block scroll-mt-3">
-    <div className="mb-2 flex items-center gap-[11px]">
-      <TechIcon name="code" className="h-[1em] w-[1em] text-signal" />
-      <h2 className="m-0 font-display text-[1.1rem] font-bold uppercase tracking-[-0.02em] text-ink">
-        Selected systems
-      </h2>
-      <span className="text-[0.8rem] font-normal text-muted max-[768px]:hidden">Problems, architecture, tradeoffs</span>
-    </div>
+  <Section id="selected-work">
+    <SectionHead icon="code" title="Selected systems" sub="Problems, architecture, tradeoffs" />
     <div>
       {(Array.isArray(work) ? work : []).map((project) => (
         <article
-          className="work-item mb-2.5 rounded-[14px] bg-card px-4 py-3 [border:1px_solid_var(--line)] [transition:border-color_0.2s_ease,box-shadow_0.2s_ease,transform_0.2s_ease] hover:-translate-y-[2px] hover:shadow-[0_10px_24px_rgba(23,33,38,0.08)] hover:[border-color:var(--accent)]"
+          className={`work-item mb-2.5 ${cardShell} px-4 py-3 [transition:border-color_0.2s_ease,box-shadow_0.2s_ease,transform_0.2s_ease] hover:-translate-y-[2px] hover:shadow-[0_10px_24px_rgba(23,33,38,0.08)] hover:[border-color:var(--accent)]`}
           key={project.title}
         >
           <header className="mb-1.5 flex items-baseline justify-between gap-4">
-            <h3 className="m-0 font-display text-[1.12rem] font-bold text-ink">{project.title}</h3>
-            <small className="text-right font-mono text-[0.75rem] uppercase text-accent">{project.context}</small>
+            <h3 className={`${cardTitle} text-[1.12rem]`}>{project.title}</h3>
+            <small className={`text-right ${labelMono}`}>{project.context}</small>
           </header>
           <div className="grid grid-cols-2 gap-x-3 gap-y-2 max-[768px]:grid-cols-1">
             <div>
-              <b className="font-mono text-[0.75rem] uppercase text-accent">Problem</b>
-              <p className="mt-1 mb-0 text-[0.92rem] leading-[1.5] text-body">{project.problem}</p>
+              <b className={labelMono}>Problem</b>
+              <p className={bodyText}>{project.problem}</p>
             </div>
             <div>
-              <b className="font-mono text-[0.75rem] uppercase text-accent">Approach</b>
-              <p className="mt-1 mb-0 text-[0.92rem] leading-[1.5] text-body">{project.approach}</p>
+              <b className={labelMono}>Approach</b>
+              <p className={bodyText}>{project.approach}</p>
             </div>
             <span className="col-span-full text-[0.75rem] font-bold text-accent max-[768px]:col-auto">
               {project.stack}
@@ -50,7 +47,7 @@ const SelectedWork = ({ work = [] }) => (
         </article>
       ))}
     </div>
-  </section>
+  </Section>
 );
 
 export default SelectedWork;

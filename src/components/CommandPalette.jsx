@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { trackEvent } from '../lib/events';
 
 const scrollToId = (id) => {
@@ -7,6 +7,8 @@ const scrollToId = (id) => {
 };
 
 const fire = (name) => window.dispatchEvent(new Event(name));
+
+const rowPad = 'px-3 py-[10px]';
 
 const CommandPalette = () => {
   const [open, setOpen] = useState(false);
@@ -147,7 +149,7 @@ const CommandPalette = () => {
             <li key={action.id}>
               <button
                 type="button"
-                className={`${index === active ? 'bg-[rgba(8,127,140,0.1)] ' : 'bg-transparent '}block w-full cursor-pointer rounded-lg border-0 px-3 py-[10px] text-left text-[0.88rem] font-semibold text-ink`}
+                className={`${index === active ? 'bg-[rgba(8,127,140,0.1)] ' : 'bg-transparent '}block w-full cursor-pointer rounded-lg border-0 ${rowPad} text-left text-[0.88rem] font-semibold text-ink`}
                 onMouseEnter={() => setActive(index)}
                 onClick={() => runAction(action)}
               >
@@ -155,7 +157,7 @@ const CommandPalette = () => {
               </button>
             </li>
           ))}
-          {filtered.length === 0 && <li className="px-3 py-[10px] text-[0.85rem] text-muted">No matching command</li>}
+          {filtered.length === 0 && <li className={`${rowPad} text-[0.85rem] text-muted`}>No matching command</li>}
         </ul>
       </div>
     </div>
