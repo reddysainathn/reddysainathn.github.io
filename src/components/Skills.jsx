@@ -13,7 +13,7 @@ const Skills = ({ skills = {} }) => (
       {Object.entries(skills).map(([category, skillList]) => (
         <div className="mb-4 break-inside-avoid pt-0" key={category}>
           <p className="m-0 mb-2 font-mono text-[0.78rem] font-bold tracking-[0.02em] text-accent">
-            <span className="text-[0.88rem] uppercase tracking-[0.04em] text-ink">{category}</span>{' '}
+            <span className="uppercase tracking-[0.04em] text-ink">{category}</span>{' '}
             <span className="code-accent">$</span> stack --{slug(category)}{' '}
             <span className="font-normal text-muted">{(Array.isArray(skillList) ? skillList : []).length}</span>
           </p>

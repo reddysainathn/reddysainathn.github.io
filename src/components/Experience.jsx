@@ -59,8 +59,8 @@ const Experience = ({ experience = [], defaultLogo }) => (
         </div>
         <div className="min-w-0 grow">
           <div className="flex items-baseline justify-between gap-3 max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[5px]">
-            <h3 className={`${cardTitle} text-[1.25rem] [transition:color_0.2s_ease]`}>{job.role}</h3>
-            <span className="text-[0.82rem] font-semibold whitespace-nowrap text-accent max-[768px]:whitespace-normal">
+            <h3 className={`${cardTitle} text-[1.12rem] [transition:color_0.2s_ease]`}>{job.role}</h3>
+            <span className="text-[0.8rem] font-semibold whitespace-nowrap text-accent max-[768px]:whitespace-normal">
               {job.startDate} - {job.endDate || 'Present'}
               {roleTenure(job.startDate, job.endDate) && (
                 <span className={index === 0 ? 'font-bold text-signal' : 'font-normal text-muted'}>
@@ -108,7 +108,7 @@ const Experience = ({ experience = [], defaultLogo }) => (
             ))}
           </div>
           {!job.hideResponsibilities && Array.isArray(job.responsibilities) && job.responsibilities.length > 0 && (
-            <ul className="m-0 mt-1.5 pl-[19px] leading-[1.6] text-body">
+            <ul className="m-0 mt-1.5 pl-[19px] text-[0.9rem] leading-[1.6] text-body">
               {job.responsibilities.map((item, i) => (
                 <li className="my-1" key={i}>
                   {item}

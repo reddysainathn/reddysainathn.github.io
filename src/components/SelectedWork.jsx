@@ -1,7 +1,7 @@
 import { Section, SectionHead, cardShell, cardTitle } from './ui';
 
 const labelMono = 'font-mono text-[0.75rem] uppercase text-accent';
-const bodyText = 'mt-1 mb-0 text-[0.92rem] leading-[1.5] text-body';
+const bodyText = 'mt-1 mb-0 text-[0.9rem] leading-[1.5] text-body';
 
 const SelectedWork = ({ work = [] }) => (
   <Section id="selected-work">

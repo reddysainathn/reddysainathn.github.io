@@ -157,7 +157,7 @@ const CommandPalette = () => {
               </button>
             </li>
           ))}
-          {filtered.length === 0 && <li className={`${rowPad} text-[0.85rem] text-muted`}>No matching command</li>}
+          {filtered.length === 0 && <li className={`${rowPad} text-[0.8rem] text-muted`}>No matching command</li>}
         </ul>
       </div>
     </div>

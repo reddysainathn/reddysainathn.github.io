@@ -294,7 +294,7 @@ const Hero = ({ data }) => {
         </span>
         <span className="flex min-w-0 flex-nowrap items-center gap-2 font-semibold text-muted max-[768px]:items-start">
           <TechIcon name="graduation-cap" className="text-signal" />
-          <span className="text-[0.88rem]">
+          <span className="text-[0.8rem]">
             {data.education.degree}
             {data.education.school && (
               <>
