@@ -132,11 +132,11 @@ const Hero = ({ data }) => {
   };
 
   return (
-    <section className="[border-bottom:1px_solid_var(--line)] pt-3 pb-[18px]">
-      <div className="flex items-center justify-start gap-8 print:gap-[20px] print:max-[768px]:gap-[20px] max-[1024px]:gap-[28px] max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-[22px]">
+    <section className="[border-bottom:1px_solid_var(--line)] pt-2 pb-3">
+      <div className="flex items-center justify-start gap-5 print:gap-[20px] print:max-[768px]:gap-[20px] max-[1024px]:gap-5 max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-4">
         <div className="intro-content min-w-0">
           {data.eyebrow && (
-            <p className="mt-0 mb-3 font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-accent">
+            <p className="mt-0 mb-2 font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-accent">
               {data.eyebrow}
             </p>
           )}
@@ -177,7 +177,7 @@ const Hero = ({ data }) => {
               </span>
             )}
           </div>
-          <p className="mt-[10px] mb-2 max-w-[690px] font-display text-[clamp(1.05rem,1.8vw,1.35rem)] leading-[1.25]">
+          <p className="mt-2 mb-1.5 max-w-[690px] font-display text-[clamp(1.05rem,1.8vw,1.35rem)] leading-[1.25]">
             {data.headline}{' '}
             <span className="ml-3 inline-flex gap-[10px] whitespace-nowrap align-baseline">
               <a
@@ -202,7 +202,7 @@ const Hero = ({ data }) => {
               </a>
             </span>
           </p>
-          <div className="m-0 mb-[10px] flex flex-wrap items-center gap-2">
+          <div className="m-0 mb-2 flex flex-wrap items-center gap-2">
             {data.availability && (
               <span className="inline-block rounded-full bg-[rgba(8,127,140,0.08)] px-[10px] py-[7px] font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-accent [border:1px_solid_rgba(8,127,140,0.28)] dark:[border-color:rgba(255,255,255,0.6)]">
                 {data.availability}
@@ -252,7 +252,7 @@ const Hero = ({ data }) => {
           </picture>
         </div>
       </div>
-      <div className="focus-tags mt-4 flex flex-wrap gap-1.5 pb-[2px]" aria-label="Core engineering strengths">
+      <div className="focus-tags mt-3 flex flex-wrap gap-1.5 pb-[2px]" aria-label="Core engineering strengths">
         {(data.focusAreas || []).map((area) => {
           const label = area.label || area;
           return (
@@ -266,7 +266,7 @@ const Hero = ({ data }) => {
           );
         })}
       </div>
-      <div className="contact-links mt-[18px] flex flex-nowrap items-center gap-x-3 gap-y-2 overflow-x-visible whitespace-nowrap pb-[2px] max-[1024px]:flex-wrap max-[1024px]:gap-y-[10px] max-[768px]:flex-wrap max-[768px]:gap-x-5 max-[768px]:gap-y-3 max-[768px]:overflow-visible max-[768px]:whitespace-normal">
+      <div className="contact-links mt-3 flex flex-nowrap items-center gap-x-3 gap-y-2 overflow-x-visible whitespace-nowrap pb-[2px] max-[1024px]:flex-wrap max-[1024px]:gap-y-2 max-[768px]:flex-wrap max-[768px]:gap-x-5 max-[768px]:gap-y-2 max-[768px]:overflow-visible max-[768px]:whitespace-normal">
         <a
           className="email-link flex-none inline-flex items-center text-[0.78rem]"
           href={`mailto:${data.email}`}

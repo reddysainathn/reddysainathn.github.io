@@ -61,7 +61,7 @@
 .section-block {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
-  padding: 16px 0;
+  padding: 10px 0;
   border-bottom: none;
 }
 @keyframes current-pulse {
@@ -167,8 +167,8 @@ button:focus-visible {
 }
 .section-block + .section-block {
   border-top: 1px solid var(--line);
-  margin-top: 8px;
-  padding-top: 20px;
+  margin-top: 2px;
+  padding-top: 12px;
 }
 .code-accent {
   color: var(--signal);
