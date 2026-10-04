@@ -6,8 +6,23 @@ import { visitorNetwork, cachedNetwork, ALLOWED_COUNTRIES } from '../lib/geo';
 import { encodeFingerprint } from '../lib/codec';
 import { getPreferredTheme, applyTheme } from '../lib/theme';
 import { TechIcon } from './TechIcon';
+import { tagWrap } from './ui';
 
 const FALLBACK_IMAGE = '/images/profile-fallback.svg';
+
+const badgeBase = 'rounded-full px-[10px] py-[7px] font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em]';
+const contactItem = 'flex-none inline-flex items-center text-[0.78rem]';
+const iconBtn = 'h-[1em] w-[1em] align-[-0.125em]';
+const linkLine = 'underline decoration-[1px] underline-offset-[3px]';
+
+const SocialLink = ({ href, label, icon }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-ink hover:text-accent">
+    <TechIcon name={icon} className="h-[1em] w-[1em] mr-[5px] align-[-2px]" />
+    <span className="sr-only">{label}</span>
+  </a>
+);
+const ghostBtn =
+  "print:hidden relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]";
 
 const Hero = ({ data }) => {
   const [profileImage, setProfileImage] = useState(data.profileImage || FALLBACK_IMAGE);
@@ -15,6 +30,15 @@ const Hero = ({ data }) => {
   const [theme, setTheme] = useState(getPreferredTheme);
   const [copied, setCopied] = useState(false);
   const manualTheme = useRef(false);
+
+  // Prerender bakes light but the inline script may have painted dark:
+  // sync state from the DOM so icon and page can't disagree on load.
+  useEffect(() => {
+    const actual = document.documentElement.dataset.theme;
+    if (actual === 'dark' || actual === 'light') {
+      setTheme((prev) => (prev === actual ? prev : actual));
+    }
+  }, []);
 
   useEffect(() => {
     applyTheme(theme);
@@ -180,58 +204,40 @@ const Hero = ({ data }) => {
           <p className="mt-2 mb-1.5 max-w-[690px] font-display text-[clamp(1.05rem,1.8vw,1.35rem)] leading-[1.25]">
             {data.headline}{' '}
             <span className="ml-3 inline-flex gap-[10px] whitespace-nowrap align-baseline">
-              <a
-                href={data.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub profile"
-                className="text-ink hover:text-accent"
-              >
-                <TechIcon name="github" className="h-[1em] w-[1em] mr-[5px] align-[-2px]" />
-                <span className="sr-only">GitHub profile</span>
-              </a>
-              <a
-                href={data.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-                className="text-ink hover:text-accent"
-              >
-                <TechIcon name="linkedin" className="h-[1em] w-[1em] mr-[5px] align-[-2px]" />
-                <span className="sr-only">LinkedIn profile</span>
-              </a>
+              <SocialLink href={data.github} label="GitHub profile" icon="github" />
+              <SocialLink href={data.linkedin} label="LinkedIn profile" icon="linkedin" />
             </span>
           </p>
           <div className="m-0 mb-2 flex flex-wrap items-center gap-2">
             {data.availability && (
-              <span className="inline-block rounded-full bg-[rgba(8,127,140,0.08)] px-[10px] py-[7px] font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-accent [border:1px_solid_rgba(8,127,140,0.28)] dark:[border-color:rgba(255,255,255,0.6)]">
+              <span
+                className={`${badgeBase} inline-block bg-[rgba(8,127,140,0.08)] text-accent [border:1px_solid_rgba(8,127,140,0.28)] dark:[border-color:rgba(255,255,255,0.6)]`}
+              >
                 {data.availability}
               </span>
             )}
             {Number.isFinite(heroYears) && heroYears > 0 && (
-              <span className="rounded-full px-[10px] py-[7px] font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--line)] dark:[border-color:rgba(255,255,255,0.75)]">
+              <span
+                className={`${badgeBase} text-ink [border:1px_solid_var(--line)] dark:[border-color:rgba(255,255,255,0.75)]`}
+              >
                 💼 {heroYears}+ years experience
               </span>
             )}
-            <button
-              type="button"
-              className="print:hidden relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
-              onClick={printResume}
-            >
-              <TechIcon name="file-lines" className="h-[1em] w-[1em] align-[-0.125em]" /> Resume
+            <button type="button" className={ghostBtn} onClick={printResume}>
+              <TechIcon name="file-lines" className={iconBtn} /> Resume
             </button>
             <button
               type="button"
-              className="print:hidden relative cursor-pointer overflow-hidden rounded-full bg-transparent px-[14px] py-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.06em] text-ink [border:1px_solid_var(--ink)] hover:bg-ink hover:text-invert dark:[border-color:rgba(255,255,255,0.75)] after:absolute after:inset-0 after:translate-x-[-120%] after:bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.45)_50%,transparent_60%)] after:content-[''] after:[transition:transform_0.6s_ease] hover:after:translate-x-[120%]"
+              className={ghostBtn}
               onClick={toggleTheme}
               aria-pressed={theme === 'dark'}
               suppressHydrationWarning
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              <TechIcon name={theme === 'dark' ? 'sun' : 'moon'} className="h-[1em] w-[1em] align-[-0.125em]" />
+              <TechIcon name={theme === 'dark' ? 'sun' : 'moon'} className={iconBtn} />
             </button>
           </div>
-          <p className="m-0 max-w-[720px] font-display text-base leading-[1.6] text-body underline decoration-[1px] underline-offset-[3px]">
+          <p className={`m-0 max-w-[720px] font-display text-base leading-[1.6] text-body ${linkLine}`}>
             {data.intro.replace('{years}', heroYears ?? 10)}
           </p>
         </div>
@@ -252,7 +258,7 @@ const Hero = ({ data }) => {
           </picture>
         </div>
       </div>
-      <div className="focus-tags mt-3 flex flex-wrap gap-1.5 pb-[2px]" aria-label="Core engineering strengths">
+      <div className={`focus-tags mt-3 ${tagWrap} pb-[2px]`} aria-label="Core engineering strengths">
         {(data.focusAreas || []).map((area) => {
           const label = area.label || area;
           return (
@@ -268,7 +274,7 @@ const Hero = ({ data }) => {
       </div>
       <div className="contact-links mt-3 flex flex-nowrap items-center gap-x-3 gap-y-2 overflow-x-visible whitespace-nowrap pb-[2px] max-[1024px]:flex-wrap max-[1024px]:gap-y-2 max-[768px]:flex-wrap max-[768px]:gap-x-5 max-[768px]:gap-y-2 max-[768px]:overflow-visible max-[768px]:whitespace-normal">
         <a
-          className="email-link flex-none inline-flex items-center text-[0.78rem]"
+          className={`email-link ${contactItem}`}
           href={`mailto:${data.email}`}
           onClick={emailRecruiter}
           data-tip="Click to say hello — opens your mail app"
@@ -281,14 +287,14 @@ const Hero = ({ data }) => {
           onClick={copyEmail}
           aria-label={copied ? 'Email address copied' : 'Copy email address'}
         >
-          <TechIcon name={copied ? 'check' : 'copy'} className="h-[1em] w-[1em] align-[-0.125em]" />
+          <TechIcon name={copied ? 'check' : 'copy'} className={iconBtn} />
         </button>
-        <span className="flex-none inline-flex items-center text-[0.78rem] font-semibold text-ink">
+        <span className={`${contactItem} font-semibold text-ink`}>
           <TechIcon name="location-dot" className="text-[#d93025]" /> {data.location}
         </span>
         <span className="flex min-w-0 flex-nowrap items-center gap-2 font-semibold text-muted max-[768px]:items-start">
           <TechIcon name="graduation-cap" className="text-signal" />
-          <span className="text-[0.88rem]">
+          <span className="text-[0.8rem]">
             {data.education.degree}
             {data.education.school && (
               <>
@@ -298,7 +304,7 @@ const Hero = ({ data }) => {
                     href={data.education.schoolUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-none font-bold text-accent underline decoration-[1px] underline-offset-[3px] dark:text-[#7fdae2]"
+                    className={`bg-none font-bold text-accent ${linkLine} dark:text-[#7fdae2]`}
                   >
                     {data.education.school}
                   </a>

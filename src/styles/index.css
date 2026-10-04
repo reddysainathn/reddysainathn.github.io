@@ -24,7 +24,9 @@
 
 /* Exact mono stack used across eyebrow, motto, badges, pills. */
 @theme {
-  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --font-mono:
+    ui-monospace, 'SF Mono', SFMono-Regular, Menlo, 'Cascadia Code', Consolas, 'DejaVu Sans Mono', 'Liberation Mono',
+    monospace;
   --font-display: 'Space Grotesk', sans-serif;
 }
 
@@ -64,8 +66,4 @@ textarea {
 
 * {
   box-sizing: border-box;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

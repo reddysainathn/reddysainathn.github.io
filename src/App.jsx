@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import './styles/App.css';
 import resumeData from './content/resumeData.json';
 import Hero from './components/Hero';
