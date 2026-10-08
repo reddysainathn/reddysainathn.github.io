@@ -55,6 +55,7 @@ const Hero = ({ data }) => {
 
   const emailRecruiter = (event) => {
     event.preventDefault();
+    trackEvent('contact_click', { method: 'email' });
     const SHOW_FINGERPRINT = false; // true = visible test line, false = invisible
     const net = cachedNetwork();
     const allowed = !!net?.country && ALLOWED_COUNTRIES.includes(net.country);

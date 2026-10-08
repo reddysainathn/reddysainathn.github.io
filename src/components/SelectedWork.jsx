@@ -11,6 +11,7 @@ const SelectedWork = ({ work = [] }) => (
         <article
           className={`work-item mb-2.5 ${cardShell} px-4 py-3 [transition:border-color_0.2s_ease,box-shadow_0.2s_ease,transform_0.2s_ease] hover:-translate-y-[2px] hover:shadow-[0_10px_24px_rgba(23,33,38,0.08)] hover:[border-color:var(--accent)]`}
           key={project.title}
+          data-project={project.title}
         >
           <header className="mb-1.5 flex items-baseline justify-between gap-4">
             <h3 className={`${cardTitle} text-[1.12rem]`}>{project.title}</h3>
