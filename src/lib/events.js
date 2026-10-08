@@ -37,8 +37,47 @@ export const trackEvent = (name, params = {}) => {
   }
 };
 
+let scrollWired = false;
+let clickWired = false;
+let pageViewSent = false;
+
+const textLabel = (el) => {
+  const text = (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+  return text || undefined;
+};
+
+const sectionOf = (el) => el.closest?.('section[id]')?.id || 'hero';
+
+export const initPageViewTracking = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (pageViewSent) return;
+  pageViewSent = true;
+  const params = {};
+  try {
+    params.referrer_host = document.referrer ? new URL(document.referrer).hostname : 'direct';
+  } catch {
+    params.referrer_host = 'direct';
+  }
+  try {
+    const search = new URLSearchParams(window.location.search);
+    const source = search.get('utm_source')?.slice(0, 60);
+    const medium = search.get('utm_medium')?.slice(0, 60);
+    const campaign = search.get('utm_campaign')?.slice(0, 60);
+    if (source) params.utm_source = source;
+    if (medium) params.utm_medium = medium;
+    if (campaign) params.utm_campaign = campaign;
+  } catch {
+    /* ignore */
+  }
+  const landing = window.location.hash.slice(1);
+  if (landing && SECTION_IDS.includes(landing)) params.landing_section = landing;
+  trackEvent('page_view', params);
+};
+
 export const initScrollTracking = () => {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (scrollWired) return;
+  scrollWired = true;
 
   const seenSections = new Set();
   if ('IntersectionObserver' in window) {
@@ -57,6 +96,26 @@ export const initScrollTracking = () => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
+  }
+
+  const seenCompanies = new Set();
+  if ('IntersectionObserver' in window) {
+    const cards = document.querySelectorAll('.experience-card[data-company]');
+    if (cards.length > 0) {
+      const companyObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const company = entry.target.dataset?.company;
+            if (entry.isIntersecting && company && !seenCompanies.has(company)) {
+              seenCompanies.add(company);
+              trackEvent('company_view', { company });
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      cards.forEach((el) => companyObserver.observe(el));
+    }
   }
 
   const milestones = [25, 50, 75, 100];
@@ -89,11 +148,16 @@ export const initScrollTracking = () => {
 
 export const initClickTracking = () => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (clickWired) return;
+  clickWired = true;
   document.addEventListener('click', (event) => {
     const anchor = event.target && event.target.closest ? event.target.closest('a') : null;
     if (!anchor) return;
     const href = anchor.getAttribute('href') || '';
     if (href.startsWith('mailto:')) {
+      // Hero tracks directly in onClick (idle-deferred listener can miss
+      // early clicks); skip here when default was prevented to avoid doubles.
+      if (event.defaultPrevented) return;
       trackEvent('contact_click', { method: 'email' });
       return;
     }
@@ -104,9 +168,29 @@ export const initClickTracking = () => {
       } catch {
         return;
       }
-      if (host && host !== window.location.hostname) {
-        trackEvent('outbound_click', { host });
+      if (!host || host === window.location.hostname) return;
+      if (anchor.closest('#selected-work')) {
+        const article = anchor.closest('article');
+        const project = article?.dataset?.project || article?.querySelector('h3')?.textContent?.trim().slice(0, 60);
+        const params = { host };
+        if (project) params.project = project;
+        const label = textLabel(anchor);
+        if (label) params.label = label;
+        trackEvent('project_click', params);
+        return;
       }
+      const section = sectionOf(anchor);
+      const label = anchor.getAttribute('aria-label') || textLabel(anchor);
+      const type = /github\.com/i.test(host)
+        ? 'github'
+        : /linkedin\.com/i.test(host)
+          ? 'linkedin'
+          : anchor.closest('#experience')
+            ? 'company'
+            : 'general';
+      const params = { host, section, type };
+      if (label) params.label = label;
+      trackEvent('outbound_click', params);
     }
   });
 };
@@ -247,9 +331,9 @@ export const initHashSync = () => {
 export const initAnalytics = () => {
   initHashSync();
   initReveals();
-  // Host gate parked: auto page_view from gtag config covers all hosts.
+  // Host gate parked: track everywhere until re-enabled.
   // if (!isAnalyticsEnabled()) return;
-  // trackEvent('page_view');
+  initPageViewTracking();
   initScrollTracking();
   initClickTracking();
   initEngagementTracking();

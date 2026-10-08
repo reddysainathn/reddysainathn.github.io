@@ -47,6 +47,7 @@ const Experience = ({ experience = [], defaultLogo }) => (
       <article
         className={`experience-card ${index === 0 ? 'current-role' : ''} relative grid grid-cols-[18px_84px_minmax(0,1fr)] gap-3 overflow-visible rounded-[14px] px-4 py-3 [border:1px_solid_transparent] [transition:background_0.2s_ease,border-color_0.2s_ease,box-shadow_0.2s_ease] hover:bg-card hover:shadow-[0_8px_20px_rgba(23,33,38,0.07)] hover:[border-color:var(--accent)] max-[768px]:gap-2.5 max-[768px]:grid-cols-[14px_52px_minmax(0,1fr)] max-[768px]:pr-3 [&:first-of-type]:mt-1`}
         key={index}
+        data-company={job.company}
       >
         <div
           className="timeline-marker relative flex items-start justify-center overflow-visible pt-[23px] max-[768px]:pt-4"
