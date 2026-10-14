@@ -106,6 +106,31 @@ a {
 a:hover {
   background-size: 100% 1px;
 }
+/* Personal-projects Live Site CTA: filled pill readable in both modes.
+   Plain utilities can't do this — the unlayered `a` rules above beat
+   layered text/background utilities, so the CTA owns its colors here. */
+.cta-pill {
+  background: var(--ink);
+  color: var(--paper);
+  transition: transform 0.2s ease;
+}
+.cta-pill:hover {
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-pill {
+    transition: none;
+  }
+  .cta-pill:hover {
+    transform: none;
+  }
+}
+/* Personal-projects grid: even/odd-proof. In a 2-col grid an odd count
+   leaves the last card at half width — span it full width instead.
+   Single-column mobile is unaffected. */
+.project-grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
 ::selection {
   background: var(--accent);
   color: #fff;

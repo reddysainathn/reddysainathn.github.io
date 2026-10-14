@@ -86,6 +86,14 @@
       "stack": "Neo4j · Java · Spring Boot · REST APIs · Graph algorithms"
     }
   ],
+  "personalProjects": [
+    {
+      "title": "💰 Pay Compass — H-1B Employer Analytics",
+      "description": "Search H-1B employer salaries and hiring trends across aggregated LCA filings — salary charts, role breakdowns, and shareable links on a cached API with failover.",
+      "tech": "Spark SQL · MongoDB · TypeScript · Hono · Redis · Vercel · ReactJS · Tailwind CSS · Recharts",
+      "links": [{ "label": "Visit Site ↗", "href": "https://p75.vercel.app/", "primary": true }]
+    }
+  ],
   "testimonials": [],
   "education": {
     "degree": "Master's in Computer Science",
@@ -95,7 +103,7 @@
     "gpa": "3.6"
   },
   "skills": {
-    "Languages": ["Java", "Kotlin", "Python", "JavaScript", "SQL", "Shell scripting"],
+    "Languages": ["Java", "Kotlin", "Python", "JavaScript", "TypeScript", "SQL", "Shell scripting"],
     "Backend & Platform": [
       "Spring Boot",
       "Flask",
@@ -106,6 +114,7 @@
       "Activiti",
       "Play Framework",
       "ExpressJS",
+      "Hono",
       "GraphQL"
     ],
     "Applied AI": [
@@ -122,7 +131,7 @@
       "Document classification",
       "Rule evaluation"
     ],
-    "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
+    "Frontend": ["ReactJS", "HTMX", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Recharts"],
     "Data": [
       "Databricks",
       "Spark SQL",
@@ -150,7 +159,8 @@
       "SonarQube",
       "Fortify",
       "SAML",
-      "OAuth 2.0"
+      "OAuth 2.0",
+      "Vercel"
     ]
   },
   "experience": [
