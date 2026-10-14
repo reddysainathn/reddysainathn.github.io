@@ -4,7 +4,11 @@
 // so measurement never costs first paint.
 // Measurement runs ONLY on the canonical host (plus localhost for testing);
 // UX behaviors (hash sync, reveals) run everywhere.
-const SECTION_IDS = ['expertise', 'selected-work', 'skills', 'experience', 'testimonials'];
+const SECTION_IDS = ['expertise', 'selected-work', 'skills', 'experience', 'personal-projects', 'testimonials'];
+
+// Pasted or remembered hashes may use underscores (personal_projects);
+// canonical form uses hyphens. Normalize before any comparison.
+const canonicalHash = () => (typeof window === 'undefined' ? '' : window.location.hash.slice(1).replaceAll('_', '-'));
 
 const DEFAULT_HOSTS = ['reddysainathn.github.io'];
 
@@ -41,6 +45,22 @@ let scrollWired = false;
 let clickWired = false;
 let pageViewSent = false;
 
+// Section observers must survive two delayed renders: dev mounts into an
+// empty root after these inits run, and content-visibility keeps far
+// sections unrendered until approached. So (re)attach lazily — at init,
+// on load, and on every scroll frame. Re-observing is a spec no-op.
+const sectionObservers = [];
+const observeSections = () => {
+  if (typeof document === 'undefined') return;
+  SECTION_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) sectionObservers.forEach((observer) => observer.observe(el));
+  });
+};
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', observeSections, { once: true });
+}
+
 const textLabel = (el) => {
   const text = (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
   return text || undefined;
@@ -69,7 +89,7 @@ export const initPageViewTracking = () => {
   } catch {
     /* ignore */
   }
-  const landing = window.location.hash.slice(1);
+  const landing = canonicalHash();
   if (landing && SECTION_IDS.includes(landing)) params.landing_section = landing;
   trackEvent('page_view', params);
 };
@@ -92,10 +112,8 @@ export const initScrollTracking = () => {
       },
       { threshold: 0.35 }
     );
-    SECTION_IDS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    sectionObservers.push(observer);
+    observeSections();
   }
 
   const seenCompanies = new Set();
@@ -169,7 +187,7 @@ export const initClickTracking = () => {
         return;
       }
       if (!host || host === window.location.hostname) return;
-      if (anchor.closest('#selected-work')) {
+      if (anchor.closest('#selected-work, #personal-projects')) {
         const article = anchor.closest('article');
         const project = article?.dataset?.project || article?.querySelector('h3')?.textContent?.trim().slice(0, 60);
         const params = { host };
@@ -223,8 +241,9 @@ let hashSyncWired = false;
 export const initReveals = () => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   if (revealsWired) return;
-  revealsWired = true;
   const targets = document.querySelectorAll('.section-block, .site-footer');
+  if (targets.length === 0) return; // pre-mount (dev): idle initAnalytics retries
+  revealsWired = true;
   if (!('IntersectionObserver' in window)) {
     // No observer (old browser / prerender): leave content visible.
     return;
@@ -258,9 +277,13 @@ export const initScrollPosition = () => {
     /* ignore */
   }
   const apply = () => {
-    const hash = window.location.hash.slice(1);
+    const hash = canonicalHash();
     if (hash && SECTION_IDS.includes(hash)) {
       // Deep link (e.g. #experience): honor it instantly, no smooth swoop.
+      // Heal underscore aliases to the canonical hyphen form.
+      if (window.location.hash !== `#${hash}`) {
+        window.history.replaceState(null, '', `#${hash}`);
+      }
       document.getElementById(hash)?.scrollIntoView({ behavior: 'auto', block: 'start' });
     } else if (!window.location.hash) {
       window.scrollTo({ top: 0, behavior: 'auto' });
@@ -268,7 +291,7 @@ export const initScrollPosition = () => {
   };
   apply();
   // Dev client-render mounts sections async — retry once painted if target missing.
-  if (window.location.hash && !document.getElementById(window.location.hash.slice(1))) {
+  if (canonicalHash() && !document.getElementById(canonicalHash())) {
     window.addEventListener('load', apply, { once: true });
   }
 };
@@ -283,9 +306,12 @@ export const initHashSync = () => {
     return Math.max(first ? first.offsetTop - 80 : 160, 0);
   };
   // Scrollspy in document order: the current section is the deepest one
-  // whose top has crossed the upper-third line. Recomputed from all
+  // whose top has crossed the viewport midline. Recomputed from all
   // sections (not just changed entries) so the hash always follows
   // reading order and never skips or runs ahead. Hero has no hash.
+  // Empty sections (e.g. testimonials with no quotes) render nothing, so
+  // only existing elements participate; near page bottom the hash pins to
+  // the deepest existing section since no further top can cross the probe.
   const syncHash = () => {
     if (window.scrollY < topLimit()) {
       if (window.location.hash) {
@@ -293,27 +319,32 @@ export const initHashSync = () => {
       }
       return;
     }
-    const probe = window.innerHeight * 0.35;
+    const existing = SECTION_IDS.filter((id) => document.getElementById(id));
+    if (existing.length === 0) return;
     let current = null;
-    for (const id of SECTION_IDS) {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= probe) current = id;
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 24) {
+      current = existing[existing.length - 1];
+    } else {
+      const probe = window.innerHeight * 0.5;
+      for (const id of existing) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= probe) current = id;
+      }
     }
     if (current && window.location.hash !== `#${current}`) {
       window.history.replaceState(null, '', `#${current}`);
     }
   };
   const observer = new IntersectionObserver(syncHash, { rootMargin: '-60% 0px -25% 0px' });
-  SECTION_IDS.forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
+  sectionObservers.push(observer);
+  observeSections();
   // rAF-throttled passive scroll keeps the hash tracking every frame in
   // order (observer alone only fires on band crossings, which lag). The
   // observer stays as backup for resizes and layout shifts without scroll.
   let ticking = false;
   const onScroll = () => {
     ticking = false;
+    observeSections();
     syncHash();
   };
   window.addEventListener(

@@ -4,6 +4,12 @@ import { trackEvent } from '../lib/events';
 const scrollToId = (id) => {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
+  // Palette navigation owns the URL too: the scrollspy only corrects the
+  // hash while scrolling, so set it deterministically up front.
+  // replaceState never triggers a scroll, so no fight with the animation.
+  if ('replaceState' in window.history) {
+    window.history.replaceState(null, '', `#${id}`);
+  }
 };
 
 const fire = (name) => window.dispatchEvent(new Event(name));
@@ -42,6 +48,12 @@ const CommandPalette = () => {
         label: 'Go to Career timeline',
         keywords: '04 experience jobs career',
         run: () => scrollToId('experience'),
+      },
+      {
+        id: 'personal',
+        label: 'Go to Personal projects',
+        keywords: 'personal fun side projects builds',
+        run: () => scrollToId('personal-projects'),
       },
       {
         id: 'testimonials',
