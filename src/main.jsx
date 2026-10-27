@@ -4,6 +4,11 @@ import './styles/index.css';
 import App from './App';
 import { initAnalytics, initScrollPosition, initHashSync, initReveals } from './lib/events';
 
+// Disable browser context menu for a simple copy-protection measure.
+document.addEventListener('contextmenu', (event) => {
+  event.preventDefault();
+});
+
 // Set start position synchronously (top, or deep-link target) before paint.
 // Reveals + hash sync run sync too: they were idle-deferred via initAnalytics,
 // so prerendered sections were hidden (`.reveal` → opacity:0) after paint and
