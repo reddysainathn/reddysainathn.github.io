@@ -91,7 +91,7 @@
       "title": "💰 Pay Compass — H-1B LCA Analytics",
       "description": "Search H-1B employer salaries and hiring trends across aggregated LCA filings — salary charts, role breakdowns, and shareable links on a cached API with failover.",
       "flow": [
-        { "label": "Ingest", "tone": "signal", "steps": ["LCA Filings", "Spark SQL", "LibSQL + MongoDB"] },
+        { "label": "Ingest", "tone": "signal", "steps": ["LCA Filings", "PySpark", "LibSQL + MongoDB"] },
         {
           "label": "Serve",
           "tone": "accent",
