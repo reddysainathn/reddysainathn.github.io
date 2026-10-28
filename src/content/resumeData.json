@@ -99,10 +99,8 @@
             "Vercel",
             "React + Recharts",
             "Hono API",
-            { "break": true },
             "Redis Cache",
             "Circuit Breaker",
-            { "break": true },
             "LibSQL",
             "MongoDB (Fallback)"
           ]
