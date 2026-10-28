@@ -1,4 +1,3 @@
-import { Suspense, lazy } from 'react';
 import './styles/App.css';
 import resumeData from './content/resumeData.json';
 import Hero from './components/Hero';
@@ -11,11 +10,7 @@ import Footer from './components/Footer';
 import PrintResume from './components/PrintResume';
 import Scrollbar from './components/Scrollbar';
 import Testimonials from './components/Testimonials';
-
-// Palette renders null until opened, so lazy keeps SSR/prerender HTML identical.
-// Below-fold sections stay static: lazy would make renderToString emit fallbacks,
-// stripping prerendered content and breaking SEO/first paint.
-const CommandPalette = lazy(() => import('./components/CommandPalette'));
+import CommandPalette from './components/CommandPalette';
 
 const App = () => {
   const data = resumeData;
@@ -33,9 +28,7 @@ const App = () => {
         <Footer name={data.name} />
       </div>
       <PrintResume data={data} />
-      <Suspense fallback={null}>
-        <CommandPalette />
-      </Suspense>
+      <CommandPalette />
       <Scrollbar />
     </>
   );
