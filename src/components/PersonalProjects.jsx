@@ -30,7 +30,7 @@ const PersonalProjects = ({ projects = [] }) => {
   if (!Array.isArray(projects) || projects.length === 0) return null;
   return (
     <Section id="personal-projects">
-      <SectionHead icon="code" title="Personal projects" sub="Live builds — what they do, how they're built" />
+      <SectionHead icon="code" title="Personal Projects" sub="Live Builds — What They Do, How They're Built" />
       <div className="project-grid grid grid-cols-2 gap-2.5 max-[768px]:grid-cols-1">
         {(Array.isArray(projects) ? projects : []).map((project, index) => {
           const links = Array.isArray(project.links) ? project.links : [];
@@ -41,9 +41,7 @@ const PersonalProjects = ({ projects = [] }) => {
             .map((lane) => ({
               label: typeof lane?.label === 'string' ? lane.label.trim() : '',
               tone: flowTones[lane?.tone] || flowTones.accent,
-              steps: Array.isArray(lane?.steps)
-                ? lane.steps.filter((step) => typeof step === 'string' || step?.break)
-                : [],
+              steps: Array.isArray(lane?.steps) ? lane.steps.filter((step) => typeof step === 'string') : [],
             }))
             .filter((lane) => lane.steps.length > 0);
           const description = project.description || project.tagline;
@@ -90,34 +88,23 @@ const PersonalProjects = ({ projects = [] }) => {
                         aria-label={`${project.title} ${lane.label || 'data'} flow`}
                         role="list"
                       >
-                        {lane.steps.map((step, stepIndex) => {
-                          if (typeof step === 'object' && step?.break) {
-                            return (
-                              <li
-                                aria-hidden="true"
-                                className="hidden max-[768px]:block max-[768px]:basis-full"
-                                key={`break-${stepIndex}`}
-                              />
-                            );
-                          }
-                          return (
-                            <li className="flex items-center gap-1.5" key={step}>
+                        {lane.steps.map((step, stepIndex) => (
+                          <li className="flex items-center gap-1.5" key={step}>
+                            <span
+                              className={`whitespace-nowrap rounded-[5px] border bg-card px-2 py-[4px] text-ink [transition:transform_0.2s_ease] motion-safe:hover:-translate-y-[1px] ${lane.tone.node}`}
+                            >
+                              {step}
+                            </span>
+                            {stepIndex < lane.steps.length - 1 && (
                               <span
-                                className={`whitespace-nowrap rounded-[5px] border bg-card px-2 py-[4px] text-ink [transition:transform_0.2s_ease] motion-safe:hover:-translate-y-[1px] ${lane.tone.node}`}
+                                aria-hidden="true"
+                                className={`text-[0.8rem] [transition:transform_0.2s_ease] motion-safe:group-hover:translate-x-[2px] motion-safe:group-focus-within:translate-x-[2px] ${lane.tone.arrow}`}
                               >
-                                {step}
+                                →
                               </span>
-                              {stepIndex < lane.steps.length - 1 && (
-                                <span
-                                  aria-hidden="true"
-                                  className={`text-[0.8rem] [transition:transform_0.2s_ease] motion-safe:group-hover:translate-x-[2px] motion-safe:group-focus-within:translate-x-[2px] ${lane.tone.arrow}`}
-                                >
-                                  →
-                                </span>
-                              )}
-                            </li>
-                          );
-                        })}
+                            )}
+                          </li>
+                        ))}
                       </ol>
                     </div>
                   ))}

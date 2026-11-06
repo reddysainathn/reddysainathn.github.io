@@ -89,32 +89,37 @@
   "personalProjects": [
     {
       "title": "💰 Pay Compass — H-1B LCA Analytics",
-      "description": "Search H-1B employer salaries and hiring trends across aggregated LCA filings — salary charts, role breakdowns, and shareable links on a cached API with failover.",
+      "description": "Search H-1B Employer Salaries and Hiring Trends Across Aggregated LCA Filings — Salary Charts, Role Breakdowns, and Shareable Links on a Cached API with Failover.",
       "flow": [
-        { "label": "Ingest", "tone": "signal", "steps": ["LCA Filings", "PySpark", "LibSQL + MongoDB + Redis"] },
         {
-          "label": "Serve",
+          "label": "Data",
+          "tone": "signal",
+          "steps": ["H-1B Filings", "Salary + Role Data (PySpark)", "LibSQL", "Failover (MongoDB)"]
+        },
+        {
+          "label": "Search",
           "tone": "accent",
           "steps": [
             "Vercel",
-            "React + Recharts",
-            "Hono API",
-            "Redis Cache",
-            "Circuit Breaker",
+            "Search + Charts (React)",
+            "API (Hono)",
+            "Cache (Redis)",
+            "Failure Guard",
             "LibSQL",
-            "MongoDB (Fallback)"
+            "Failover (MongoDB)"
           ]
         },
         {
-          "label": "Hot",
+          "label": "Fast",
           "tone": "thumb",
-          "steps": ["Company Names + Job Titles", "Preloaded Cache", "Instant Search"]
+          "steps": ["Company + Role Index", "Popular Data Cached", "Instant Search"]
         }
       ],
       "tech": "Spark SQL · MongoDB · LibSQL · TypeScript · Hono · Redis · Vercel · ReactJS · Tailwind CSS · Recharts",
       "links": [{ "label": "Visit Site ↗", "href": "https://p75.vercel.app/", "primary": true }]
     }
   ],
+  "includePersonalProjectsInPdf": true,
   "testimonials": [],
   "education": {
     "degree": "Master's in Computer Science",

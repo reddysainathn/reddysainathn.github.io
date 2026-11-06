@@ -107,6 +107,36 @@ const PrintResume = ({ data }) => {
           </div>
         ))}
       </section>
+      {data.includePersonalProjectsInPdf === true &&
+        Array.isArray(data.personalProjects) &&
+        data.personalProjects.length > 0 && (
+          <section>
+            <h2 className={printH2}>Personal Projects</h2>
+            {data.personalProjects.map((project) => (
+              <div className="print:break-inside-avoid" key={project.title}>
+                <p className={`${printRow} print:my-1`}>
+                  <strong>{project.title}</strong>
+                  {Array.isArray(project.links) && project.links.length > 0 && (
+                    <span className="print:text-right print:text-[9px]">
+                      {project.links.map((link, index) => (
+                        <span key={link.href}>
+                          {index > 0 && ' · '}
+                          <a href={link.href} className={`${printLink} print:break-all`}>
+                            {link.href}
+                          </a>
+                        </span>
+                      ))}
+                    </span>
+                  )}
+                </p>
+                {(project.description || project.tagline) && (
+                  <p className="print:my-1">{project.description || project.tagline}</p>
+                )}
+                {project.tech && <p className={printFine}>{project.tech}</p>}
+              </div>
+            ))}
+          </section>
+        )}
       <section>
         <h2 className={printH2}>Skills</h2>
         <div className="print:columns-2 print:gap-5">
